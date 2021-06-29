@@ -4,10 +4,57 @@
 
 package usuario;
 
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
 public class Usuario {
     private boolean dono;
     private String nome;
     private int id;
+    private int tipo;
+    private static List<Usuario> UserList = new ArrayList<>();
+
+    public static List<Usuario> getAll() {
+
+        if(UserList != null){
+            Collections.sort(UserList, Comparator.comparing(Usuario::getId));
+        }
+
+        return UserList;
+    }
+
+    public static void listAdd(Usuario usuario) {
+        UserList.add(usuario);
+    }
+
+    public static void listAddArray(List<Usuario> lista) {
+        if (lista != null) {
+            for (Usuario usuario : lista) {
+                UserList.add(usuario);
+            }
+        }
+
+    }
+
+    public static int getNextId(){
+        if(UserList.size() != 0){
+            return UserList.get(UserList.size() - 1).getId() + 1;
+        } else{
+            return 1;
+        }
+    }
+
+    public int getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
+    }
+
     public boolean isDono() {
         return dono;
     }
@@ -39,4 +86,5 @@ public class Usuario {
         else
             return "Funcionario";
     }
+
 }

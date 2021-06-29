@@ -11,10 +11,11 @@ import animal.Papagaio;
 import java.util.Scanner;
 
 public class Dono extends Usuario{
-    public Dono(String nome, int id) {
+    public Dono(String nome) {
         this.setDono(true);
         this.setNome(nome);
-        this.setId(id);
+        this.setId(Usuario.getNextId());
+        this.setTipo(1);
     }
 
     @Override
@@ -32,7 +33,7 @@ public class Dono extends Usuario{
         int id = teclado.nextInt();
         float salario = teclado.nextFloat();
         int cargaHoraria = teclado.nextInt();
-        Funcionario funcionario = new Funcionario(nome, id, salario, cargaHoraria);
+        Funcionario funcionario = new Funcionario(nome, salario, cargaHoraria);
         return funcionario;
     }
 
@@ -56,5 +57,11 @@ public class Dono extends Usuario{
             System.out.println(papagaio.toString());
             System.out.println(papagaio.saudavel());
         }
+    }
+
+    public static Dono cadastrar(String nome){
+        Dono novo_dono = new Dono(nome);
+        Usuario.listAdd(novo_dono);
+        return novo_dono;
     }
 }

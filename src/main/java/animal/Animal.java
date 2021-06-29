@@ -4,11 +4,21 @@
 
 package animal;
 
-abstract class Animal {
+import usuario.Dono;
+import usuario.Usuario;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+public abstract class Animal {
     private String nome, cor, raca;
     private char sexo;
     private int idade;
     private float peso, comprimento; //peso em kg, comprimento em cm
+    private int tipo;
+    private int id;
 
     public Animal(String nome, String cor, String raca, char sexo, int idade, float peso, float comprimento) {
         this.nome = nome;
@@ -19,6 +29,15 @@ abstract class Animal {
         this.peso = peso;
         this.comprimento = comprimento;
     }
+
+
+    public int getId() { return id; }
+
+    public void setId(int id) { this.id = id; }
+
+    public int getTipo() { return tipo; }
+
+    public void setTipo(int tipo) { this.tipo = tipo; }
 
     public String getNome() {
         return nome;
@@ -90,4 +109,5 @@ abstract class Animal {
     }
 
     public abstract String saudavel();
+
 }

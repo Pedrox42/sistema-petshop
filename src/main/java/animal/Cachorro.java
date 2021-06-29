@@ -4,11 +4,50 @@
 
 package animal;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
 public class Cachorro extends Animal {
+
+    private static List<Cachorro> ListaAnimais = new ArrayList<>();
 
     public Cachorro(String nome, String cor, String raca, char sexo, int idade, float peso, float comprimento) {
         super(nome, cor, raca, sexo, idade, peso, comprimento);
+        this.setTipo(1);
     }
+
+    public static List<Cachorro> getAll() {
+
+        if(ListaAnimais != null){
+            Collections.sort(ListaAnimais, Comparator.comparing(Cachorro::getId));
+        }
+
+        return ListaAnimais;
+    }
+
+    public static void listAdd(Cachorro cachorro) {
+        ListaAnimais.add(cachorro);
+    }
+
+    public static void listAddArray(List<Cachorro> lista) {
+        if (lista != null) {
+            for (Cachorro cachorro : lista) {
+                ListaAnimais.add(cachorro);
+            }
+        }
+
+    }
+
+    public static int getNextId(){
+        if(ListaAnimais.size() != 0){
+            return ListaAnimais.get(ListaAnimais.size() - 1).getId() + 1;
+        } else{
+            return 1;
+        }
+    }
+
 
     @Override
     public String saudavel() {
@@ -60,4 +99,11 @@ public class Cachorro extends Animal {
                 return "Acima do peso ideal";
         }
     }
+
+    public static Cachorro cadastrar(String nome, String cor, String raca, char sexo, int idade, float peso, float comprimento){
+        Cachorro novo_cachorro = new Cachorro(nome, cor, raca, sexo, idade, peso, comprimento);
+        Cachorro.listAdd(novo_cachorro);
+        return novo_cachorro;
+    }
+
 }

@@ -4,10 +4,51 @@
 
 package animal;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
 public class Gato extends Animal{
+
+    private static List<Gato> ListaAnimais = new ArrayList<>();
+
     public Gato(String nome, String cor, String raca, char sexo, int idade, float peso, float comprimento) {
         super(nome, cor, raca, sexo, idade, peso, comprimento);
+        this.setTipo(2);
     }
+
+    public static List<Gato> getAll() {
+
+        if(ListaAnimais != null){
+            Collections.sort(ListaAnimais, Comparator.comparing(Gato::getId));
+        }
+
+        return ListaAnimais;
+    }
+
+    public static void listAdd(Gato gato) {
+        ListaAnimais.add(gato);
+    }
+
+    public static void listAddArray(List<Gato> lista) {
+        if (lista != null) {
+            for (Gato gato : lista) {
+                ListaAnimais.add(gato);
+            }
+        }
+
+    }
+
+    public static int getNextId(){
+        if(ListaAnimais.size() != 0){
+            return ListaAnimais.get(ListaAnimais.size() - 1).getId() + 1;
+        } else{
+            return 1;
+        }
+    }
+
+
 
     @Override
     public String saudavel() {
@@ -29,5 +70,11 @@ public class Gato extends Animal{
             else
                 return "Acima do peso ideal";
         }
+    }
+
+    public static Gato cadastrar(String nome, String cor, String raca, char sexo, int idade, float peso, float comprimento){
+        Gato novo_gato = new Gato(nome, cor, raca, sexo, idade, peso, comprimento);
+        Gato.listAdd(novo_gato);
+        return novo_gato;
     }
 }
