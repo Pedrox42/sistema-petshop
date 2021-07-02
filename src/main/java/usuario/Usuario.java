@@ -14,7 +14,6 @@ public class Usuario {
     private boolean dono;
     private String nome;
     private int id;
-    private int tipo;
     private static List<Usuario> UserList = new ArrayList<>();
 
     public static List<Usuario> getAll() {
@@ -45,14 +44,6 @@ public class Usuario {
         } else{
             return 1;
         }
-    }
-
-    public int getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(int tipo) {
-        this.tipo = tipo;
     }
 
     public boolean isDono() {

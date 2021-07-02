@@ -13,7 +13,6 @@ public class Funcionario extends Usuario {
         this.setDono(false);
         this.setNome(nome);
         this.setId(Usuario.getNextId());
-        this.setTipo(2);
         this.salario = salario;
         this.cargaHoraria = cargaHoraria;
     }

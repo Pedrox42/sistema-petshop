@@ -16,6 +16,7 @@ public class Cachorro extends Animal {
     public Cachorro(String nome, String cor, String raca, char sexo, int idade, float peso, float comprimento) {
         super(nome, cor, raca, sexo, idade, peso, comprimento);
         this.setTipo(1);
+        this.setId(Cachorro.getNextId());
     }
 
     public static List<Cachorro> getAll() {

@@ -15,7 +15,6 @@ public class Dono extends Usuario{
         this.setDono(true);
         this.setNome(nome);
         this.setId(Usuario.getNextId());
-        this.setTipo(1);
     }
 
     @Override

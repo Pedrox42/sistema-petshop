@@ -16,6 +16,7 @@ public class Papagaio extends Animal{
     public Papagaio(String nome, String cor, String raca, char sexo, int idade, float peso, float comprimento) {
         super(nome, cor, raca, sexo, idade, peso, comprimento);
         this.setTipo(3);
+        this.setId(Papagaio.getNextId());
     }
 
     public static List<Papagaio> getAll() {
