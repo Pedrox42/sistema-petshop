@@ -1,6 +1,7 @@
 Main.class
 animal\Gato.class
 animal\Cachorro.class
+animal\Cadastro.class
 Arquivo\Arquivo.class
 usuario\Funcionario.class
 animal\Animal.class
