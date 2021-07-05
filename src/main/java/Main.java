@@ -7,7 +7,7 @@ import usuario.Dono;
 
 public class Main {
     public static void main(String[] args) {
-        Dono gerente = new Dono("Pedro", 1);
+        Dono gerente = new Dono("Pedro", 1, "pedrox", "42");
         System.out.println(gerente);
         Funcionario funcionario = gerente.cadastrarFuncionario();
         System.out.println(funcionario);

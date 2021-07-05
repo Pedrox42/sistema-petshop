@@ -9,9 +9,11 @@ public class Funcionario extends Usuario {
     private int cargaHoraria;
     private float salario;
 
-    public Funcionario(String nome, int id, float salario, int cargaHoraria) {
+    public Funcionario(String nome, String login, String senha, int id, float salario, int cargaHoraria) {
         this.setDono(false);
         this.setNome(nome);
+        this.setLogin(login);
+        this.setSenha(senha);
         this.setId(id);
         this.salario = salario;
         this.cargaHoraria = cargaHoraria;

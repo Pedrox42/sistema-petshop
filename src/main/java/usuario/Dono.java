@@ -7,9 +7,11 @@ package usuario;
 import java.util.Scanner;
 
 public class Dono extends Usuario{
-    public Dono(String nome, int id) {
+    public Dono(String nome, int id, String login, String senha) {
         this.setDono(true);
         this.setNome(nome);
+        this.setLogin(login);
+        this.setSenha(senha);
         this.setId(id);
     }
 
@@ -28,7 +30,9 @@ public class Dono extends Usuario{
         int id = teclado.nextInt();
         float salario = teclado.nextFloat();
         int cargaHoraria = teclado.nextInt();
-        Funcionario funcionario = new Funcionario(nome, id, salario, cargaHoraria);
+        String login = "Login";
+        String senha = "Senha";
+        Funcionario funcionario = new Funcionario(nome, login, senha, id, salario, cargaHoraria);
         return funcionario;
     }
 }
