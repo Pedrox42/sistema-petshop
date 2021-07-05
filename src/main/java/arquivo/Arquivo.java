@@ -7,6 +7,7 @@ package arquivo;
 import animal.*;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import produto.Produto;
 import usuario.Usuario;
 import java.io.BufferedReader;
 import java.io.File;
@@ -26,6 +27,7 @@ public class Arquivo {
         Cachorro.listAddArray(Arquivo.Acessar(Cachorro.class, "cachorros"));
         Gato.listAddArray(Arquivo.Acessar(Gato.class, "gatos"));
         Papagaio.listAddArray(Arquivo.Acessar(Papagaio.class, "papagaios"));
+        Produto.listAddArray(Arquivo.Acessar(Produto.class, "produtos"));
     }
 
     public static void salvarTodos(){
