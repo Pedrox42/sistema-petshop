@@ -11,9 +11,11 @@ import animal.Papagaio;
 import java.util.Scanner;
 
 public class Dono extends Usuario{
-    public Dono(String nome) {
+    public Dono(String nome, String login, String senha) {
         this.setDono(true);
         this.setNome(nome);
+        this.setLogin(login);
+        this.setSenha(senha);
         this.setId(Usuario.getNextId());
     }
 
@@ -32,7 +34,9 @@ public class Dono extends Usuario{
         int id = teclado.nextInt();
         float salario = teclado.nextFloat();
         int cargaHoraria = teclado.nextInt();
-        Funcionario funcionario = new Funcionario(nome, salario, cargaHoraria);
+        String login = "Login";
+        String senha = "Senha";
+        Funcionario funcionario = new Funcionario(nome, login, senha, salario, cargaHoraria);
         return funcionario;
     }
 
@@ -58,8 +62,8 @@ public class Dono extends Usuario{
         }
     }
 
-    public static Dono cadastrar(String nome){
-        Dono novo_dono = new Dono(nome);
+    public static Dono cadastrar(String nome, String login, String senha){
+        Dono novo_dono = new Dono(nome, login, senha);
         Usuario.listAdd(novo_dono);
         return novo_dono;
     }

@@ -23,6 +23,5 @@ public class Main {
         //Papagaio.cadastrar("Leco", "Verde", "Papagaio", 'm', 5, 0.3f, 15);
 
         Arquivo.salvarTodos();
-
     }
 }
