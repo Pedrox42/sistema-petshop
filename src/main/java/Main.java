@@ -2,13 +2,7 @@
 //Davi Esteves dos Santos - 202065504B
 //Pedro Campos Lima - 202065521B
 
-import animal.*;
-import usuario.Funcionario;
-import usuario.Dono;
-import Arquivo.Arquivo;
-import usuario.Usuario;
-
-import java.util.List;
+import arquivo.Arquivo;
 
 
 public class Main {

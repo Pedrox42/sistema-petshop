@@ -2,7 +2,7 @@
 //Davi Esteves dos Santos - 202065504B
 //Pedro Campos Lima - 202065521B
 
-package Arquivo;
+package arquivo;
 
 import animal.*;
 import com.google.gson.Gson;
