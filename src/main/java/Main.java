@@ -3,6 +3,7 @@
 //Pedro Campos Lima - 202065521B
 
 import arquivo.Arquivo;
+import produto.Produto;
 import usuario.Dono;
 import animal.*;
 
@@ -18,6 +19,7 @@ public class Main {
         dono.cadastrarAnimal("Cachorro", "Thor", "Preto", "Husky", 'm', 5, 12, 50);
         dono.cadastrarAnimal("Gato", "Picles", "Preto", "Gato", 'm', 5, 12, 50);
         dono.cadastrarAnimal("Papagaio", "Leko", "Verde", "Papagaio", 'm', 5, 12, 50);
+        dono.cadastrarTratamento("Tratamento", 50, 59.90f, 8000);
         //Dono.cadastrar("Davi");
 
         Arquivo.salvarTodos();

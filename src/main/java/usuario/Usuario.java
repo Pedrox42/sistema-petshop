@@ -10,6 +10,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import produto.Produto;
+import tratamento.Tratamento;
 
 public class Usuario {
     private boolean dono;
@@ -98,5 +99,10 @@ public class Usuario {
     public void cadastrarProduto(String nome, String descricao, float preco){
         Produto novoProduto = new Produto(nome, descricao, preco);
         Produto.listAdd(novoProduto);
+    }
+
+    public void cadastrarTratamento(String nome, int tempo, float preco, float lucro){
+        Tratamento novoTratamento = new Tratamento(nome, tempo, preco, lucro);
+        Tratamento.listAdd(novoTratamento);
     }
 }
