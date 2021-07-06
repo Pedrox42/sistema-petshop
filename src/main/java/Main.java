@@ -3,18 +3,22 @@
 //Pedro Campos Lima - 202065521B
 
 import arquivo.Arquivo;
+import usuario.Dono;
+import animal.*;
 
 
 public class Main {
+
     public static void main(String[] args) {
         Arquivo.preencherTodos();
-
-        //Dono dono = Dono.cadastrar("Pedro2");
-        //Funcionario funcionario = Funcionario.cadastrar("teste", 200, 8);
+        Dono dono = new Dono("Pedro2", "Pedrox", "1234");
+        dono.cadastrarDono("Pedro2", "Pedrox", "1234");
+        dono.cadastrarProduto("Shampoo", "Shampoo pra cachorro", 19.50f);
+        dono.cadastrarFuncionario("teste", "teste", "teste",200, 8);
+        dono.cadastrarAnimal("Cachorro", "Thor", "Preto", "Husky", 'm', 5, 12, 50);
+        dono.cadastrarAnimal("Gato", "Picles", "Preto", "Gato", 'm', 5, 12, 50);
+        dono.cadastrarAnimal("Papagaio", "Leko", "Verde", "Papagaio", 'm', 5, 12, 50);
         //Dono.cadastrar("Davi");
-        //Cachorro.cadastrar("Toto", "Branco", "Vira-lata", 'm', 5, 25, 55);
-        //Gato.cadastrar("Picles", "Preto e Branco", "Gato", 'm', 5, 3.2f, 33);
-        //Papagaio.cadastrar("Leco", "Verde", "Papagaio", 'm', 5, 0.3f, 15);
 
         Arquivo.salvarTodos();
     }

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import produto.Produto;
 
 public class Usuario {
     private boolean dono;
@@ -94,4 +95,8 @@ public class Usuario {
             return "Funcionario";
     }
 
+    public void cadastrarProduto(String nome, String descricao, float preco){
+        Produto novoProduto = new Produto(nome, descricao, preco);
+        Produto.listAdd(novoProduto);
+    }
 }

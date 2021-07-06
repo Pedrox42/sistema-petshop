@@ -44,10 +44,4 @@ public class Funcionario extends Usuario {
                 ", salario=" + salario +
                 '}';
     }
-
-    public static Funcionario cadastrar(String nome, String login, String senha, float salario, int cargaHoraria){
-        Funcionario novo_funcionario = new Funcionario(nome, login, senha, salario, cargaHoraria);
-        Usuario.listAdd(novo_funcionario);
-        return novo_funcionario;
-    }
 }

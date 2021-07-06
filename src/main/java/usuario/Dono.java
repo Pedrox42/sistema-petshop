@@ -4,10 +4,7 @@
 
 package usuario;
 
-import animal.Cachorro;
-import animal.Gato;
-import animal.Papagaio;
-
+import java.lang.reflect.Method;
 import java.util.Scanner;
 
 public class Dono extends Usuario{
@@ -40,31 +37,26 @@ public class Dono extends Usuario{
         return funcionario;
     }
 
-    public void cadastrarAnimal(int tipo, String nome, String cor, String raca, char sexo, int idade, float peso, float comprimento)
+    public void cadastrarAnimal(String animal, String nome, String cor, String raca, char sexo, int idade, float peso, float comprimento)
     {
-        if (tipo == 1)
-        {
-            Cachorro cachorro = new Cachorro(nome, cor, raca, sexo, idade, peso, comprimento);
-            System.out.println(cachorro.toString());
-            System.out.println(cachorro.saudavel());
-        }
-        if (tipo == 2)
-        {
-            Gato gato = new Gato(nome, cor, raca, sexo, idade, peso, comprimento);
-            System.out.println(gato.toString());
-            System.out.println(gato.saudavel());
-        }
-        if (tipo == 3)
-        {
-            Papagaio papagaio = new Papagaio(nome, cor, raca, sexo, idade, peso, comprimento);
-            System.out.println(papagaio.toString());
-            System.out.println(papagaio.saudavel());
+        try {
+            Class<?> tipoDoAnimal = Class.forName("animal." + animal);
+            Class[] args = {String.class, String.class, String.class, char.class, int.class, float.class, float.class};
+            Method cadastrar = tipoDoAnimal.getMethod("cadastrar", args);;
+            Object novoAnimal = tipoDoAnimal.newInstance();
+            cadastrar.invoke(novoAnimal, new Object[] {nome, cor, raca, sexo, idade, peso, comprimento});
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
-    public static Dono cadastrar(String nome, String login, String senha){
-        Dono novo_dono = new Dono(nome, login, senha);
-        Usuario.listAdd(novo_dono);
-        return novo_dono;
+    public void cadastrarDono(String nome, String login, String senha){
+        Dono novoDono = new Dono(nome, login, senha);
+        Usuario.listAdd(novoDono);
+    }
+
+    public void cadastrarFuncionario(String nome, String login, String senha, float salario, int cargaHoraria){
+        Funcionario novoFuncionario = new Funcionario(nome, login, senha, salario, cargaHoraria);
+        Usuario.listAdd(novoFuncionario);
     }
 }

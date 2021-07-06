@@ -35,12 +35,13 @@ public class Arquivo {
         Arquivo.Salvar(Cachorro.getAll(), "cachorros");
         Arquivo.Salvar(Gato.getAll(), "gatos");
         Arquivo.Salvar(Papagaio.getAll(), "papagaios");
+        Arquivo.Salvar(Produto.getAll(), "produtos");
     }
 
     public static void Salvar(List<?> lista, String nomeArquivo){
         SERIALIZADOR = new Gson();
-        String filePath = new File("src\\main\\Jsons\\").getAbsolutePath();
-        try ( FileWriter writer = new FileWriter(filePath + "\\" + nomeArquivo + ".json")) {
+        String filePath = new File("src/main/Jsons/").getAbsolutePath();
+        try ( FileWriter writer = new FileWriter(filePath + "/" + nomeArquivo + ".json")) {
             SERIALIZADOR.toJson(lista, writer);
 
         } catch (IOException e) {
@@ -51,11 +52,11 @@ public class Arquivo {
 
     public static <T> List<T> Acessar(Class<T> classe, String nomeArquivo) {
         List<T> classeLista = new ArrayList<>();
-        String filePath = new File("src\\main\\Jsons\\").getAbsolutePath();
+        String filePath = new File("src/main/Jsons/").getAbsolutePath();
 
         try {
             Gson gson = new Gson();
-            FileReader arq = new FileReader(filePath + "\\" + nomeArquivo + ".json"); //classe para leitura
+            FileReader arq = new FileReader(filePath + "/" + nomeArquivo + ".json"); //classe para leitura
             BufferedReader lerArq = new BufferedReader(arq);
             Type typeOfT = TypeToken.getParameterized(List.class, classe).getType();
             classeLista = new Gson().fromJson(lerArq, typeOfT);

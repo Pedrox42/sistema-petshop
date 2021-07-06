@@ -19,6 +19,8 @@ public class Gato extends Animal{
         this.setId(Gato.getNextId());
     }
 
+    public Gato(){}
+
     public static List<Gato> getAll() {
 
         if(ListaAnimais != null){
@@ -73,9 +75,9 @@ public class Gato extends Animal{
         }
     }
 
-    public static Gato cadastrar(String nome, String cor, String raca, char sexo, int idade, float peso, float comprimento){
-        Gato novo_gato = new Gato(nome, cor, raca, sexo, idade, peso, comprimento);
-        Gato.listAdd(novo_gato);
-        return novo_gato;
+    @Override
+    public void cadastrar(String nome, String cor, String raca, char sexo, int idade, float peso, float comprimento){
+        Gato novoGato = new Gato(nome, cor, raca, sexo, idade, peso, comprimento);
+        Gato.listAdd(novoGato);
     }
 }
