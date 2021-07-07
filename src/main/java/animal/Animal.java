@@ -30,6 +30,7 @@ public abstract class Animal {
         this.comprimento = comprimento;
     }
 
+    public Animal(){}
 
     public int getId() { return id; }
 
@@ -110,4 +111,5 @@ public abstract class Animal {
 
     public abstract String saudavel();
 
+    public abstract void cadastrar(String nome, String cor, String raca, char sexo, int idade, float peso, float comprimento);
 }

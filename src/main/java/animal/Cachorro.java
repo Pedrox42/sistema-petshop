@@ -19,6 +19,8 @@ public class Cachorro extends Animal {
         this.setId(Cachorro.getNextId());
     }
 
+    public Cachorro(){}
+
     public static List<Cachorro> getAll() {
 
         if(ListaAnimais != null){
@@ -101,10 +103,9 @@ public class Cachorro extends Animal {
         }
     }
 
-    public static Cachorro cadastrar(String nome, String cor, String raca, char sexo, int idade, float peso, float comprimento){
-        Cachorro novo_cachorro = new Cachorro(nome, cor, raca, sexo, idade, peso, comprimento);
-        Cachorro.listAdd(novo_cachorro);
-        return novo_cachorro;
+    @Override
+    public void cadastrar(String nome, String cor, String raca, char sexo, int idade, float peso, float comprimento){
+        Cachorro novoCachorro = new Cachorro(nome, cor, raca, sexo, idade, peso, comprimento);
+        Cachorro.listAdd(novoCachorro);
     }
-
 }

@@ -9,9 +9,11 @@ public class Funcionario extends Usuario {
     private int cargaHoraria;
     private float salario;
 
-    public Funcionario(String nome, float salario, int cargaHoraria) {
+    public Funcionario(String nome, String login, String senha, float salario, int cargaHoraria) {
         this.setDono(false);
         this.setNome(nome);
+        this.setLogin(login);
+        this.setSenha(senha);
         this.setId(Usuario.getNextId());
         this.salario = salario;
         this.cargaHoraria = cargaHoraria;
@@ -41,11 +43,5 @@ public class Funcionario extends Usuario {
                 ", cargaHoraria=" + cargaHoraria +
                 ", salario=" + salario +
                 '}';
-    }
-
-    public static Funcionario cadastrar(String nome, float salario, int cargaHoraria){
-        Funcionario novo_funcionario = new Funcionario(nome, salario, cargaHoraria);
-        Usuario.listAdd(novo_funcionario);
-        return novo_funcionario;
     }
 }

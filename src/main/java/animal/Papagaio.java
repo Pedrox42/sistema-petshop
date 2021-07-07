@@ -19,6 +19,8 @@ public class Papagaio extends Animal{
         this.setId(Papagaio.getNextId());
     }
 
+    public Papagaio(){}
+
     public static List<Papagaio> getAll() {
 
         if(ListaAnimais != null){
@@ -59,10 +61,10 @@ public class Papagaio extends Animal{
             return "Acima do peso ideal";
     }
 
-    public static Papagaio cadastrar(String nome, String cor, String raca, char sexo, int idade, float peso, float comprimento){
-        Papagaio novo_papagaio = new Papagaio(nome, cor, raca, sexo, idade, peso, comprimento);
-        Papagaio.listAdd(novo_papagaio);
-        return novo_papagaio;
+    @Override
+    public void cadastrar(String nome, String cor, String raca, char sexo, int idade, float peso, float comprimento){
+        Papagaio novoPapagaio = new Papagaio(nome, cor, raca, sexo, idade, peso, comprimento);
+        Papagaio.listAdd(novoPapagaio);
     }
     
 }

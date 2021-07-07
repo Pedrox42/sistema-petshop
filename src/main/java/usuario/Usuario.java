@@ -9,10 +9,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import produto.Produto;
 
 public class Usuario {
     private boolean dono;
-    private String nome;
+    private String nome, login, senha;
     private int id;
     private static List<Usuario> UserList = new ArrayList<>();
 
@@ -70,6 +71,22 @@ public class Usuario {
         this.id = id;
     }
 
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
     public String cargo()
     {
         if (this.isDono())
@@ -78,4 +95,8 @@ public class Usuario {
             return "Funcionario";
     }
 
+    public void cadastrarProduto(String nome, String descricao, float preco){
+        Produto novoProduto = new Produto(nome, descricao, preco);
+        Produto.listAdd(novoProduto);
+    }
 }

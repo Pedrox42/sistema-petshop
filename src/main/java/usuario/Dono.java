@@ -4,16 +4,15 @@
 
 package usuario;
 
-import animal.Cachorro;
-import animal.Gato;
-import animal.Papagaio;
-
+import java.lang.reflect.Method;
 import java.util.Scanner;
 
 public class Dono extends Usuario{
-    public Dono(String nome) {
+    public Dono(String nome, String login, String senha) {
         this.setDono(true);
         this.setNome(nome);
+        this.setLogin(login);
+        this.setSenha(senha);
         this.setId(Usuario.getNextId());
     }
 
@@ -32,35 +31,32 @@ public class Dono extends Usuario{
         int id = teclado.nextInt();
         float salario = teclado.nextFloat();
         int cargaHoraria = teclado.nextInt();
-        Funcionario funcionario = new Funcionario(nome, salario, cargaHoraria);
+        String login = "Login";
+        String senha = "Senha";
+        Funcionario funcionario = new Funcionario(nome, login, senha, salario, cargaHoraria);
         return funcionario;
     }
 
-    public void cadastrarAnimal(int tipo, String nome, String cor, String raca, char sexo, int idade, float peso, float comprimento)
+    public void cadastrarAnimal(String animal, String nome, String cor, String raca, char sexo, int idade, float peso, float comprimento)
     {
-        if (tipo == 1)
-        {
-            Cachorro cachorro = new Cachorro(nome, cor, raca, sexo, idade, peso, comprimento);
-            System.out.println(cachorro.toString());
-            System.out.println(cachorro.saudavel());
-        }
-        if (tipo == 2)
-        {
-            Gato gato = new Gato(nome, cor, raca, sexo, idade, peso, comprimento);
-            System.out.println(gato.toString());
-            System.out.println(gato.saudavel());
-        }
-        if (tipo == 3)
-        {
-            Papagaio papagaio = new Papagaio(nome, cor, raca, sexo, idade, peso, comprimento);
-            System.out.println(papagaio.toString());
-            System.out.println(papagaio.saudavel());
+        try {
+            Class<?> tipoDoAnimal = Class.forName("animal." + animal);
+            Class[] args = {String.class, String.class, String.class, char.class, int.class, float.class, float.class};
+            Method cadastrar = tipoDoAnimal.getMethod("cadastrar", args);;
+            Object novoAnimal = tipoDoAnimal.newInstance();
+            cadastrar.invoke(novoAnimal, new Object[] {nome, cor, raca, sexo, idade, peso, comprimento});
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
-    public static Dono cadastrar(String nome){
-        Dono novo_dono = new Dono(nome);
-        Usuario.listAdd(novo_dono);
-        return novo_dono;
+    public void cadastrarDono(String nome, String login, String senha){
+        Dono novoDono = new Dono(nome, login, senha);
+        Usuario.listAdd(novoDono);
+    }
+
+    public void cadastrarFuncionario(String nome, String login, String senha, float salario, int cargaHoraria){
+        Funcionario novoFuncionario = new Funcionario(nome, login, senha, salario, cargaHoraria);
+        Usuario.listAdd(novoFuncionario);
     }
 }
