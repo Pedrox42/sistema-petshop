@@ -16,13 +16,6 @@ public class Main {
     public static void main(String[] args) {
         Arquivo.preencherTodos();
 
-        JFrame frame = new JFrame("Cadastro de Pet");
-        frame.setIconImage(new ImageIcon("img/logo.png").getImage());
-        frame.setContentPane(new Cadastro().getAnimalPanel());
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
-
         //Dono dono = Dono.cadastrar("Pedro2");
         //Funcionario funcionario = Funcionario.cadastrar("teste", 200, 8);
         //Dono.cadastrar("Davi");
@@ -33,4 +26,5 @@ public class Main {
         Arquivo.salvarTodos();
 
     }
+
 }

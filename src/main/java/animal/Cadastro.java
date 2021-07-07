@@ -41,6 +41,16 @@ public class Cadastro {
         });
     }
 
+    public static void cadastroPet() {
+        JFrame frame = new JFrame("Cadastro de Pet");
+        frame.setIconImage(new ImageIcon("img/logo.png").getImage());
+        frame.setContentPane(new Cadastro().getAnimalPanel());
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
+    }
+
+
     public JPanel getAnimalPanel() {
         return animalPanel;
     }
