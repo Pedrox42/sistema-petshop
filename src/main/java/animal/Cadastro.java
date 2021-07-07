@@ -1,3 +1,7 @@
+//Anna Letícia Franco Monteiro - 202065106A
+//Davi Esteves dos Santos - 202065504B
+//Pedro Campos Lima - 202065521B
+
 package animal;
 
 import javax.swing.*;
@@ -6,6 +10,8 @@ import java.awt.event.ActionListener;
 
 public class Cadastro {
     private JPanel animalPanel;
+    private JLabel tipoLabel;
+    private JComboBox tipoField;
     private JLabel nomeLabel;
     private JTextField nomeField;
     private JLabel corLabel;
@@ -35,16 +41,8 @@ public class Cadastro {
         });
     }
 
-    public static void main(String[] args)
-    {
-
-        JFrame frame = new JFrame("Cadastro de Pet");
-        frame.setIconImage(new ImageIcon("img/logo.png").getImage());
-        frame.setContentPane(new Cadastro().animalPanel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
-
-
+    public JPanel getAnimalPanel() {
+        return animalPanel;
     }
+
 }

@@ -16,19 +16,6 @@
       <title-color color="-3278849"/>
     </border>
     <children>
-      <component id="9f292" class="javax.swing.JLabel" binding="nomeLabel">
-        <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="272" height="20"/>
-          </grid>
-        </constraints>
-        <properties>
-          <background color="-7087431"/>
-          <font name="Calibri" size="16" style="0"/>
-          <foreground color="-7087431"/>
-          <text value="Nome:"/>
-        </properties>
-      </component>
       <component id="16d9d" class="javax.swing.JTextField" binding="corField">
         <constraints>
           <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
@@ -93,7 +80,7 @@
           <background color="-7087431"/>
           <font name="Calibri" size="16" style="0"/>
           <foreground color="-7087431"/>
-          <text value="Peso (em gramas):"/>
+          <text value="Peso (em kg):"/>
         </properties>
       </component>
       <vspacer id="1c51">
@@ -207,7 +194,7 @@
       </component>
       <component id="32def" class="javax.swing.JTextField" binding="nomeField">
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="8" fill="1" indent="0" use-parent-layout="false">
+          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="272" height="30"/>
           </grid>
         </constraints>
@@ -215,6 +202,49 @@
           <background color="-3278849"/>
           <foreground color="-12040120"/>
           <text value=""/>
+        </properties>
+      </component>
+      <component id="9f292" class="javax.swing.JLabel" binding="nomeLabel">
+        <constraints>
+          <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="272" height="20"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-7087431"/>
+          <font name="Calibri" size="16" style="0"/>
+          <foreground color="-7087431"/>
+          <text value="Nome:"/>
+        </properties>
+      </component>
+      <component id="bd195" class="javax.swing.JLabel" binding="tipoLabel">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="272" height="20"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-7087431"/>
+          <font name="Calibri" size="16" style="0"/>
+          <foreground color="-7087431"/>
+          <labelFor value="6b800"/>
+          <text value="Qual seu Pet?"/>
+        </properties>
+      </component>
+      <component id="6b800" class="javax.swing.JComboBox" binding="tipoField">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-3278849"/>
+          <font name="Calibri" size="14" style="0"/>
+          <foreground color="-12040120"/>
+          <model>
+            <item value="-"/>
+            <item value="Cachorro"/>
+            <item value="Gato"/>
+            <item value="Papagaio"/>
+          </model>
         </properties>
       </component>
     </children>
