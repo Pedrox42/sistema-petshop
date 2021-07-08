@@ -26,11 +26,11 @@ public class Cadastro {
     private JTextField idadeField;
     private JLabel comprimentoLabel;
     private JTextField comprimentoField;
-    private JButton btnanimal;
+    private JButton btnAnimal;
 
     public Cadastro()
     {
-        btnanimal.addActionListener(new ActionListener()
+        btnAnimal.addActionListener(new ActionListener()
         {
             @Override
             public void actionPerformed(ActionEvent e)
@@ -50,7 +50,9 @@ public class Cadastro {
         frame.setVisible(true);
     }
 
-
+    public static void main(String[] args) {
+        cadastroPet();
+    }
     public JPanel getAnimalPanel() {
         return animalPanel;
     }

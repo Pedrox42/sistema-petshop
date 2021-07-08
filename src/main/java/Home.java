@@ -2,50 +2,47 @@
 //Davi Esteves dos Santos - 202065504B
 //Pedro Campos Lima - 202065521B
 
-package usuario;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Tipo {
-    private JPanel tipoUsuario;
-    private JButton btnAdmin;
-    private JButton btnFuncionario;
+public class Home {
+    private JPanel homePanel;
+    private JButton btnUsuario;
+    private JButton btnPet;
 
-    public JPanel getTipoUsuario() {
-        return tipoUsuario;
+    public JPanel getHomePanel() {
+        return homePanel;
     }
 
-    public Tipo()
+    public Home()
     {
-        btnAdmin.addActionListener(new ActionListener()
+        btnUsuario.addActionListener(new ActionListener()
         {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                usuario.CadastroA.cadastroAdmin();
+                usuario.Tipo.tipoUsuario();
             }
         });
 
-        btnFuncionario.addActionListener(new ActionListener()
+        btnPet.addActionListener(new ActionListener()
         {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                usuario.CadastroF.cadastroFuncionario();
+                animal.Cadastro.cadastroPet();
             }
         });
     }
 
-    public static void tipoUsuario() {
-        JFrame frame = new JFrame("Cadastro de Usuário");
+    public static void homePetShop() {
+        JFrame frame = new JFrame("Cadastro");
         frame.setIconImage(new ImageIcon("img/logo.png").getImage());
-        frame.setContentPane(new Tipo().getTipoUsuario());
+        frame.setContentPane(new Home().getHomePanel());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
     }
 }
-
-

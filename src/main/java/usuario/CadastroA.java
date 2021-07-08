@@ -8,27 +8,22 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class CadastroF {
-    private JPanel cadastroFuncionario;
-    private JLabel nomeLabel;
+public class CadastroA {
+    private JPanel cadastroAdministrador;
     private JTextField nomeField;
-    private JLabel emailLabel;
+    private JLabel nomeLabel;
     private JTextField emailField;
-    private JLabel senhaLabel;
     private JPasswordField senhaField;
-    private JLabel salarioLabel;
-    private JTextField salarioField;
-    private JLabel cargaHLabel;
-    private JButton btnFuncionario;
-    private JTextField cargaHField;
+    private JLabel emailLabel;
+    private JLabel senhaLabel;
+    private JButton btnAdmin;
 
-    public JPanel getCadastroFuncionario() {
-        return cadastroFuncionario;
+    public JPanel getCadastroAdministrador() {
+        return cadastroAdministrador;
     }
-
-    public CadastroF()
+    public CadastroA()
     {
-        btnFuncionario.addActionListener(new ActionListener()
+        btnAdmin.addActionListener(new ActionListener()
         {
             @Override
             public void actionPerformed(ActionEvent e)
@@ -39,10 +34,10 @@ public class CadastroF {
         });
     }
 
-    public static void cadastroFuncionario() {
-        JFrame frame = new JFrame("Cadastro de Funcionário");
+    public static void cadastroAdmin() {
+        JFrame frame = new JFrame("Cadastro de Administrador");
         frame.setIconImage(new ImageIcon("img/logo.png").getImage());
-        frame.setContentPane(new CadastroF().getCadastroFuncionario());
+        frame.setContentPane(new CadastroA().getCadastroAdministrador());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
