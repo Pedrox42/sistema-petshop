@@ -11,6 +11,7 @@ public class Home {
     private JPanel homePanel;
     private JButton btnUsuario;
     private JButton btnPet;
+    private JButton btnProd;
 
     public JPanel getHomePanel() {
         return homePanel;
@@ -35,6 +36,16 @@ public class Home {
                 animal.Cadastro.cadastroPet();
             }
         });
+
+        btnProd.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                produto.CadastroProduto.cadastrarProduto();
+            }
+        });
+
     }
 
     public static void homePetShop() {
