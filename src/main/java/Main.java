@@ -5,23 +5,41 @@
 import arquivo.Arquivo;
 import produto.Produto;
 import usuario.Dono;
+import javax.swing.*;
+import java.util.List;
 import animal.*;
+import usuario.Tipo;
 
 
 public class Main {
 
     public static void main(String[] args) {
+
         Arquivo.preencherTodos();
-        Dono dono = new Dono("Pedro2", "Pedrox", "1234");
-        dono.cadastrarDono("Pedro2", "Pedrox", "1234");
-        dono.cadastrarProduto("Shampoo", "Shampoo pra cachorro", 19.50f);
-        dono.cadastrarFuncionario("teste", "teste", "teste",200, 8);
-        dono.cadastrarAnimal("Cachorro", "Thor", "Preto", "Husky", 'm', 5, 12, 50);
-        dono.cadastrarAnimal("Gato", "Picles", "Preto", "Gato", 'm', 5, 12, 50);
-        dono.cadastrarAnimal("Papagaio", "Leko", "Verde", "Papagaio", 'm', 5, 12, 50);
-        dono.cadastrarTratamento("Tratamento", 50, 59.90f, 8000);
+        //Dono dono = new Dono("Pedro2", "Pedrox", "1234");
+        //dono.cadastrarDono("Pedro2", "Pedrox", "1234");
+        //dono.cadastrarProduto("Shampoo", "Shampoo pra cachorro", 19.50f);
+        //dono.cadastrarFuncionario("teste", "teste", "teste",200, 8);
+        //dono.cadastrarAnimal("Cachorro", "Thor", "Preto", "Husky", 'm', 5, 12, 50);
+        //dono.cadastrarAnimal("Gato", "Picles", "Preto", "Gato", 'm', 5, 12, 50);
+        //dono.cadastrarAnimal("Papagaio", "Leko", "Verde", "Papagaio", 'm', 5, 12, 50);
+        //dono.cadastrarTratamento("Tratamento", 50, 59.90f, 8000);
         //Dono.cadastrar("Davi");
+
+
+        Login.login();
+        //essa função chama todas as views, os botões sao funcionais
+
+        //Dono dono = new Dono("Pedro2", "Pedrox", "1234");
+        //dono.cadastrarDono("Pedro2", "Pedrox", "1234");
+        //vdono.cadastrarProduto("Shampoo", "Shampoo pra cachorro", 19.50f);
+        //dono.cadastrarFuncionario("teste", "teste", "teste",200, 8);
+        //dono.cadastrarAnimal("Cachorro", "Thor", "Preto", "Husky", 'm', 5, 12, 50);
+        //dono.cadastrarAnimal("Gato", "Picles", "Preto", "Gato", 'm', 5, 12, 50);
+        //dono.cadastrarAnimal("Papagaio", "Leko", "Verde", "Papagaio", 'm', 5, 12, 50);
+
 
         Arquivo.salvarTodos();
     }
+
 }
