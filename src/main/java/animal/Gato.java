@@ -4,6 +4,8 @@
 
 package animal;
 
+import usuario.Usuario;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -51,7 +53,27 @@ public class Gato extends Animal{
         }
     }
 
+    public static Gato acessarLista(int id){
+        for (Gato gato : Gato.getAll()) {
+            if (gato.getId() == id) {
+                return gato;
+            }
+        }
+        return null;
+    }
 
+    public boolean deletar(){
+        if(ListaAnimais.contains(this)){
+            try{
+                ListaAnimais.remove(this);
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return false;
+    }
 
     @Override
     public String saudavel() {

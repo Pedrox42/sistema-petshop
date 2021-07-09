@@ -51,6 +51,28 @@ public class Cachorro extends Animal {
         }
     }
 
+    public static Cachorro acessarLista(int id){
+        for (Cachorro cachorro : Cachorro.getAll()) {
+            if (cachorro.getId() == id) {
+                return cachorro;
+            }
+        }
+        return null;
+    }
+
+    public boolean deletar(){
+        if(ListaAnimais.contains(this)){
+            try{
+                ListaAnimais.remove(this);
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return false;
+    }
+
 
     @Override
     public String saudavel() {

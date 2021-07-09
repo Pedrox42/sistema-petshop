@@ -4,12 +4,17 @@
 
 package arquivo;
 
-import java.util.List;
-
 interface Operacoes {
 
     public int getId();
+
     public void setId(int id);
+
     public String getNome();
+
     public void setnome(String nome);
+
+    public boolean deletar();
+
+    //public boolean editar();
 }

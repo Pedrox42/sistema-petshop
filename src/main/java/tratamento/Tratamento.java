@@ -4,6 +4,8 @@
 
 package tratamento;
 
+import produto.Produto;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -42,6 +44,28 @@ public class Tratamento {
         } else{
             return 1;
         }
+    }
+
+    public static Tratamento acessarLista(int id){
+        for (Tratamento tratamento : Tratamento.getAll()) {
+            if (tratamento.getId() == id) {
+                return tratamento;
+            }
+        }
+        return null;
+    }
+
+    public boolean deletar(){
+        if(TreatmentList.contains(this)){
+            try{
+                TreatmentList.remove(this);
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return false;
     }
 
     public static List<Tratamento> getAll() {

@@ -4,6 +4,7 @@
 
 import arquivo.Arquivo;
 import produto.Produto;
+import tratamento.Tratamento;
 import usuario.Dono;
 import javax.swing.*;
 import java.util.List;
@@ -19,6 +20,7 @@ public class Main {
         Arquivo.preencherTodos();
 
         Dono dono = new Dono("Pedro3", "Pedrox", "1234");
+        dono.deletarInstancia(Cachorro.class, 1);
         //dono.cadastrarDono("PedroKKK", "Pedrox", "1234");
         //dono.cadastrarDono("PedroFOIDEBASE", "Pedrox", "1234");
         //System.out.println(Usuario.getAll());

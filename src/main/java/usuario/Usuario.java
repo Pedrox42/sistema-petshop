@@ -57,6 +57,19 @@ public class Usuario {
         return null;
     }
 
+    public boolean deletar(){
+        if(UserList.contains(this)){
+            try{
+                UserList.remove(this);
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return false;
+    }
+
     public boolean isDono() {
         return dono;
     }

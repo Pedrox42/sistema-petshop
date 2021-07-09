@@ -63,13 +63,33 @@ public class Dono extends Usuario{
 
     public boolean deletarUsuario(int id){
         if(id != this.getId()){
-            try{
-                Usuario.getAll().remove(Usuario.acessarLista(id));
-                return true;
+            Usuario usuario = Usuario.acessarLista(id);
+            usuario.deletar();
+        }
+        return false;
+    }
+
+    public boolean deletarInstancia(Class<?> classe, int id){
+
+        if(id != this.getId()){
+            try {
+                Method acessar = classe.getMethod("acessarLista", int.class);
+                Method deletar = classe.getMethod("deletar", new Class<?>[0]);
+                Object obj = acessar.invoke(classe, id);
+                if (obj != null){
+                    try {
+                        deletar.invoke(obj, new Class<?>[0]);
+                        return true;
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        return false;
+                    }
+                }
             } catch (Exception e) {
                 e.printStackTrace();
                 return false;
             }
+
         }
         return false;
     }

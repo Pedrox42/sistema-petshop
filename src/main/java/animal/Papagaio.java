@@ -51,6 +51,28 @@ public class Papagaio extends Animal{
         }
     }
 
+    public static Papagaio acessarLista(int id){
+        for (Papagaio papagaio : Papagaio.getAll()) {
+            if (papagaio.getId() == id) {
+                return papagaio;
+            }
+        }
+        return null;
+    }
+
+    public boolean deletar(){
+        if(ListaAnimais.contains(this)){
+            try{
+                ListaAnimais.remove(this);
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return false;
+    }
+
     @Override
     public String saudavel() {
         if(this.getPeso() >= 0.3 && this.getPeso() <= 0.5)

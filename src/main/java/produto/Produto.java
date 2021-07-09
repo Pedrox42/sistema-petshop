@@ -4,6 +4,7 @@
 
 package produto;
 
+import animal.Papagaio;
 import usuario.Usuario;
 
 import java.util.ArrayList;
@@ -52,6 +53,28 @@ public class Produto {
         } else{
             return 1;
         }
+    }
+
+    public static Produto acessarLista(int id){
+        for (Produto produto : Produto.getAll()) {
+            if (produto.getId() == id) {
+                return produto;
+            }
+        }
+        return null;
+    }
+
+    public boolean deletar(){
+        if(ProductList.contains(this)){
+            try{
+                ProductList.remove(this);
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return false;
     }
 
     public String getNome() {
