@@ -22,7 +22,7 @@
           <background color="-12040120"/>
           <font name="Calibri" size="16" style="0"/>
           <foreground color="-7087431"/>
-          <text value="Label"/>
+          <text value="Nome:"/>
         </properties>
       </component>
       <component id="e4" class="javax.swing.JTextField" binding="nomeField">
@@ -50,7 +50,7 @@
           <background color="-12040120"/>
           <font name="Calibri" size="16" style="0"/>
           <foreground color="-7087431"/>
-          <text value="Label"/>
+          <text value="Descrição:"/>
         </properties>
       </component>
       <component id="ae095" class="javax.swing.JTextArea" binding="descricaoField">
@@ -79,7 +79,7 @@
           <background color="-12040120"/>
           <font name="Calibri" size="16" style="0"/>
           <foreground color="-7087431"/>
-          <text value="Label"/>
+          <text value="Preço:"/>
         </properties>
       </component>
       <component id="acea7" class="javax.swing.JTextField" binding="precoField">

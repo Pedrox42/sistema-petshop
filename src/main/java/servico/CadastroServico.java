@@ -39,9 +39,6 @@ public class CadastroServico {
         });
     }
 
-    public static void main(String[] args) {
-        cadastrarServico();
-    }
     public static void cadastrarServico() {
         JFrame frame = new JFrame("Cadastro de Administrador");
         frame.setIconImage(new ImageIcon("img/logo.png").getImage());
