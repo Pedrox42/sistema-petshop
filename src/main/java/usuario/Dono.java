@@ -5,6 +5,7 @@
 package usuario;
 
 import java.lang.reflect.Method;
+import java.util.List;
 import java.util.Scanner;
 
 public class Dono extends Usuario{
@@ -58,5 +59,18 @@ public class Dono extends Usuario{
     public void cadastrarFuncionario(String nome, String login, String senha, float salario, int cargaHoraria){
         Funcionario novoFuncionario = new Funcionario(nome, login, senha, salario, cargaHoraria);
         Usuario.listAdd(novoFuncionario);
+    }
+
+    public boolean deletarUsuario(int id){
+        if(id != this.getId()){
+            try{
+                Usuario.getAll().remove(Usuario.acessarLista(id));
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return false;
     }
 }

@@ -48,6 +48,15 @@ public class Usuario {
         }
     }
 
+    public static Usuario acessarLista(int id){
+        for (Usuario usuario : Usuario.getAll()) {
+            if (usuario.getId() == id) {
+                return usuario;
+            }
+        }
+        return null;
+    }
+
     public boolean isDono() {
         return dono;
     }

@@ -9,6 +9,7 @@ import javax.swing.*;
 import java.util.List;
 import animal.*;
 import usuario.Tipo;
+import usuario.Usuario;
 
 
 public class Main {
@@ -16,8 +17,13 @@ public class Main {
     public static void main(String[] args) {
 
         Arquivo.preencherTodos();
-        //Dono dono = new Dono("Pedro2", "Pedrox", "1234");
-        //dono.cadastrarDono("Pedro2", "Pedrox", "1234");
+
+        Dono dono = new Dono("Pedro3", "Pedrox", "1234");
+        //dono.cadastrarDono("PedroKKK", "Pedrox", "1234");
+        //dono.cadastrarDono("PedroFOIDEBASE", "Pedrox", "1234");
+        //System.out.println(Usuario.getAll());
+       // dono.deletarUsuario(3);
+
         //dono.cadastrarProduto("Shampoo", "Shampoo pra cachorro", 19.50f);
         //dono.cadastrarFuncionario("teste", "teste", "teste",200, 8);
         //dono.cadastrarAnimal("Cachorro", "Thor", "Preto", "Husky", 'm', 5, 12, 50);
