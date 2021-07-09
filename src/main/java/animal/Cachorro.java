@@ -4,12 +4,14 @@
 
 package animal;
 
+import arquivo.Operacoes;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class Cachorro extends Animal {
+public class Cachorro extends Animal implements Operacoes {
 
     private static List<Cachorro> ListaAnimais = new ArrayList<>();
 
@@ -126,8 +128,9 @@ public class Cachorro extends Animal {
     }
 
     @Override
-    public void cadastrar(String nome, String cor, String raca, char sexo, int idade, float peso, float comprimento){
+    public Cachorro cadastrar(String nome, String cor, String raca, char sexo, int idade, float peso, float comprimento){
         Cachorro novoCachorro = new Cachorro(nome, cor, raca, sexo, idade, peso, comprimento);
         Cachorro.listAdd(novoCachorro);
+        return novoCachorro;
     }
 }

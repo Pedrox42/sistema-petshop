@@ -5,6 +5,7 @@
 package produto;
 
 import animal.Papagaio;
+import arquivo.Operacoes;
 import usuario.Usuario;
 
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class Produto {
+public class Produto implements Operacoes  {
     String nome, descricao;
     float preco;
     int id;

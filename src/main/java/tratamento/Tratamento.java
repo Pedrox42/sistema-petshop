@@ -4,6 +4,7 @@
 
 package tratamento;
 
+import arquivo.Operacoes;
 import produto.Produto;
 
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class Tratamento {
+public class Tratamento implements Operacoes  {
     private String nome;
     private int id, tempo;
     private float preco, lucro;

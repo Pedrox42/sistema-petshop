@@ -4,6 +4,7 @@
 
 package arquivo;
 
+import servico.Servico;
 import animal.*;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -24,24 +25,26 @@ public class Arquivo {
     private static Gson SERIALIZADOR;
 
     public static void preencherTodos(){
-        Usuario.listAddArray(Arquivo.Acessar(Usuario.class, "usuarios"));
-        Cachorro.listAddArray(Arquivo.Acessar(Cachorro.class, "cachorros"));
-        Gato.listAddArray(Arquivo.Acessar(Gato.class, "gatos"));
-        Papagaio.listAddArray(Arquivo.Acessar(Papagaio.class, "papagaios"));
-        Produto.listAddArray(Arquivo.Acessar(Produto.class, "produtos"));
-        Tratamento.listAddArray(Arquivo.Acessar(Tratamento.class, "tratamentos"));
+        Usuario.listAddArray(Arquivo.acessar(Usuario.class, "usuarios"));
+        Cachorro.listAddArray(Arquivo.acessar(Cachorro.class, "cachorros"));
+        Gato.listAddArray(Arquivo.acessar(Gato.class, "gatos"));
+        Papagaio.listAddArray(Arquivo.acessar(Papagaio.class, "papagaios"));
+        Produto.listAddArray(Arquivo.acessar(Produto.class, "produtos"));
+        Tratamento.listAddArray(Arquivo.acessar(Tratamento.class, "tratamentos"));
+        Servico.listAddArray(Arquivo.acessar(Servico.class, "Servicos"));
     }
 
     public static void salvarTodos(){
-        Arquivo.Salvar(Usuario.getAll(), "usuarios");
-        Arquivo.Salvar(Cachorro.getAll(), "cachorros");
-        Arquivo.Salvar(Gato.getAll(), "gatos");
-        Arquivo.Salvar(Papagaio.getAll(), "papagaios");
-        Arquivo.Salvar(Produto.getAll(), "produtos");
-        Arquivo.Salvar(Tratamento.getAll(), "tratamentos");
+        Arquivo.salvar(Usuario.getAll(), "usuarios");
+        Arquivo.salvar(Cachorro.getAll(), "cachorros");
+        Arquivo.salvar(Gato.getAll(), "gatos");
+        Arquivo.salvar(Papagaio.getAll(), "papagaios");
+        Arquivo.salvar(Produto.getAll(), "produtos");
+        Arquivo.salvar(Tratamento.getAll(), "tratamentos");
+        Arquivo.salvar(Servico.getAll(), "Servicos");
     }
 
-    public static void Salvar(List<?> lista, String nomeArquivo){
+    public static void salvar(List<?> lista, String nomeArquivo){
         SERIALIZADOR = new Gson();
         String filePath = new File("src/main/Jsons/").getAbsolutePath();
         try ( FileWriter writer = new FileWriter(filePath + "/" + nomeArquivo + ".json")) {
@@ -53,7 +56,7 @@ public class Arquivo {
 
     }
 
-    public static <T> List<T> Acessar(Class<T> classe, String nomeArquivo) {
+    public static <T> List<T> acessar(Class<T> classe, String nomeArquivo) {
         List<T> classeLista = new ArrayList<>();
         String filePath = new File("src/main/Jsons/").getAbsolutePath();
 

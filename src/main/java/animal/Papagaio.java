@@ -4,12 +4,14 @@
 
 package animal;
 
+import arquivo.Operacoes;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class Papagaio extends Animal{
+public class Papagaio extends Animal implements Operacoes {
 
     private static List<Papagaio> ListaAnimais = new ArrayList<>();
 
@@ -84,9 +86,10 @@ public class Papagaio extends Animal{
     }
 
     @Override
-    public void cadastrar(String nome, String cor, String raca, char sexo, int idade, float peso, float comprimento){
+    public Papagaio cadastrar(String nome, String cor, String raca, char sexo, int idade, float peso, float comprimento){
         Papagaio novoPapagaio = new Papagaio(nome, cor, raca, sexo, idade, peso, comprimento);
         Papagaio.listAdd(novoPapagaio);
+        return novoPapagaio;
     }
     
 }

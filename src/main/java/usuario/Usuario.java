@@ -9,10 +9,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+
+import arquivo.Operacoes;
 import produto.Produto;
 import tratamento.Tratamento;
 
-public class Usuario {
+public class Usuario implements Operacoes {
     private boolean dono;
     private String nome, login, senha;
     private int id;
@@ -118,13 +120,15 @@ public class Usuario {
             return "Funcionario";
     }
 
-    public void cadastrarProduto(String nome, String descricao, float preco){
+    public Produto cadastrarProduto(String nome, String descricao, float preco){
         Produto novoProduto = new Produto(nome, descricao, preco);
         Produto.listAdd(novoProduto);
+        return novoProduto;
     }
 
-    public void cadastrarTratamento(String nome, int tempo, float preco, float lucro){
+    public Tratamento cadastrarTratamento(String nome, int tempo, float preco, float lucro){
         Tratamento novoTratamento = new Tratamento(nome, tempo, preco, lucro);
         Tratamento.listAdd(novoTratamento);
+        return novoTratamento;
     }
 }

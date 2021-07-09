@@ -2,15 +2,16 @@
 //Davi Esteves dos Santos - 202065504B
 //Pedro Campos Lima - 202065521B
 
+import servico.Servico;
 import arquivo.Arquivo;
 import produto.Produto;
 import tratamento.Tratamento;
 import usuario.Dono;
-import javax.swing.*;
+
+import java.util.ArrayList;
 import java.util.List;
 import animal.*;
-import usuario.Tipo;
-import usuario.Usuario;
+import usuario.Funcionario;
 
 
 public class Main {
@@ -20,31 +21,19 @@ public class Main {
         Arquivo.preencherTodos();
 
         Dono dono = new Dono("Pedro3", "Pedrox", "1234");
-        dono.deletarInstancia(Cachorro.class, 1);
-        //dono.cadastrarDono("PedroKKK", "Pedrox", "1234");
-        //dono.cadastrarDono("PedroFOIDEBASE", "Pedrox", "1234");
-        //System.out.println(Usuario.getAll());
-       // dono.deletarUsuario(3);
 
-        //dono.cadastrarProduto("Shampoo", "Shampoo pra cachorro", 19.50f);
-        //dono.cadastrarFuncionario("teste", "teste", "teste",200, 8);
-        //dono.cadastrarAnimal("Cachorro", "Thor", "Preto", "Husky", 'm', 5, 12, 50);
-        //dono.cadastrarAnimal("Gato", "Picles", "Preto", "Gato", 'm', 5, 12, 50);
-        //dono.cadastrarAnimal("Papagaio", "Leko", "Verde", "Papagaio", 'm', 5, 12, 50);
-        //dono.cadastrarTratamento("Tratamento", 50, 59.90f, 8000);
-        //Dono.cadastrar("Davi");
+        Produto produto = dono.cadastrarProduto("Shampoo", "Shampoo pra cachorro", 19.50f);
+        List<Integer> listaProdutos = new ArrayList<>();
+        listaProdutos.add(produto.getId());
+        Funcionario funcionario = dono.cadastrarFuncionario("teste", "teste", "teste",200, 8);
+        Cachorro cachorro = dono.cadastrarAnimal(Cachorro.class, "Thor", "Preto", "Husky", 'm', 5, 12, 50);
+        Tratamento tramento = dono.cadastrarTratamento("Tratamento", 50, 59.90f, 8000);
 
+        Servico servico = dono.cadastrarServico(funcionario.getId(),  cachorro.getId() , "animal.Cachorro" , tramento.getId(), listaProdutos, "Servico1");
+
+        System.out.println(servico.getAnimal());
 
         Login.login();
-        //essa função chama todas as views, os botões sao funcionais
-
-        //Dono dono = new Dono("Pedro2", "Pedrox", "1234");
-        //dono.cadastrarDono("Pedro2", "Pedrox", "1234");
-        //vdono.cadastrarProduto("Shampoo", "Shampoo pra cachorro", 19.50f);
-        //dono.cadastrarFuncionario("teste", "teste", "teste",200, 8);
-        //dono.cadastrarAnimal("Cachorro", "Thor", "Preto", "Husky", 'm', 5, 12, 50);
-        //dono.cadastrarAnimal("Gato", "Picles", "Preto", "Gato", 'm', 5, 12, 50);
-        //dono.cadastrarAnimal("Papagaio", "Leko", "Verde", "Papagaio", 'm', 5, 12, 50);
 
 
         Arquivo.salvarTodos();

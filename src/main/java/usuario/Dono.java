@@ -4,6 +4,9 @@
 
 package usuario;
 
+import servico.Servico;
+import animal.Animal;
+
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Scanner;
@@ -38,35 +41,35 @@ public class Dono extends Usuario{
         return funcionario;
     }
 
-    public void cadastrarAnimal(String animal, String nome, String cor, String raca, char sexo, int idade, float peso, float comprimento)
+    public <T extends Animal> T cadastrarAnimal(Class<T> tipoDoAnimal, String nome, String cor, String raca, char sexo, int idade, float peso, float comprimento)
     {
         try {
-            Class<?> tipoDoAnimal = Class.forName("animal." + animal);
             Class[] args = {String.class, String.class, String.class, char.class, int.class, float.class, float.class};
-            Method cadastrar = tipoDoAnimal.getMethod("cadastrar", args);;
-            Object novoAnimal = tipoDoAnimal.newInstance();
-            cadastrar.invoke(novoAnimal, new Object[] {nome, cor, raca, sexo, idade, peso, comprimento});
+            Method cadastrar = tipoDoAnimal.getMethod("cadastrar", args);
+            T novoAnimal = tipoDoAnimal.newInstance();
+            return (T) cadastrar.invoke(novoAnimal, new Object[] {nome, cor, raca, sexo, idade, peso, comprimento});
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return null;
     }
 
-    public void cadastrarDono(String nome, String login, String senha){
+    public Dono cadastrarDono(String nome, String login, String senha){
         Dono novoDono = new Dono(nome, login, senha);
         Usuario.listAdd(novoDono);
+        return novoDono;
     }
 
-    public void cadastrarFuncionario(String nome, String login, String senha, float salario, int cargaHoraria){
+    public Funcionario cadastrarFuncionario(String nome, String login, String senha, float salario, int cargaHoraria){
         Funcionario novoFuncionario = new Funcionario(nome, login, senha, salario, cargaHoraria);
         Usuario.listAdd(novoFuncionario);
+        return novoFuncionario;
     }
 
-    public boolean deletarUsuario(int id){
-        if(id != this.getId()){
-            Usuario usuario = Usuario.acessarLista(id);
-            usuario.deletar();
-        }
-        return false;
+    public Servico cadastrarServico(int funcionárioId, int animalId, String classeAnimal, int tratamentoId, List<Integer> listaProdutosId, String nome){
+        Servico novoServico = new Servico(funcionárioId, animalId, classeAnimal, tratamentoId, listaProdutosId, nome);
+        Servico.listAdd(novoServico);
+        return novoServico;
     }
 
     public boolean deletarInstancia(Class<?> classe, int id){

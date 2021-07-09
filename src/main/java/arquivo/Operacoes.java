@@ -4,7 +4,7 @@
 
 package arquivo;
 
-interface Operacoes {
+public interface Operacoes {
 
     public int getId();
 
@@ -12,7 +12,7 @@ interface Operacoes {
 
     public String getNome();
 
-    public void setnome(String nome);
+    public void setNome(String nome);
 
     public boolean deletar();
 
