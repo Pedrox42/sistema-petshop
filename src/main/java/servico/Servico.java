@@ -30,11 +30,11 @@ public class Servico implements Operacoes {
 
 
     public Servico(int funcionárioId, int animalId, String classeAnimal, int tratamentoId, List<Integer> listaProdutosId, String nome) {
-        this.funcionárioId = funcionárioId;
-        this.animalId = animalId;
+        this.setFuncionárioId(funcionárioId);
         this.classeAnimal = classeAnimal;
-        this.tratamentoId = tratamentoId;
-        this.listaProdutosId = listaProdutosId;
+        this.setAnimalId(animalId);
+        this.setAnimalId(tratamentoId);
+        this.setListaProdutosId(listaProdutosId);
         this.setId(Servico.getNextId());
         this.nome = nome;
     }
@@ -216,7 +216,7 @@ public class Servico implements Operacoes {
     }
 
     public List<Produto> getProdutos(){
-        List<Produto> lista = null;
+        List<Produto> lista = new ArrayList<>();
         for(Integer produtoId : listaProdutosId){
             Produto produto = Produto.acessarLista(produtoId);
             if(produto != null){

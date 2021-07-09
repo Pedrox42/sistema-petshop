@@ -31,7 +31,7 @@ public class Main {
 
         Servico servico = dono.cadastrarServico(funcionario.getId(),  cachorro.getId() , "animal.Cachorro" , tramento.getId(), listaProdutos, "Servico1");
 
-        System.out.println(servico.getAnimal());
+        System.out.println(servico.getProdutos());
 
         Login.login();
 
