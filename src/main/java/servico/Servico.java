@@ -19,7 +19,7 @@ import java.util.List;
 
 public class Servico implements Operacoes {
 
-    private int funcionárioId;
+    private int funcionarioId;
     private int animalId;
     private String classeAnimal;
     private int tratamentoId;
@@ -29,8 +29,8 @@ public class Servico implements Operacoes {
     private String nome;
 
 
-    public Servico(int funcionárioId, int animalId, String classeAnimal, int tratamentoId, List<Integer> listaProdutosId, String nome) {
-        this.setFuncionárioId(funcionárioId);
+    public Servico(int funcionarioId, int animalId, String classeAnimal, int tratamentoId, List<Integer> listaProdutosId, String nome) {
+        this.setFuncionarioId(funcionarioId);
         this.classeAnimal = classeAnimal;
         this.setAnimalId(animalId);
         this.setAnimalId(tratamentoId);
@@ -107,13 +107,13 @@ public class Servico implements Operacoes {
         this.nome = nome;
     }
 
-    public int getFuncionárioId() {
-        return funcionárioId;
+    public int getFuncionarioId() {
+        return funcionarioId;
     }
 
-    public void setFuncionárioId(int funcionárioId) {
-        if(Funcionario.acessarLista(funcionárioId) != null){
-            this.funcionárioId = funcionárioId;
+    public void setFuncionarioId(int funcionarioId) {
+        if(Funcionario.acessarLista(funcionarioId) != null){
+            this.funcionarioId = funcionarioId;
         }
     }
 
@@ -198,7 +198,7 @@ public class Servico implements Operacoes {
     }
 
     public Usuario getFuncionario(){
-        return Usuario.acessarLista(this.funcionárioId);
+        return Usuario.acessarLista(this.funcionarioId);
     }
 
     public <T extends Animal> T getAnimal(){

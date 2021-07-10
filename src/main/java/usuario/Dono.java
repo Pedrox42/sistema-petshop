@@ -66,8 +66,8 @@ public class Dono extends Usuario{
         return novoFuncionario;
     }
 
-    public Servico cadastrarServico(int funcionárioId, int animalId, String classeAnimal, int tratamentoId, List<Integer> listaProdutosId, String nome){
-        Servico novoServico = new Servico(funcionárioId, animalId, classeAnimal, tratamentoId, listaProdutosId, nome);
+    public Servico cadastrarServico(int funcionarioId, int animalId, String classeAnimal, int tratamentoId, List<Integer> listaProdutosId, String nome){
+        Servico novoServico = new Servico(funcionarioId, animalId, classeAnimal, tratamentoId, listaProdutosId, nome);
         Servico.listAdd(novoServico);
         return novoServico;
     }
