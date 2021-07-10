@@ -11,9 +11,9 @@ import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Scanner;
 
-public class Dono extends Usuario{
-    public Dono(String nome, String login, String senha) {
-        this.setDono(true);
+public class Admnistrador extends Usuario{
+    public Admnistrador(String nome, String login, String senha) {
+        this.setAdmnistrador(true);
         this.setNome(nome);
         this.setLogin(login);
         this.setSenha(senha);
@@ -54,10 +54,10 @@ public class Dono extends Usuario{
         return null;
     }
 
-    public Dono cadastrarDono(String nome, String login, String senha){
-        Dono novoDono = new Dono(nome, login, senha);
-        Usuario.listAdd(novoDono);
-        return novoDono;
+    public Admnistrador cadastrarDono(String nome, String login, String senha){
+        Admnistrador novoAdmnistrador = new Admnistrador(nome, login, senha);
+        Usuario.listAdd(novoAdmnistrador);
+        return novoAdmnistrador;
     }
 
     public Funcionario cadastrarFuncionario(String nome, String login, String senha, float salario, int cargaHoraria){

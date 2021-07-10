@@ -31,7 +31,7 @@ public class Arquivo {
         Papagaio.listAddArray(Arquivo.acessar(Papagaio.class, "papagaios"));
         Produto.listAddArray(Arquivo.acessar(Produto.class, "produtos"));
         Tratamento.listAddArray(Arquivo.acessar(Tratamento.class, "tratamentos"));
-        Servico.listAddArray(Arquivo.acessar(Servico.class, "Servicos"));
+        Servico.listAddArray(Arquivo.acessar(Servico.class, "servicos"));
     }
 
     public static void salvarTodos(){
@@ -41,7 +41,7 @@ public class Arquivo {
         Arquivo.salvar(Papagaio.getAll(), "papagaios");
         Arquivo.salvar(Produto.getAll(), "produtos");
         Arquivo.salvar(Tratamento.getAll(), "tratamentos");
-        Arquivo.salvar(Servico.getAll(), "Servicos");
+        Arquivo.salvar(Servico.getAll(), "servicos");
     }
 
     public static void salvar(List<?> lista, String nomeArquivo){

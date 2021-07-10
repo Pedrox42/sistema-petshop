@@ -4,14 +4,6 @@
 
 package animal;
 
-import usuario.Dono;
-import usuario.Usuario;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-
 public abstract class Animal {
     private String nome, cor, raca;
     private char sexo;

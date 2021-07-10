@@ -15,7 +15,7 @@ import produto.Produto;
 import tratamento.Tratamento;
 
 public class Usuario implements Operacoes {
-    private boolean dono;
+    private boolean admnistrador;
     private String nome, login, senha;
     private int id;
     private static List<Usuario> UserList = new ArrayList<>();
@@ -72,12 +72,12 @@ public class Usuario implements Operacoes {
         return false;
     }
 
-    public boolean isDono() {
-        return dono;
+    public boolean isAdmnistrador() {
+        return admnistrador;
     }
 
-    public void setDono(boolean dono) {
-        this.dono = dono;
+    public void setAdmnistrador(boolean admnistrador) {
+        this.admnistrador = admnistrador;
     }
 
     public String getNome() {
@@ -114,7 +114,7 @@ public class Usuario implements Operacoes {
 
     public String cargo()
     {
-        if (this.isDono())
+        if (this.isAdmnistrador())
             return "Dono";
         else
             return "Funcionario";
