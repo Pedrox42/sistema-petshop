@@ -5,6 +5,7 @@
 import servico.Servico;
 import arquivo.Arquivo;
 import produto.Produto;
+import tratamento.CadastroTratamento;
 import tratamento.Tratamento;
 import usuario.Dono;
 
