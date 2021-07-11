@@ -18,6 +18,7 @@ public class Main {
 
     public static void main(String[] args) {
 
+        //Códigos temporários de teste
         Arquivo.preencherTodos();
 
         Admnistrador admnistrador = new Admnistrador("Pedro3", "Pedrox", "1234");
@@ -32,9 +33,6 @@ public class Main {
         Servico servico = admnistrador.cadastrarServico(funcionario.getId(),  cachorro.getId() , "animal.Cachorro" , tramento.getId(), listaProdutos, "Servico1");
 
         System.out.println(servico.getProdutos());
-
-        Login.login();
-
 
         Arquivo.salvarTodos();
     }
