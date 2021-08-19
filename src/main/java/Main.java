@@ -32,6 +32,8 @@ public class Main {
 
         Servico servico = admnistrador.cadastrarServico(funcionario.getId(),  cachorro.getId() , "animal.Cachorro" , tramento.getId(), listaProdutos, "Servico1");
 
+        admnistrador.deletarInstancia(Cachorro.class, 1);
+
         System.out.println(servico.getProdutos());
 
         Arquivo.salvarTodos();

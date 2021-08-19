@@ -4,6 +4,7 @@
 
 package tratamento;
 
+import arquivo.Listagem;
 import arquivo.Operacoes;
 import produto.Produto;
 
@@ -16,7 +17,7 @@ public class Tratamento implements Operacoes  {
     private String nome;
     private int id, tempo;
     private float preco, lucro;
-    private static List<Tratamento> TreatmentList = new ArrayList<>();
+    private static List<Tratamento> TreatmentList = Listagem.getTratamentoList();
 
     public Tratamento(String nome, int tempo, float preco, float lucro) {
         this.nome = nome;

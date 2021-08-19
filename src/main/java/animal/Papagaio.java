@@ -4,6 +4,7 @@
 
 package animal;
 
+import arquivo.Listagem;
 import arquivo.Operacoes;
 
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ import java.util.List;
 
 public class Papagaio extends Animal implements Operacoes {
 
-    private static List<Papagaio> ListaAnimais = new ArrayList<>();
+    private static List<Papagaio> ListaAnimais = Listagem.getPapagaioList();
 
     public Papagaio(String nome, String cor, String raca, char sexo, int idade, float peso, float comprimento) {
         super(nome, cor, raca, sexo, idade, peso, comprimento);

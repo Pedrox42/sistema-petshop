@@ -10,6 +10,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import arquivo.Listagem;
 import arquivo.Operacoes;
 import produto.Produto;
 import tratamento.Tratamento;
@@ -18,7 +19,7 @@ public class Usuario implements Operacoes {
     private boolean admnistrador;
     private String nome, login, senha;
     private int id;
-    private static List<Usuario> UserList = new ArrayList<>();
+    private static List<Usuario> UserList = Listagem.getUsuarioList();
 
     public static List<Usuario> getAll() {
 

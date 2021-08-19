@@ -4,6 +4,7 @@
 
 package animal;
 
+import arquivo.Listagem;
 import arquivo.Operacoes;
 import usuario.Usuario;
 
@@ -14,7 +15,7 @@ import java.util.List;
 
 public class Gato extends Animal implements Operacoes {
 
-    private static List<Gato> ListaAnimais = new ArrayList<>();
+    private static List<Gato> ListaAnimais = Listagem.getGatoList();
 
     public Gato(String nome, String cor, String raca, char sexo, int idade, float peso, float comprimento) {
         super(nome, cor, raca, sexo, idade, peso, comprimento);

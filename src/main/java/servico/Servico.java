@@ -5,6 +5,7 @@
 package servico;
 
 import animal.Animal;
+import arquivo.Listagem;
 import arquivo.Operacoes;
 import produto.Produto;
 import tratamento.Tratamento;
@@ -24,7 +25,7 @@ public class Servico implements Operacoes {
     private String classeAnimal;
     private int tratamentoId;
     private List<Integer> listaProdutosId = new ArrayList<>();
-    private static List<Servico> ServicoList = new ArrayList<>();
+    private static List<Servico> ServicoList = Listagem.getServicoList();
     private int id;
     private String nome;
 

@@ -35,13 +35,13 @@ public class Arquivo {
     }
 
     public static void salvarTodos(){
-        Arquivo.salvar(Usuario.getAll(), "usuarios");
-        Arquivo.salvar(Cachorro.getAll(), "cachorros");
-        Arquivo.salvar(Gato.getAll(), "gatos");
-        Arquivo.salvar(Papagaio.getAll(), "papagaios");
-        Arquivo.salvar(Produto.getAll(), "produtos");
-        Arquivo.salvar(Tratamento.getAll(), "tratamentos");
-        Arquivo.salvar(Servico.getAll(), "servicos");
+        Arquivo.salvar(Listagem.getUsuarioList(), "usuarios");
+        Arquivo.salvar(Listagem.getCachorroList(), "cachorros");
+        Arquivo.salvar(Listagem.getGatoList(), "gatos");
+        Arquivo.salvar(Listagem.getPapagaioList(), "papagaios");
+        Arquivo.salvar(Listagem.getProdutoList(), "produtos");
+        Arquivo.salvar(Listagem.getTratamentoList(), "tratamentos");
+        Arquivo.salvar(Listagem.getServicoList(), "servicos");
     }
 
     public static void salvar(List<?> lista, String nomeArquivo){

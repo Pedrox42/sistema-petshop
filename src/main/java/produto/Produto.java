@@ -5,6 +5,7 @@
 package produto;
 
 import animal.Papagaio;
+import arquivo.Listagem;
 import arquivo.Operacoes;
 import usuario.Usuario;
 
@@ -17,7 +18,7 @@ public class Produto implements Operacoes  {
     String nome, descricao;
     float preco;
     int id;
-    private static List<Produto> ProductList = new ArrayList<>();
+    private static List<Produto> ProdutoList = Listagem.getProdutoList();
 
     public Produto(String nome, String descricao, float preco) {
         this.nome = nome;
@@ -28,29 +29,29 @@ public class Produto implements Operacoes  {
 
     public static List<Produto> getAll() {
 
-        if(ProductList != null){
-            Collections.sort(ProductList, Comparator.comparing(Produto::getId));
+        if(ProdutoList != null){
+            Collections.sort(ProdutoList, Comparator.comparing(Produto::getId));
         }
 
-        return ProductList;
+        return ProdutoList;
     }
 
     public static void listAdd(Produto produto) {
-        ProductList.add(produto);
+        ProdutoList.add(produto);
     }
 
     public static void listAddArray(List<Produto> lista) {
         if (lista != null) {
             for (Produto produto : lista) {
-                ProductList.add(produto);
+                ProdutoList.add(produto);
             }
         }
 
     }
 
     public static int getNextId(){
-        if(ProductList.size() != 0){
-            return ProductList.get(ProductList.size() - 1).getId() + 1;
+        if(ProdutoList.size() != 0){
+            return ProdutoList.get(ProdutoList.size() - 1).getId() + 1;
         } else{
             return 1;
         }
@@ -66,9 +67,9 @@ public class Produto implements Operacoes  {
     }
 
     public boolean deletar(){
-        if(ProductList.contains(this)){
+        if(ProdutoList.contains(this)){
             try{
-                ProductList.remove(this);
+                ProdutoList.remove(this);
                 return true;
             } catch (Exception e) {
                 e.printStackTrace();
