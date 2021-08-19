@@ -44,4 +44,24 @@ public class Funcionario extends Usuario {
                 ", salario=" + salario +
                 '}';
     }
+
+    public boolean editarFuncionario(String varNome, String varLogin, String varSenha, float varSalario, int varCargaHoraria){
+        if(Usuario.getUsuarioList().contains(this)){
+            try{
+
+                this.setNome(varNome);
+                this.setLogin(varLogin);
+                this.setSenha(varSenha);
+                this.setSalario(varSalario);
+                this.setCargaHoraria(varCargaHoraria);
+
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return false;
+    }
+
 }

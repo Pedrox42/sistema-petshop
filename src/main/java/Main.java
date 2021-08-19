@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import animal.*;
 import usuario.Funcionario;
+import usuario.Usuario;
 
 
 public class Main {
@@ -23,6 +24,8 @@ public class Main {
 
         Admnistrador admnistrador = new Admnistrador("Pedro3", "Pedrox", "1234");
 
+        //admnistrador.cadastrarDono("Pedro3", "Pedrox", "1234");
+
         Produto produto = admnistrador.cadastrarProduto("Shampoo", "Shampoo pra cachorro", 19.50f);
         List<Integer> listaProdutos = new ArrayList<>();
         listaProdutos.add(produto.getId());
@@ -31,8 +34,7 @@ public class Main {
         Tratamento tramento = admnistrador.cadastrarTratamento("Tratamento", 50, 59.90f, 8000);
 
         Servico servico = admnistrador.cadastrarServico(funcionario.getId(),  cachorro.getId() , "animal.Cachorro" , tramento.getId(), listaProdutos, "Servico1");
-
-        admnistrador.deletarInstancia(Cachorro.class, 1);
+        
 
         System.out.println(servico.getProdutos());
 

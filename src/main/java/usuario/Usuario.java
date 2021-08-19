@@ -19,40 +19,33 @@ public class Usuario implements Operacoes {
     private boolean admnistrador;
     private String nome, login, senha;
     private int id;
-    private static List<Usuario> UserList = Listagem.getUsuarioList();
-
-    public static List<Usuario> getAll() {
-
-        if(UserList != null){
-            Collections.sort(UserList, Comparator.comparing(Usuario::getId));
-        }
-
-        return UserList;
-    }
+    private static final List<Usuario> UsuarioList = Listagem.getUsuarioList();
 
     public static void listAdd(Usuario usuario) {
-        UserList.add(usuario);
+        UsuarioList.add(usuario);
     }
 
     public static void listAddArray(List<Usuario> lista) {
         if (lista != null) {
-            for (Usuario usuario : lista) {
-                UserList.add(usuario);
-            }
+            UsuarioList.addAll(lista);
         }
 
     }
 
+    public static List<Usuario> getUsuarioList() {
+        return UsuarioList;
+    }
+
     public static int getNextId(){
-        if(UserList.size() != 0){
-            return UserList.get(UserList.size() - 1).getId() + 1;
+        if(UsuarioList.size() != 0){
+            return UsuarioList.get(UsuarioList.size() - 1).getId() + 1;
         } else{
             return 1;
         }
     }
 
     public static Usuario acessarLista(int id){
-        for (Usuario usuario : Usuario.getAll()) {
+        for (Usuario usuario : UsuarioList) {
             if (usuario.getId() == id) {
                 return usuario;
             }
@@ -61,9 +54,9 @@ public class Usuario implements Operacoes {
     }
 
     public boolean deletar(){
-        if(UserList.contains(this)){
+        if(UsuarioList.contains(this)){
             try{
-                UserList.remove(this);
+                UsuarioList.remove(this);
                 return true;
             } catch (Exception e) {
                 e.printStackTrace();
@@ -132,4 +125,6 @@ public class Usuario implements Operacoes {
         Tratamento.listAdd(novoTratamento);
         return novoTratamento;
     }
+
+
 }

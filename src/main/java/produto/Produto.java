@@ -18,7 +18,7 @@ public class Produto implements Operacoes  {
     String nome, descricao;
     float preco;
     int id;
-    private static List<Produto> ProdutoList = Listagem.getProdutoList();
+    private static final List<Produto> ProdutoList = Listagem.getProdutoList();
 
     public Produto(String nome, String descricao, float preco) {
         this.nome = nome;
@@ -27,24 +27,13 @@ public class Produto implements Operacoes  {
         this.setId(Produto.getNextId());
     }
 
-    public static List<Produto> getAll() {
-
-        if(ProdutoList != null){
-            Collections.sort(ProdutoList, Comparator.comparing(Produto::getId));
-        }
-
-        return ProdutoList;
-    }
-
     public static void listAdd(Produto produto) {
         ProdutoList.add(produto);
     }
 
     public static void listAddArray(List<Produto> lista) {
         if (lista != null) {
-            for (Produto produto : lista) {
-                ProdutoList.add(produto);
-            }
+            ProdutoList.addAll(lista);
         }
 
     }
@@ -58,7 +47,7 @@ public class Produto implements Operacoes  {
     }
 
     public static Produto acessarLista(int id){
-        for (Produto produto : Produto.getAll()) {
+        for (Produto produto : ProdutoList) {
             if (produto.getId() == id) {
                 return produto;
             }
@@ -70,6 +59,21 @@ public class Produto implements Operacoes  {
         if(ProdutoList.contains(this)){
             try{
                 ProdutoList.remove(this);
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return false;
+    }
+
+    public boolean editar(String varNome, String varDescricao, float varPreco){
+        if(ProdutoList.contains(this)){
+            try{
+                this.setNome(varNome);
+                this.setDescricao(varDescricao);
+                this.setPreco(varPreco);
                 return true;
             } catch (Exception e) {
                 e.printStackTrace();

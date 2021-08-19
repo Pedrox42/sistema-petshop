@@ -26,7 +26,7 @@ public class Listagem {
 
     public static List<Produto> getProdutoList() {
         if(ProdutoList != null){
-            Collections.sort(ProdutoList, Comparator.comparing(Produto::getId));
+            ProdutoList.sort(Comparator.comparing(Produto::getId));
         }
 
         return ProdutoList;
@@ -38,7 +38,7 @@ public class Listagem {
 
     public static List<Servico> getServicoList() {
         if(ServicoList != null){
-            Collections.sort(ServicoList, Comparator.comparing(Servico::getId));
+            ServicoList.sort(Comparator.comparing(Servico::getId));
         }
 
         return ServicoList;
@@ -50,7 +50,7 @@ public class Listagem {
 
     public static List<Tratamento> getTratamentoList() {
         if(TratamentoList != null){
-            Collections.sort(TratamentoList, Comparator.comparing(Tratamento::getId));
+            TratamentoList.sort(Comparator.comparing(Tratamento::getId));
         }
 
         return TratamentoList;
@@ -62,7 +62,7 @@ public class Listagem {
 
     public static List<Cachorro> getCachorroList() {
         if(CachorroList != null){
-            Collections.sort(CachorroList, Comparator.comparing(Cachorro::getId));
+            CachorroList.sort(Comparator.comparing(Cachorro::getId));
         }
 
         return CachorroList;
@@ -74,7 +74,7 @@ public class Listagem {
 
     public static List<Gato> getGatoList() {
         if(GatoList != null){
-            Collections.sort(GatoList, Comparator.comparing(Gato::getId));
+            GatoList.sort(Comparator.comparing(Gato::getId));
         }
 
         return GatoList;
@@ -86,7 +86,7 @@ public class Listagem {
 
     public static List<Papagaio> getPapagaioList() {
         if(PapagaioList != null){
-            Collections.sort(PapagaioList, Comparator.comparing(Papagaio::getId));
+            PapagaioList.sort(Comparator.comparing(Papagaio::getId));
         }
 
         return PapagaioList;
@@ -98,7 +98,7 @@ public class Listagem {
 
     public static List<Usuario> getUsuarioList() {
         if(UsuarioList != null){
-            Collections.sort(UsuarioList, Comparator.comparing(Usuario::getId));
+            UsuarioList.sort(Comparator.comparing(Usuario::getId));
         }
 
         return UsuarioList;

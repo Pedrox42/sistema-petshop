@@ -17,7 +17,7 @@ public class Tratamento implements Operacoes  {
     private String nome;
     private int id, tempo;
     private float preco, lucro;
-    private static List<Tratamento> TreatmentList = Listagem.getTratamentoList();
+    private static final List<Tratamento> TratamentoList = Listagem.getTratamentoList();
 
     public Tratamento(String nome, int tempo, float preco, float lucro) {
         this.nome = nome;
@@ -28,28 +28,26 @@ public class Tratamento implements Operacoes  {
     }
 
     public static void listAdd(Tratamento tratamento) {
-        TreatmentList.add(tratamento);
+        TratamentoList.add(tratamento);
     }
 
     public static void listAddArray(List<Tratamento> lista) {
         if (lista != null) {
-            for (Tratamento tratamento : lista) {
-                TreatmentList.add(tratamento);
-            }
+            TratamentoList.addAll(lista);
         }
 
     }
 
     public static int getNextId(){
-        if(TreatmentList.size() != 0){
-            return TreatmentList.get(TreatmentList.size() - 1).getId() + 1;
+        if(TratamentoList.size() != 0){
+            return TratamentoList.get(TratamentoList.size() - 1).getId() + 1;
         } else{
             return 1;
         }
     }
 
     public static Tratamento acessarLista(int id){
-        for (Tratamento tratamento : Tratamento.getAll()) {
+        for (Tratamento tratamento : TratamentoList) {
             if (tratamento.getId() == id) {
                 return tratamento;
             }
@@ -58,9 +56,9 @@ public class Tratamento implements Operacoes  {
     }
 
     public boolean deletar(){
-        if(TreatmentList.contains(this)){
+        if(TratamentoList.contains(this)){
             try{
-                TreatmentList.remove(this);
+                TratamentoList.remove(this);
                 return true;
             } catch (Exception e) {
                 e.printStackTrace();
@@ -70,14 +68,24 @@ public class Tratamento implements Operacoes  {
         return false;
     }
 
-    public static List<Tratamento> getAll() {
+    public boolean editar(String varNome, int varTempo, float varPreco, float varLucro){
+        if(TratamentoList.contains(this)){
+            try{
 
-        if(TreatmentList != null){
-            Collections.sort(TreatmentList, Comparator.comparing(Tratamento::getId));
+                this.setNome(varNome);
+                this.setTempo(varTempo);
+                this.setPreco(varPreco);
+                this.setLucro(varLucro);
+
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
         }
-
-        return TreatmentList;
+        return false;
     }
+
 
     public String getNome() {
         return nome;

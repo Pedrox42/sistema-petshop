@@ -14,7 +14,7 @@ import java.util.List;
 
 public class Papagaio extends Animal implements Operacoes {
 
-    private static List<Papagaio> ListaAnimais = Listagem.getPapagaioList();
+    private static final List<Papagaio> ListaAnimais = Listagem.getPapagaioList();
 
     public Papagaio(String nome, String cor, String raca, char sexo, int idade, float peso, float comprimento) {
         super(nome, cor, raca, sexo, idade, peso, comprimento);
@@ -67,6 +67,26 @@ public class Papagaio extends Animal implements Operacoes {
         if(ListaAnimais.contains(this)){
             try{
                 ListaAnimais.remove(this);
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return false;
+    }
+
+    public boolean editar(String varNome, String varCor, String varRaca, char varSexo, int varIdade, float varPeso, float varComprimento){
+        if(ListaAnimais.contains(this)){
+            try{
+                this.setNome(varNome);
+                this.setCor(varCor);
+                this.setRaca(varRaca);
+                this.setSexo(varSexo);
+                this.setIdade(varIdade);
+                this.setPeso(varPeso);
+                this.setComprimento(varComprimento);
+
                 return true;
             } catch (Exception e) {
                 e.printStackTrace();
