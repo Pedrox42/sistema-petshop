@@ -6,33 +6,14 @@ package usuario;
 
 public class Funcionario extends Usuario {
 
-    private int cargaHoraria;
-    private float salario;
-
     public Funcionario(String nome, String login, String senha, float salario, int cargaHoraria) {
         this.setAdmnistrador(false);
         this.setNome(nome);
         this.setLogin(login);
         this.setSenha(senha);
         this.setId(Usuario.getNextId());
-        this.salario = salario;
-        this.cargaHoraria = cargaHoraria;
-    }
-
-    public float getSalario() {
-        return salario;
-    }
-
-    public void setSalario(float salario) {
-        this.salario = salario;
-    }
-
-    public int getCargaHoraria() {
-        return cargaHoraria;
-    }
-
-    public void setCargaHoraria(int cargaHoraria) {
-        this.cargaHoraria = cargaHoraria;
+        this.setSalario(salario);
+        this.setCargaHoraria(cargaHoraria);
     }
 
     @Override
@@ -40,8 +21,8 @@ public class Funcionario extends Usuario {
         return "Funcionario{" + "Id:" + this.getId() +
                 ", Nome:" + this.getNome() +
                 ", Cargo:" + this.cargo() +
-                ", cargaHoraria=" + cargaHoraria +
-                ", salario=" + salario +
+                ", cargaHoraria=" + this.getCargaHoraria() +
+                ", salario=" + this.getSalario() +
                 '}';
     }
 

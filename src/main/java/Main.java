@@ -19,11 +19,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        //Códigos temporários de teste
         Arquivo.preencherTodos();
 
         Admnistrador admnistrador = new Admnistrador("Pedro3", "Pedrox", "1234");
-
         //admnistrador.cadastrarDono("Pedro3", "Pedrox", "1234");
 
         Produto produto = admnistrador.cadastrarProduto("Shampoo", "Shampoo pra cachorro", 19.50f);
@@ -34,9 +32,14 @@ public class Main {
         Tratamento tramento = admnistrador.cadastrarTratamento("Tratamento", 50, 59.90f, 8000);
 
         Servico servico = admnistrador.cadastrarServico(funcionario.getId(),  cachorro.getId() , "animal.Cachorro" , tramento.getId(), listaProdutos, "Servico1");
-        
 
-        System.out.println(servico.getProdutos());
+        Usuario teste2 = Usuario.acessarLista(1);
+        Funcionario teste3 = (Funcionario) teste2;
+        Cachorro cachorroteste = Cachorro.acessarLista(1);
+
+        teste3.editarFuncionario("AAAAAAAABBBBBBBBB", "teste", "teste", 0,0);
+
+        //System.out.println(servico.getProdutos());
 
         Arquivo.salvarTodos();
     }

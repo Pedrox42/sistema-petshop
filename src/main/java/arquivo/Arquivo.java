@@ -4,12 +4,16 @@
 
 package arquivo;
 
+import Vendors.RuntimeTypeAdapterFactory;
+import com.google.gson.GsonBuilder;
 import servico.Servico;
 import animal.*;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import produto.Produto;
 import tratamento.Tratamento;
+import usuario.Admnistrador;
+import usuario.Funcionario;
 import usuario.Usuario;
 import java.io.BufferedReader;
 import java.io.File;
@@ -46,6 +50,7 @@ public class Arquivo {
 
     public static void salvar(List<?> lista, String nomeArquivo){
         SERIALIZADOR = new Gson();
+
         String filePath = new File("src/main/Jsons/").getAbsolutePath();
         try ( FileWriter writer = new FileWriter(filePath + "/" + nomeArquivo + ".json")) {
             SERIALIZADOR.toJson(lista, writer);
@@ -62,10 +67,20 @@ public class Arquivo {
 
         try {
             Gson gson = new Gson();
+
+            //para transformar para as devidas classses de usuário
+            RuntimeTypeAdapterFactory<Usuario> runtimeTypeAdapterFactory = RuntimeTypeAdapterFactory
+                    .of(Usuario.class, "admnistrador")
+                    .registerSubtype(Funcionario.class, "false")
+                    .registerSubtype(Admnistrador.class, "true");
+
+            gson = new GsonBuilder().registerTypeAdapterFactory(runtimeTypeAdapterFactory).create();
+
             FileReader arq = new FileReader(filePath + "/" + nomeArquivo + ".json"); //classe para leitura
             BufferedReader lerArq = new BufferedReader(arq);
             Type typeOfT = TypeToken.getParameterized(List.class, classe).getType();
-            classeLista = new Gson().fromJson(lerArq, typeOfT);
+
+            classeLista = gson.fromJson(lerArq, typeOfT);
             lerArq.close();
 
         } catch (Exception ex) {

@@ -20,6 +20,8 @@ public class Usuario implements Operacoes {
     private String nome, login, senha;
     private int id;
     private static final List<Usuario> UsuarioList = Listagem.getUsuarioList();
+    private int cargaHoraria;
+    private float salario;
 
     public static void listAdd(Usuario usuario) {
         UsuarioList.add(usuario);
@@ -105,6 +107,14 @@ public class Usuario implements Operacoes {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+    public int getCargaHoraria() { return cargaHoraria; }
+
+    public void setCargaHoraria(int cargaHoraria) { this.cargaHoraria = cargaHoraria; }
+
+    public float getSalario() { return salario; }
+
+    public void setSalario(float salario) { this.salario = salario; }
 
     public String cargo()
     {
