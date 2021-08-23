@@ -73,7 +73,7 @@
                                       <Component id="jLabelNome" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jTextFieldNome" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jTextFieldRaca" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jLabelRaça" min="-2" pref="120" max="-2" attributes="0"/>
+                                      <Component id="jLabelRaca" min="-2" pref="120" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -132,7 +132,7 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabelCor" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabelRaça" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelRaca" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -214,9 +214,9 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldCorActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabelRa&#xe7;a">
+        <Component class="javax.swing.JLabel" name="jLabelRaca">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Ra&#xe7;a:"/>
+            <Property name="text" type="java.lang.String" value="Raca:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelSexo">

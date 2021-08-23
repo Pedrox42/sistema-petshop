@@ -34,7 +34,7 @@ public class TelaAnimal extends javax.swing.JFrame {
         jTextFieldNome = new javax.swing.JTextField();
         jLabelCor = new javax.swing.JLabel();
         jTextFieldCor = new javax.swing.JTextField();
-        jLabelRaça = new javax.swing.JLabel();
+        jLabelRaca = new javax.swing.JLabel();
         jLabelSexo = new javax.swing.JLabel();
         jComboBoxSexo = new javax.swing.JComboBox<>();
         jLabelIdade = new javax.swing.JLabel();
@@ -76,7 +76,7 @@ public class TelaAnimal extends javax.swing.JFrame {
             }
         });
 
-        jLabelRaça.setText("Raça:");
+        jLabelRaca.setText("Raca:");
 
         jLabelSexo.setText("Sexo:");
 
@@ -156,7 +156,7 @@ public class TelaAnimal extends javax.swing.JFrame {
                                     .addComponent(jLabelNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jTextFieldNome, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextFieldRaca, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelRaça, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jLabelRaca, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanelAnimalLayout.createSequentialGroup()
                                 .addGroup(jPanelAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabelSexo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -201,7 +201,7 @@ public class TelaAnimal extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanelAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelCor)
-                            .addComponent(jLabelRaça))
+                            .addComponent(jLabelRaca))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextFieldCor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -322,7 +322,7 @@ public class TelaAnimal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelIdade;
     private javax.swing.JLabel jLabelNome;
     private javax.swing.JLabel jLabelPeso;
-    private javax.swing.JLabel jLabelRaça;
+    private javax.swing.JLabel jLabelRaca;
     private javax.swing.JLabel jLabelSexo;
     private javax.swing.JLabel jLabelTipo;
     private javax.swing.JPanel jPanelAnimal;

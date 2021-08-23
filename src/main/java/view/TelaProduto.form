@@ -138,7 +138,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelPreco">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Pre&#xe7;o:"/>
+            <Property name="text" type="java.lang.String" value="Preco:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldPreco">
@@ -148,7 +148,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelDescricao">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o:"/>
+            <Property name="text" type="java.lang.String" value="Descricao:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonSalvar">

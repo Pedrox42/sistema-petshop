@@ -49,7 +49,7 @@ public class TelaProduto extends javax.swing.JFrame {
 
         jLabelTipo.setText("Nome:");
 
-        jLabelPreco.setText("Preço:");
+        jLabelPreco.setText("Preco:");
 
         jTextFieldPreco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,7 +57,7 @@ public class TelaProduto extends javax.swing.JFrame {
             }
         });
 
-        jLabelDescricao.setText("Descrição:");
+        jLabelDescricao.setText("Descricao:");
 
         jButtonSalvar.setText("Salvar");
         jButtonSalvar.addActionListener(new java.awt.event.ActionListener() {

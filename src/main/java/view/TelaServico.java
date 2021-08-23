@@ -51,7 +51,7 @@ public class TelaServico extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanelServico.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cadastro de Serviços", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+        jPanelServico.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cadastro de Servicos", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
         jLabelNome.setText("Nome:");
 
@@ -233,8 +233,6 @@ public class TelaServico extends javax.swing.JFrame {
                 .addComponent(jPanelServico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(21, 21, 21))
         );
-
-        jPanelServico.getAccessibleContext().setAccessibleName("Cadastro de Serviços");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -45,13 +45,10 @@
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder justification="2" title="Cadastro de Servi&#xe7;os"/>
+            <TitledBorder justification="2" title="Cadastro de Servicos"/>
           </Border>
         </Property>
       </Properties>
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Cadastro de Servi&#xe7;os"/>
-      </AccessibilityProperties>
 
       <Layout>
         <DimensionLayout dim="0">

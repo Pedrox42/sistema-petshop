@@ -130,9 +130,9 @@ public class TelaLogin extends javax.swing.JFrame {
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         if(jTextFieldUsuario.getText().equals("admin") && jPasswordFieldSenha.getText().equals("1234"))
         {
-        TelaPrincipal tela = new TelaPrincipal();
-        tela.setVisible(true);
-        dispose();
+            TelaPrincipal tela = new TelaPrincipal();
+            tela.setVisible(true);
+            dispose();
         }
         else
         {

@@ -48,7 +48,7 @@ public class TelaTratamento extends javax.swing.JFrame {
 
         jPanelTratamento.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cadastro de Tratamentos", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
-        jLabelTempoDuracao.setText("Tempo de duração:");
+        jLabelTempoDuracao.setText("Tempo de duracao:");
 
         jTextFieldTempoDuracao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,7 +56,7 @@ public class TelaTratamento extends javax.swing.JFrame {
             }
         });
 
-        jLabelPreco.setText("Preço:");
+        jLabelPreco.setText("Preco:");
 
         jTextFieldPreco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
