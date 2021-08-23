@@ -33,10 +33,8 @@ public class Main {
 
         System.out.println(servico.getProdutos());
 
-        Login.login();
 
-
-        Arquivo.salvarTodos();
+        Arquivo.salvarTodos(); 
     }
 
 }
