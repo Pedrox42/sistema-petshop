@@ -34,28 +34,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuInicio = new javax.swing.JMenu();
         jMenuItemInicio = new javax.swing.JMenuItem();
         jMenuUsuarios = new javax.swing.JMenu();
-        jMenuItemCadastroUsuarios = new javax.swing.JMenuItem();
-        jMenuItemListagemUsuarios = new javax.swing.JMenuItem();
+        jMenuItemUsuarios = new javax.swing.JMenuItem();
         jMenuAnimais = new javax.swing.JMenu();
         jMenuItemAnimais = new javax.swing.JMenuItem();
         jMenuTratamentos = new javax.swing.JMenu();
-        jMenuItemCadastroTratamento = new javax.swing.JMenuItem();
-        jMenuItemListagemTratamentos = new javax.swing.JMenuItem();
+        jMenuItemTratamento = new javax.swing.JMenuItem();
         jMenuProdutos = new javax.swing.JMenu();
-        jMenuItemCadastroProdutos = new javax.swing.JMenuItem();
-        jMenuItemListagemProdutos = new javax.swing.JMenuItem();
+        jMenuItemProdutos = new javax.swing.JMenuItem();
         jMenuServiços = new javax.swing.JMenu();
-        jMenuItemCadastroServicos = new javax.swing.JMenuItem();
-        jMenuItemListagemServicos = new javax.swing.JMenuItem();
+        jMenuItemServicos = new javax.swing.JMenuItem();
         jMenuSair = new javax.swing.JMenu();
         jMenuItemSair = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jLabelLogoInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo.png"))); // NOI18N
+        jLabelLogoInicio.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuário\\IdeaProjects\\Trabalho OO\\img\\logo.png")); // NOI18N
         getContentPane().add(jLabelLogoInicio);
-        jLabelLogoInicio.setBounds(40, 40, 260, 240);
+        jLabelLogoInicio.setBounds(60, 20, 260, 240);
 
         jMenuInicio.setText("Inicio");
 
@@ -71,21 +67,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuUsuarios.setText("Usuarios");
 
-        jMenuItemCadastroUsuarios.setText("Cadastro");
-        jMenuItemCadastroUsuarios.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemUsuarios.setText("Usuarios");
+        jMenuItemUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemCadastroUsuariosActionPerformed(evt);
+                jMenuItemUsuariosActionPerformed(evt);
             }
         });
-        jMenuUsuarios.add(jMenuItemCadastroUsuarios);
-
-        jMenuItemListagemUsuarios.setText("Listagem");
-        jMenuItemListagemUsuarios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemListagemUsuariosActionPerformed(evt);
-            }
-        });
-        jMenuUsuarios.add(jMenuItemListagemUsuarios);
+        jMenuUsuarios.add(jMenuItemUsuarios);
 
         jMenuBar1.add(jMenuUsuarios);
 
@@ -103,61 +91,37 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuTratamentos.setText("Tratamentos");
 
-        jMenuItemCadastroTratamento.setText("Cadastro");
-        jMenuItemCadastroTratamento.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemTratamento.setText("Tratamentos");
+        jMenuItemTratamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemCadastroTratamentoActionPerformed(evt);
+                jMenuItemTratamentoActionPerformed(evt);
             }
         });
-        jMenuTratamentos.add(jMenuItemCadastroTratamento);
-
-        jMenuItemListagemTratamentos.setText("Listagem");
-        jMenuItemListagemTratamentos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemListagemTratamentosActionPerformed(evt);
-            }
-        });
-        jMenuTratamentos.add(jMenuItemListagemTratamentos);
+        jMenuTratamentos.add(jMenuItemTratamento);
 
         jMenuBar1.add(jMenuTratamentos);
 
         jMenuProdutos.setText("Produtos");
 
-        jMenuItemCadastroProdutos.setText("Cadastro");
-        jMenuItemCadastroProdutos.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemProdutos.setText("Produtos");
+        jMenuItemProdutos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemCadastroProdutosActionPerformed(evt);
+                jMenuItemProdutosActionPerformed(evt);
             }
         });
-        jMenuProdutos.add(jMenuItemCadastroProdutos);
-
-        jMenuItemListagemProdutos.setText("Listagem");
-        jMenuItemListagemProdutos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemListagemProdutosActionPerformed(evt);
-            }
-        });
-        jMenuProdutos.add(jMenuItemListagemProdutos);
+        jMenuProdutos.add(jMenuItemProdutos);
 
         jMenuBar1.add(jMenuProdutos);
 
         jMenuServiços.setText("Serviços");
 
-        jMenuItemCadastroServicos.setText("Cadastro");
-        jMenuItemCadastroServicos.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemServicos.setText("Serviços");
+        jMenuItemServicos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemCadastroServicosActionPerformed(evt);
+                jMenuItemServicosActionPerformed(evt);
             }
         });
-        jMenuServiços.add(jMenuItemCadastroServicos);
-
-        jMenuItemListagemServicos.setText("Listagem");
-        jMenuItemListagemServicos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemListagemServicosActionPerformed(evt);
-            }
-        });
-        jMenuServiços.add(jMenuItemListagemServicos);
+        jMenuServiços.add(jMenuItemServicos);
 
         jMenuBar1.add(jMenuServiços);
 
@@ -175,53 +139,44 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        setSize(new java.awt.Dimension(644, 385));
+        setSize(new java.awt.Dimension(416, 385));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItemCadastroUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroUsuariosActionPerformed
+    private void jMenuItemUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemUsuariosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItemCadastroUsuariosActionPerformed
+    }//GEN-LAST:event_jMenuItemUsuariosActionPerformed
 
-    private void jMenuItemCadastroServicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroServicosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItemCadastroServicosActionPerformed
+    private void jMenuItemServicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemServicosActionPerformed
+        TelaServico tela = new TelaServico();
+        tela.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jMenuItemServicosActionPerformed
 
-    private void jMenuItemCadastroProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroProdutosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItemCadastroProdutosActionPerformed
-
-    private void jMenuItemListagemProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemListagemProdutosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItemListagemProdutosActionPerformed
-
-    private void jMenuItemListagemServicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemListagemServicosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItemListagemServicosActionPerformed
+    private void jMenuItemProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemProdutosActionPerformed
+        TelaProduto tela = new TelaProduto();
+        tela.setVisible(true);
+        dispose();
+        
+    }//GEN-LAST:event_jMenuItemProdutosActionPerformed
 
     private void jMenuItemSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSairActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jMenuItemSairActionPerformed
 
-    private void jMenuItemListagemUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemListagemUsuariosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItemListagemUsuariosActionPerformed
-
     private void jMenuItemAnimaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAnimaisActionPerformed
-        TelaAnimal cadastro = new TelaAnimal();
-        cadastro.setVisible(true);
+        TelaAnimal tela = new TelaAnimal();
+        tela.setVisible(true);
         dispose();
         
         
     }//GEN-LAST:event_jMenuItemAnimaisActionPerformed
 
-    private void jMenuItemCadastroTratamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroTratamentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItemCadastroTratamentoActionPerformed
-
-    private void jMenuItemListagemTratamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemListagemTratamentosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItemListagemTratamentosActionPerformed
+    private void jMenuItemTratamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemTratamentoActionPerformed
+        TelaTratamento tela = new TelaTratamento();
+        tela.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jMenuItemTratamentoActionPerformed
 
     private void jMenuItemInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemInicioActionPerformed
         TelaPrincipal tela = new TelaPrincipal();
@@ -270,16 +225,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuInicio;
     private javax.swing.JMenuItem jMenuItemAnimais;
-    private javax.swing.JMenuItem jMenuItemCadastroProdutos;
-    private javax.swing.JMenuItem jMenuItemCadastroServicos;
-    private javax.swing.JMenuItem jMenuItemCadastroTratamento;
-    private javax.swing.JMenuItem jMenuItemCadastroUsuarios;
     private javax.swing.JMenuItem jMenuItemInicio;
-    private javax.swing.JMenuItem jMenuItemListagemProdutos;
-    private javax.swing.JMenuItem jMenuItemListagemServicos;
-    private javax.swing.JMenuItem jMenuItemListagemTratamentos;
-    private javax.swing.JMenuItem jMenuItemListagemUsuarios;
+    private javax.swing.JMenuItem jMenuItemProdutos;
     private javax.swing.JMenuItem jMenuItemSair;
+    private javax.swing.JMenuItem jMenuItemServicos;
+    private javax.swing.JMenuItem jMenuItemTratamento;
+    private javax.swing.JMenuItem jMenuItemUsuarios;
     private javax.swing.JMenu jMenuProdutos;
     private javax.swing.JMenu jMenuSair;
     private javax.swing.JMenu jMenuServiços;

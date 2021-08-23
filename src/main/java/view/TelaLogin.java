@@ -41,7 +41,7 @@ public class TelaLogin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabellogoLogin.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabellogoLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo.png"))); // NOI18N
+        jLabellogoLogin.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuário\\IdeaProjects\\Trabalho OO\\img\\logo.png")); // NOI18N
 
         jButtonLogin.setText("Entrar");
         jButtonLogin.addActionListener(new java.awt.event.ActionListener() {
