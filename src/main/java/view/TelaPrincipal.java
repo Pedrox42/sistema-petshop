@@ -9,7 +9,7 @@ package view;
 
 /**
  *
- * @author Usuário
+ * @author Usuï¿½rio
  */
 public class TelaPrincipal extends javax.swing.JFrame {
 
@@ -41,15 +41,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuItemTratamento = new javax.swing.JMenuItem();
         jMenuProdutos = new javax.swing.JMenu();
         jMenuItemProdutos = new javax.swing.JMenuItem();
-        jMenuServiços = new javax.swing.JMenu();
+        jMenuServicos = new javax.swing.JMenu();
         jMenuItemServicos = new javax.swing.JMenuItem();
         jMenuSair = new javax.swing.JMenu();
         jMenuItemSair = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
-
-        jLabelLogoInicio.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuário\\IdeaProjects\\Trabalho OO\\img\\logo.png")); // NOI18N
         getContentPane().add(jLabelLogoInicio);
         jLabelLogoInicio.setBounds(60, 20, 260, 240);
 
@@ -113,17 +111,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenuProdutos);
 
-        jMenuServiços.setText("Serviços");
+        jMenuServicos.setText("Servicos");
 
-        jMenuItemServicos.setText("Serviços");
+        jMenuItemServicos.setText("Servicos");
         jMenuItemServicos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemServicosActionPerformed(evt);
             }
         });
-        jMenuServiços.add(jMenuItemServicos);
+        jMenuServicos.add(jMenuItemServicos);
 
-        jMenuBar1.add(jMenuServiços);
+        jMenuBar1.add(jMenuServicos);
 
         jMenuSair.setText("Sair");
 
@@ -139,7 +137,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        setSize(new java.awt.Dimension(416, 385));
+        setSize(new java.awt.Dimension(740, 385));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -233,7 +231,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemUsuarios;
     private javax.swing.JMenu jMenuProdutos;
     private javax.swing.JMenu jMenuSair;
-    private javax.swing.JMenu jMenuServiços;
+    private javax.swing.JMenu jMenuServicos;
     private javax.swing.JMenu jMenuTratamentos;
     private javax.swing.JMenu jMenuUsuarios;
     // End of variables declaration//GEN-END:variables
