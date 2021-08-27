@@ -41,19 +41,6 @@ public class Admnistrador extends Usuario{
         return funcionario;
     }
 
-    public <T extends Animal> T cadastrarAnimal(Class<T> tipoDoAnimal, String nome, String cor, String raca, char sexo, int idade, float peso, float comprimento)
-    {
-        try {
-            Class[] args = {String.class, String.class, String.class, char.class, int.class, float.class, float.class};
-            Method cadastrar = tipoDoAnimal.getMethod("cadastrar", args);
-            T novoAnimal = tipoDoAnimal.newInstance();
-            return (T) cadastrar.invoke(novoAnimal, new Object[] {nome, cor, raca, sexo, idade, peso, comprimento});
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
     public Admnistrador cadastrarAdmnistrador(String nome, String login, String senha){
         Admnistrador novoAdmnistrador = new Admnistrador(nome, login, senha);
         Usuario.listAdd(novoAdmnistrador);

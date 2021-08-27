@@ -23,6 +23,7 @@ public class Gato extends Animal implements Operacoes {
         this.setId(Gato.getNextId());
     }
 
+    public Gato(){};
 
     public static void listAdd(Gato gato) {
         ListaAnimais.add(gato);
@@ -113,4 +114,5 @@ public class Gato extends Animal implements Operacoes {
         Gato.listAdd(novoGato);
         return novoGato;
     }
+
 }

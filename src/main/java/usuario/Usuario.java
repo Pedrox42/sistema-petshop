@@ -5,11 +5,13 @@
 package usuario;
 
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import animal.Animal;
 import arquivo.Listagem;
 import arquivo.Operacoes;
 import produto.Produto;
@@ -136,5 +138,18 @@ public class Usuario implements Operacoes {
         return novoTratamento;
     }
 
+
+    public <T extends Animal> T cadastrarAnimal(Class<T> tipoDoAnimal, String nome, String cor, String raca, char sexo, int idade, float peso, float comprimento)
+    {
+        try {
+            Class[] args = {String.class, String.class, String.class, char.class, int.class, float.class, float.class};
+            Method cadastrar = tipoDoAnimal.getMethod("cadastrar", args);
+            T novoAnimal = tipoDoAnimal.newInstance();
+            return (T) cadastrar.invoke(novoAnimal, new Object[] {nome, cor, raca, sexo, idade, peso, comprimento});
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
 }

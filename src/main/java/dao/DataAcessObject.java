@@ -32,8 +32,7 @@ public class DataAcessObject {
 
         try {
             Usuario admLogado = DataAcessObject.getUsuarioLogado();
-            System.out.println(admLogado);
-            if(admLogado.isAdmnistrador()){
+            if(admLogado != null && admLogado.isAdmnistrador()){
                 Admnistrador adm2 = (Admnistrador) admLogado;
                 adm2.cadastrarAdmnistrador(nome, email, senha);
                 return true;
@@ -48,27 +47,41 @@ public class DataAcessObject {
             return false;
         }
     }
-//    public static boolean editarCadastroAdmin(String nome, String login, String senha) {
-//        try {
-//
-//            DataAcessObject.getUsuarioLogado().setNome(nome);
-//            DataAcessObject.getUsuarioLogado().setLogin(login);
-//            DataAcessObject.getUsuarioLogado().setSenha(senha);
-//            
-//            return true;
-//
-//        } catch (Exception ex) {
-//            JOptionPane.showMessageDialog(null, "Erro: " + ex);
-//            
-//            return false;
-//        }
-//    }
+
+    public static boolean editarCadastroAdmin(String nome, String login, String senha) {
+        try {
+
+            Usuario admLogado = usuarioLogado;
+            if(admLogado != null && admLogado.isAdmnistrador()){
+                Admnistrador adm2 = (Admnistrador) admLogado;
+               // adm2.cadastrarAdmnistrador(nome, login, senha);
+                return true;
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Esse usuario nao tem permissao para realizar essa acao.");
+                return false;
+            }
+
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Erro: " + ex);
+
+            return false;
+        }
+    }
+
     public static boolean validacaoCadastroFuncionario(String nome, String login, String senha, float salario, int cargaHoraria) {
 
         try {
-            Usuario funcionario = new Funcionario(nome, login, senha, salario, cargaHoraria);
-            return true;
-
+            Usuario admLogado = usuarioLogado;
+            if(admLogado != null && admLogado.isAdmnistrador()){
+                Admnistrador adm2 = (Admnistrador) admLogado;
+                adm2.cadastrarFuncionario(nome, login, senha, salario, cargaHoraria);
+                return true;
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Esse usuario nao tem permissao para realizar essa acao.");
+                return false;
+            }
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Erro: " + ex);
             return false;
@@ -108,13 +121,18 @@ public class DataAcessObject {
         return false;
     }
 //fim funcoes para os usuarios
+
 //inicio funcoes para os animais
     public static boolean validacaoCadastroCachorro(String nome, String cor, String raca, char sexo, int idade, float peso, float comprimento) {
 
         try {
-            Cachorro cachorro = new Cachorro(nome, cor, raca, sexo, idade, peso, comprimento);
-            return true;
-
+            if(usuarioLogado != null){
+                usuarioLogado.cadastrarAnimal(Cachorro.class, nome, cor, raca, sexo, idade, peso, comprimento);
+                return true;
+            } else{
+                JOptionPane.showMessageDialog(null, "Voce precisa estar logado para realizar essa acao.");
+                return false;
+            }
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Erro: " + ex);
             return false;
@@ -123,9 +141,13 @@ public class DataAcessObject {
     public static boolean validacaoCadastroGato(String nome, String cor, String raca, char sexo, int idade, float peso, float comprimento) {
 
         try {
-            Gato gato = new Gato(nome, cor, raca, sexo, idade, peso, comprimento);
-            return true;
-
+            if(usuarioLogado != null){
+                usuarioLogado.cadastrarAnimal(Gato.class, nome, cor, raca, sexo, idade, peso, comprimento);
+                return true;
+            } else{
+                JOptionPane.showMessageDialog(null, "Voce precisa estar logado para realizar essa acao.");
+                return false;
+            }
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Erro: " + ex);
             return false;
@@ -134,9 +156,13 @@ public class DataAcessObject {
     public static boolean validacaoCadastroPapagaio(String nome, String cor, String raca, char sexo, int idade, float peso, float comprimento) {
 
         try {
-            Papagaio papagaio = new Papagaio(nome, cor, raca, sexo, idade, peso, comprimento);
-            return true;
-
+            if(usuarioLogado != null){
+                usuarioLogado.cadastrarAnimal(Papagaio.class, nome, cor, raca, sexo, idade, peso, comprimento);
+                return true;
+            } else{
+                JOptionPane.showMessageDialog(null, "Voce precisa estar logado para realizar essa acao.");
+                return false;
+            }
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Erro: " + ex);
             return false;
@@ -147,9 +173,13 @@ public class DataAcessObject {
     public static boolean validacaoCadastroProduto(String nome, String descricao, float preco) {
 
         try {
-            Produto produto = new Produto(nome, descricao, preco);
-            return true;
-
+            if(usuarioLogado != null){
+                usuarioLogado.cadastrarProduto(nome, descricao, preco);
+                return true;
+            } else{
+                JOptionPane.showMessageDialog(null, "Voce precisa estar logado para realizar essa acao.");
+                return false;
+            }
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Erro: " + ex);
             return false;
@@ -160,8 +190,13 @@ public class DataAcessObject {
         public static boolean validacaoCadastroTratamento(String nome, int tempo, float preco, float lucro) {
 
         try {
-            Tratamento tratamento = new Tratamento(nome, tempo, preco, lucro);
-            return true;
+            if(usuarioLogado != null){
+                usuarioLogado.cadastrarTratamento(nome, tempo, preco, lucro);
+                return true;
+            } else{
+                JOptionPane.showMessageDialog(null, "Voce precisa estar logado para realizar essa acao.");
+                return false;
+            }
 
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Erro: " + ex);
@@ -173,9 +208,17 @@ public class DataAcessObject {
         public static boolean validacaoCadastroServico(int funcionarioId, int animalId, String classeAnimal, int tratamentoId, List<Integer> listaProdutosId, String nome) {
 
         try {
-            Servico servico = new Servico(funcionarioId, animalId, classeAnimal, tratamentoId, listaProdutosId, nome);
-            return true;
-
+            Usuario admLogado = usuarioLogado;
+            System.out.println(admLogado);
+            if(admLogado != null && admLogado.isAdmnistrador()){
+                Admnistrador adm2 = (Admnistrador) admLogado;
+                adm2.cadastrarServico(funcionarioId, animalId, classeAnimal, tratamentoId, listaProdutosId, nome);
+                return true;
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Esse usuario nao tem permissao para realizar essa acao.");
+                return false;
+            }
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Erro: " + ex);
             return false;

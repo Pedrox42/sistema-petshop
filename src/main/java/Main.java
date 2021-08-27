@@ -21,8 +21,6 @@ public class Main {
 
     public static void main(String[] args) {
         Arquivo.preencherTodos();
-        //Admnistrador admnistrador = new Admnistrador("Pedro3", "Pedrox", "1234");
-        //admnistrador.cadastrarAdmnistrador("Pedro3", "Pedrox", "1234");
         TelaLogin tela = new TelaLogin();
         tela.setVisible(true);
         Arquivo.salvarTodos();

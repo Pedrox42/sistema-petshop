@@ -5,6 +5,11 @@
  */
 package view;
 
+import arquivo.Arquivo;
+import dao.DataAcessObject;
+
+import javax.swing.*;
+
 public class TelaAnimal extends javax.swing.JFrame {
 
     /**
@@ -250,7 +255,54 @@ public class TelaAnimal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
-        // TODO add your handling code here:
+        TelaPrincipal telalogin = new TelaPrincipal();
+        boolean validacao = false;
+        switch(jComboBoxTipo.getSelectedIndex()){
+            case 1:
+                validacao = DataAcessObject.validacaoCadastroCachorro
+                    (
+                            jTextFieldNome.getText(),
+                            jTextFieldCor.getText(),
+                            jTextFieldRaca.getText(),
+                            jComboBoxSexo.getSelectedIndex() == 1 ? 'F' : 'M',
+                            Integer.parseInt(jTextFieldIdade.getText()),
+                            Float.parseFloat(jTextFieldPeso.getText()),
+                            Float.parseFloat(jTextFieldComprimento.getText())
+                    );
+            break;
+            case 2:
+                validacao = DataAcessObject.validacaoCadastroGato
+                        (
+                                jTextFieldNome.getText(),
+                                jTextFieldCor.getText(),
+                                jTextFieldRaca.getText(),
+                                jComboBoxSexo.getSelectedIndex() == 1 ? 'F' : 'M',
+                                Integer.parseInt(jTextFieldIdade.getText()),
+                                Float.parseFloat(jTextFieldPeso.getText()),
+                                Float.parseFloat(jTextFieldComprimento.getText())
+                        );
+                break;
+            case 3:
+                validacao = DataAcessObject.validacaoCadastroPapagaio
+                        (
+                                jTextFieldNome.getText(),
+                                jTextFieldCor.getText(),
+                                jTextFieldRaca.getText(),
+                                jComboBoxSexo.getSelectedIndex() == 1 ? 'F' : 'M',
+                                Integer.parseInt(jTextFieldIdade.getText()),
+                                Float.parseFloat(jTextFieldPeso.getText()),
+                                Float.parseFloat(jTextFieldComprimento.getText())
+                        );
+                break;
+        }
+
+        if (validacao) {
+            this.setVisible(false);
+            telalogin.setVisible(true);
+            Arquivo.salvarTodos();
+        } else {
+            JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente. Tente novamente!");
+        }
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
     private void jComboBoxSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxSexoActionPerformed

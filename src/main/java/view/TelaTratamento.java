@@ -5,6 +5,11 @@
  */
 package view;
 
+import arquivo.Arquivo;
+import dao.DataAcessObject;
+
+import javax.swing.*;
+
 public class TelaTratamento extends javax.swing.JFrame {
 
     /**
@@ -208,7 +213,23 @@ public class TelaTratamento extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldPrecoActionPerformed
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
-        // TODO add your handling code here:
+        TelaPrincipal telalogin = new TelaPrincipal();
+
+        boolean validacao = DataAcessObject.validacaoCadastroTratamento
+                (
+                        jTextFieldNome.getText(),
+                        Integer.parseInt(jTextFieldTempoDuracao.getText()),
+                        Float.parseFloat(jTextFieldPreco.getText()),
+                        Float.parseFloat(jTextFieldLucro.getText())
+                );
+
+        if (validacao) {
+            this.setVisible(false);
+            telalogin.setVisible(true);
+            Arquivo.salvarTodos();
+        } else {
+            JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente. Tente novamente!");
+        }
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed

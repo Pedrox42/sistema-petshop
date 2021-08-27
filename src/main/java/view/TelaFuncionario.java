@@ -5,6 +5,7 @@
  */
 package view;
 
+import arquivo.Arquivo;
 import dao.DataAcessObject;
 import javax.swing.JOptionPane;
 
@@ -232,6 +233,7 @@ public class TelaFuncionario extends javax.swing.JFrame {
         if (validacao) {
             this.setVisible(false);
             telalogin.setVisible(true);
+            Arquivo.salvarTodos();
         } else {
             JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente. Tente novamente!");
         }
