@@ -18,7 +18,7 @@ import view.*;
 public class Main {
 
     public static void main(String[] args) {
-
+        Arquivo.preencherTodos();
         TelaLogin tela = new TelaLogin();
         tela.setVisible(true);
     }
