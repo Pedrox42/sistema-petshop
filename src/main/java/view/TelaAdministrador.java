@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package view;
+ import Arquivo.*;
+import dao.DataAcessObject;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -184,7 +187,17 @@ public class TelaAdministrador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
-        // TODO add your handling code here:
+        TelaLogin telalogin = new TelaLogin();
+
+        boolean validacao = DataAcessObject.validacaoCadastroAdmin(jTextFieldNome.getText(), jTextFieldEmail.getText(), jPasswordFieldSenha.getText());
+
+        if (validacao) {
+            this.setVisible(false);
+            telalogin.setVisible(true);
+//nao sei como salva            Arquivo.getJSONFromUsuario();
+        } else {
+            JOptionPane.showMessageDialog(this, "Os campos não foram preenchidos corretamente.");
+        }
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
