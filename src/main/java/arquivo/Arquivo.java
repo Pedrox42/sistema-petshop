@@ -70,7 +70,7 @@ public class Arquivo {
 
             //para transformar para as devidas classses de usuário
             RuntimeTypeAdapterFactory<Usuario> runtimeTypeAdapterFactory = RuntimeTypeAdapterFactory
-                    .of(Usuario.class, "admnistrador")
+                    .of(Usuario.class, "admnistrador", true)
                     .registerSubtype(Funcionario.class, "false")
                     .registerSubtype(Admnistrador.class, "true");
 

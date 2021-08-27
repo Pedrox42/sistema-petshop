@@ -119,7 +119,7 @@ public class Usuario implements Operacoes {
     public String cargo()
     {
         if (this.isAdmnistrador())
-            return "Dono";
+            return "Administrador";
         else
             return "Funcionario";
     }

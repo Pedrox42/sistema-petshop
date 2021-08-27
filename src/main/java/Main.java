@@ -2,37 +2,27 @@
 //Davi Esteves dos Santos - 202065504B
 //Pedro Campos Lima - 202065521B
 
-// import servico.Servico;
 import arquivo.Arquivo;
-<<<<<<< HEAD
+import arquivo.Listagem;
 import produto.Produto;
 import tratamento.Tratamento;
 import usuario.Admnistrador;
-
 import java.util.ArrayList;
 import java.util.List;
 import animal.*;
 import usuario.Funcionario;
 import view.*;
 import usuario.Usuario;
-=======
-// import produto.Produto;
-// import tratamento.Tratamento;
 import usuario.Admnistrador;
-
-// import java.util.ArrayList;
-// import java.util.List;
-// import animal.*;
-// import usuario.Funcionario;
 import view.*;
-//import usuario.Usuario;
 
 
 public class Main {
 
     public static void main(String[] args) {
         Arquivo.preencherTodos();
-        
+        //Admnistrador admnistrador = new Admnistrador("Pedro3", "Pedrox", "1234");
+        //admnistrador.cadastrarAdmnistrador("Pedro3", "Pedrox", "1234");
         TelaLogin tela = new TelaLogin();
         tela.setVisible(true);
         Arquivo.salvarTodos();
