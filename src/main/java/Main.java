@@ -3,7 +3,7 @@
 //Pedro Campos Lima - 202065521B
 
 // import servico.Servico;
-// import Arquivo.Arquivo;
+import arquivo.Arquivo;
 // import produto.Produto;
 // import tratamento.Tratamento;
 // import usuario.Admnistrador;
@@ -19,9 +19,10 @@ import view.*;
 public class Main {
 
     public static void main(String[] args) {
-
+        Arquivo.preencherTodos();
         TelaLogin tela = new TelaLogin();
         tela.setVisible(true);
+        Arquivo.salvarTodos();
         
     //     Arquivo.preencherTodos();
 

@@ -86,21 +86,21 @@ public class DataAcessObject {
             return false;
         }
     }
-    public static boolean editarCadastroAdmin(String nome, String login, String senha) {
-        try {
-
-            DataAcessObject.getUsuarioLogado().setNome(nome);
-            DataAcessObject.getUsuarioLogado().setLogin(login);
-            DataAcessObject.getUsuarioLogado().setSenha(senha);
-            
-            return true;
-
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Erro: " + ex);
-            
-            return false;
-        }
-    }
+//    public static boolean editarCadastroAdmin(String nome, String login, String senha) {
+//        try {
+//
+//            DataAcessObject.getUsuarioLogado().setNome(nome);
+//            DataAcessObject.getUsuarioLogado().setLogin(login);
+//            DataAcessObject.getUsuarioLogado().setSenha(senha);
+//            
+//            return true;
+//
+//        } catch (Exception ex) {
+//            JOptionPane.showMessageDialog(null, "Erro: " + ex);
+//            
+//            return false;
+//        }
+//    }
     public static boolean validacaoCadastroFuncionario(String nome, String login, String senha, float salario, int cargaHoraria) {
 
         try {
@@ -113,23 +113,23 @@ public class DataAcessObject {
         }
     }
     
-    public static boolean editarCadastroFuncionario(String nome, String login, String senha, float salario, int cargaHoraria) {
-        try {
-
-            DataAcessObject.getUsuarioLogado().setNome(nome);
-            DataAcessObject.getUsuarioLogado().setLogin(login);
-            DataAcessObject.getUsuarioLogado().setSenha(senha);
-            //DataAcessObject.getUsuarioLogado().setSalario(salario);
-            //DataAcessObject.getUsuarioLogado().setcargaHoraria(cargaHoraria);
-            
-            return true;
-
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Erro: " + ex);
-            
-            return false;
-        }
-    }
+//    public static boolean editarCadastroFuncionario(String nome, String login, String senha, float salario, int cargaHoraria) {
+//        try {
+//
+//            DataAcessObject.getUsuarioLogado().setNome(nome);
+//            DataAcessObject.getUsuarioLogado().setLogin(login);
+//            DataAcessObject.getUsuarioLogado().setSenha(senha);
+//            //DataAcessObject.getUsuarioLogado().setSalario(salario);
+//            //DataAcessObject.getUsuarioLogado().setcargaHoraria(cargaHoraria);
+//            
+//            return true;
+//
+//        } catch (Exception ex) {
+//            JOptionPane.showMessageDialog(null, "Erro: " + ex);
+//            
+//            return false;
+//        }
+//    }
     
     public static boolean autenticarLogin(String login, String senha) {
         try {
