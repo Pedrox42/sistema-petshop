@@ -13,6 +13,7 @@ import java.util.List;
 import animal.*;
 import usuario.Funcionario;
 import view.*;
+import usuario.Usuario;
 
 
 public class Main {
@@ -21,6 +22,7 @@ public class Main {
         Arquivo.preencherTodos();
         TelaLogin tela = new TelaLogin();
         tela.setVisible(true);
+        Arquivo.salvarTodos();
     }
 
 }

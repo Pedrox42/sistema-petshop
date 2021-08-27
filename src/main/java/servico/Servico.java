@@ -5,6 +5,7 @@
 package servico;
 
 import animal.Animal;
+import arquivo.Listagem;
 import arquivo.Operacoes;
 import produto.Produto;
 import tratamento.Tratamento;
@@ -24,7 +25,7 @@ public class Servico implements Operacoes {
     private String classeAnimal;
     private int tratamentoId;
     private List<Integer> listaProdutosId = new ArrayList<>();
-    private static List<Servico> ServicoList = new ArrayList<>();
+    private static final List<Servico> ServicoList = Listagem.getServicoList();
     private int id;
     private String nome;
 
@@ -39,24 +40,13 @@ public class Servico implements Operacoes {
         this.nome = nome;
     }
 
-    public static List<Servico> getAll() {
-
-        if(ServicoList != null){
-            Collections.sort(ServicoList, Comparator.comparing(Servico::getId));
-        }
-
-        return ServicoList;
-    }
-
     public static void listAdd(Servico servico) {
         ServicoList.add(servico);
     }
 
     public static void listAddArray(List<Servico> lista) {
         if (lista != null) {
-            for (Servico servico : lista) {
-                ServicoList.add(servico);
-            }
+            ServicoList.addAll(lista);
         }
 
     }
@@ -70,7 +60,7 @@ public class Servico implements Operacoes {
     }
 
     public static Servico acessarLista(int servicoId){
-        for (Servico servico : Servico.getAll()) {
+        for (Servico servico : ServicoList) {
             if (servico.getId() == servicoId) {
                 return servico;
             }
