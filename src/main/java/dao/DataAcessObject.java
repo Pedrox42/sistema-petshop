@@ -11,7 +11,7 @@ import servico.*;
 import tratamento.*;
 import usuario.*;
 import view.*;
-
+import arquivo.*;
 import java.util.List;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -19,53 +19,6 @@ import javax.swing.JOptionPane;
 public class DataAcessObject {
 
     private static Usuario usuarioLogado;
-
-    private static final List<Cachorro> cachorros;
-    private static final List<Gato> gatos;
-    private static final List<Papagaio> papagaios;
-    private static final List<Produto> produtos;
-    private static final List<Servico> servicos;
-    private static final List<Tratamento> tratamentos;    
-    private static final List<Usuario> usuarios;
-    
-    static{
-        cachorros = new ArrayList<>();
-        gatos = new ArrayList<>();
-        papagaios = new ArrayList<>();
-        produtos = new ArrayList<>();
-        servicos = new ArrayList<>();
-        tratamentos = new ArrayList<>();
-        usuarios = new ArrayList<>();
-    }
-
-    
-    public static List<Cachorro> getCachorros() {
-        return cachorros;
-    }
-
-    public static List<Gato> getGatos() {
-        return gatos;
-    }
-
-    public static List<Papagaio> getPapagaios() {
-        return papagaios;
-    }
-
-    public static List<Produto> getProdutos() {
-        return produtos;
-    }
-
-    public static List<Servico> getServicos() {
-        return servicos;
-    }
-
-    public static List<Tratamento> getTratamentos() {
-        return tratamentos;
-    }
-
-    public static List<Usuario> getUsuarios() {
-        return usuarios;
-    }
 
     public static Usuario getUsuarioLogado() {
         return usuarioLogado;
@@ -78,29 +31,38 @@ public class DataAcessObject {
     public static boolean validacaoCadastroAdmin(String nome, String email, String senha) {
 
         try {
-            Usuario adm = new Admnistrador(nome, email, senha);
-            return true;
+            Usuario admLogado = DataAcessObject.getUsuarioLogado();
+            System.out.println(admLogado);
+            if(admLogado.isAdmnistrador()){
+                Admnistrador adm2 = (Admnistrador) admLogado;
+                adm2.cadastrarAdmnistrador(nome, email, senha);
+                return true;
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Esse usuario nao tem permissao para realizar essa acao.");
+                return false;
+            }
 
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Erro: " + ex);
             return false;
         }
     }
-    public static boolean editarCadastroAdmin(String nome, String login, String senha) {
-        try {
-
-            DataAcessObject.getUsuarioLogado().setNome(nome);
-            DataAcessObject.getUsuarioLogado().setLogin(login);
-            DataAcessObject.getUsuarioLogado().setSenha(senha);
-            
-            return true;
-
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Erro: " + ex);
-            
-            return false;
-        }
-    }
+//    public static boolean editarCadastroAdmin(String nome, String login, String senha) {
+//        try {
+//
+//            DataAcessObject.getUsuarioLogado().setNome(nome);
+//            DataAcessObject.getUsuarioLogado().setLogin(login);
+//            DataAcessObject.getUsuarioLogado().setSenha(senha);
+//            
+//            return true;
+//
+//        } catch (Exception ex) {
+//            JOptionPane.showMessageDialog(null, "Erro: " + ex);
+//            
+//            return false;
+//        }
+//    }
     public static boolean validacaoCadastroFuncionario(String nome, String login, String senha, float salario, int cargaHoraria) {
 
         try {
@@ -113,28 +75,28 @@ public class DataAcessObject {
         }
     }
     
-    public static boolean editarCadastroFuncionario(String nome, String login, String senha, float salario, int cargaHoraria) {
-        try {
-
-            DataAcessObject.getUsuarioLogado().setNome(nome);
-            DataAcessObject.getUsuarioLogado().setLogin(login);
-            DataAcessObject.getUsuarioLogado().setSenha(senha);
-            //DataAcessObject.getUsuarioLogado().setSalario(salario);
-            //DataAcessObject.getUsuarioLogado().setcargaHoraria(cargaHoraria);
-            
-            return true;
-
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Erro: " + ex);
-            
-            return false;
-        }
-    }
+//    public static boolean editarCadastroFuncionario(String nome, String login, String senha, float salario, int cargaHoraria) {
+//        try {
+//
+//            DataAcessObject.getUsuarioLogado().setNome(nome);
+//            DataAcessObject.getUsuarioLogado().setLogin(login);
+//            DataAcessObject.getUsuarioLogado().setSenha(senha);
+//            //DataAcessObject.getUsuarioLogado().setSalario(salario);
+//            //DataAcessObject.getUsuarioLogado().setcargaHoraria(cargaHoraria);
+//            
+//            return true;
+//
+//        } catch (Exception ex) {
+//            JOptionPane.showMessageDialog(null, "Erro: " + ex);
+//            
+//            return false;
+//        }
+//    }
     
     public static boolean autenticarLogin(String login, String senha) {
         try {
-            for (int i = 0; i < usuarios.size(); i++) {
-                Usuario usuario = usuarios.get(i);
+            for (int i = 0; i < Listagem.getUsuarioList().size(); i++) {
+                Usuario usuario = Listagem.getUsuarioList().get(i);
                 if (usuario.getLogin().equals(login) && usuario.getSenha().equals(senha)) {
                     setUsuarioLogado(usuario);
                     return true;

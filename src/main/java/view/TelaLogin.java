@@ -1,5 +1,6 @@
 package view;
 
+import dao.DataAcessObject;
 import javax.swing.JOptionPane;
 
 public class TelaLogin extends javax.swing.JFrame {
@@ -118,7 +119,8 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordFieldSenhaActionPerformed
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
-        if(jTextFieldUsuario.getText().equals("admin") && jPasswordFieldSenha.getText().equals("1234"))
+        
+        if(DataAcessObject.autenticarLogin(jTextFieldUsuario.getText(), jPasswordFieldSenha.getText()))
         {
             TelaPrincipal tela = new TelaPrincipal();
             tela.setVisible(true);

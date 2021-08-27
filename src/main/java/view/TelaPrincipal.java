@@ -24,7 +24,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuInicio = new javax.swing.JMenu();
         jMenuItemInicio = new javax.swing.JMenuItem();
         jMenuUsuarios = new javax.swing.JMenu();
-        jMenuItemUsuarios = new javax.swing.JMenuItem();
+        jMenuItemAdministrador = new javax.swing.JMenuItem();
+        jMenuItemFuncionarios = new javax.swing.JMenuItem();
         jMenuAnimais = new javax.swing.JMenu();
         jMenuItemAnimais = new javax.swing.JMenuItem();
         jMenuTratamentos = new javax.swing.JMenu();
@@ -55,13 +56,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuUsuarios.setText("Usuarios");
 
-        jMenuItemUsuarios.setText("Usuarios");
-        jMenuItemUsuarios.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemAdministrador.setText("Administrador");
+        jMenuItemAdministrador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemUsuariosActionPerformed(evt);
+                jMenuItemAdministradorActionPerformed(evt);
             }
         });
-        jMenuUsuarios.add(jMenuItemUsuarios);
+        jMenuUsuarios.add(jMenuItemAdministrador);
+
+        jMenuItemFuncionarios.setText("Funcionarios");
+        jMenuItemFuncionarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemFuncionariosActionPerformed(evt);
+            }
+        });
+        jMenuUsuarios.add(jMenuItemFuncionarios);
 
         jMenuBar1.add(jMenuUsuarios);
 
@@ -131,9 +140,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItemUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemUsuariosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItemUsuariosActionPerformed
+    private void jMenuItemAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAdministradorActionPerformed
+        TelaAdministrador tela = new TelaAdministrador();
+        tela.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jMenuItemAdministradorActionPerformed
 
     private void jMenuItemServicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemServicosActionPerformed
         TelaServico tela = new TelaServico();
@@ -171,6 +182,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tela.setVisible(true);
         dispose();
     }//GEN-LAST:event_jMenuItemInicioActionPerformed
+
+    private void jMenuItemFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemFuncionariosActionPerformed
+        TelaFuncionario tela = new TelaFuncionario();
+        tela.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jMenuItemFuncionariosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -212,13 +229,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuAnimais;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuInicio;
+    private javax.swing.JMenuItem jMenuItemAdministrador;
     private javax.swing.JMenuItem jMenuItemAnimais;
+    private javax.swing.JMenuItem jMenuItemFuncionarios;
     private javax.swing.JMenuItem jMenuItemInicio;
     private javax.swing.JMenuItem jMenuItemProdutos;
     private javax.swing.JMenuItem jMenuItemSair;
     private javax.swing.JMenuItem jMenuItemServicos;
     private javax.swing.JMenuItem jMenuItemTratamento;
-    private javax.swing.JMenuItem jMenuItemUsuarios;
     private javax.swing.JMenu jMenuProdutos;
     private javax.swing.JMenu jMenuSair;
     private javax.swing.JMenu jMenuServicos;
