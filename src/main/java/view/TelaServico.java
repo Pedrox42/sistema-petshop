@@ -5,10 +5,6 @@
  */
 package view;
 
-/**
- *
- * @author Usuário
- */
 public class TelaServico extends javax.swing.JFrame {
 
     /**

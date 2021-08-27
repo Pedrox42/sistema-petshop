@@ -16,10 +16,6 @@ import java.util.List;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Usuário
- */
 public class DataAcessObject {
 
     private static Usuario usuarioLogado;
@@ -123,8 +119,8 @@ public class DataAcessObject {
             DataAcessObject.getUsuarioLogado().setNome(nome);
             DataAcessObject.getUsuarioLogado().setLogin(login);
             DataAcessObject.getUsuarioLogado().setSenha(senha);
-            DataAcessObject.getUsuarioLogado().setSalario(salario);
-            DataAcessObject.getUsuarioLogado().setcargaHoraria(cargaHoraria);
+            //DataAcessObject.getUsuarioLogado().setSalario(salario);
+            //DataAcessObject.getUsuarioLogado().setcargaHoraria(cargaHoraria);
             
             return true;
 
