@@ -82,9 +82,6 @@
     <Component class="javax.swing.JLabel" name="jLabellogoLogin">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="2"/>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Usu&#xe1;rio\IdeaProjects\Trabalho OO\img\logo.png"/>
-        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonLogin">

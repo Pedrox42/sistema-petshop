@@ -197,13 +197,14 @@ public class TelaAdministrador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
-        TelaLogin telalogin = new TelaLogin();
+        TelaPrincipal telalogin = new TelaPrincipal();
 
         boolean validacao = DataAcessObject.validacaoCadastroAdmin(jTextFieldNome.getText(), jTextFieldEmail.getText(), jPasswordFieldSenha.getText());
 
         if (validacao) {
             this.setVisible(false);
             telalogin.setVisible(true);
+            Arquivo.salvarTodos();
         } else {
             JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente. Tente novamente!");
         }
