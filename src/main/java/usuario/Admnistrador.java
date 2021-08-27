@@ -96,4 +96,21 @@ public class Admnistrador extends Usuario{
         }
         return false;
     }
+
+    public boolean editarAdmnistrador(String varNome, String varLogin, String varSenha){
+        if(Usuario.getUsuarioList().contains(this)){
+            try{
+
+                this.setNome(varNome);
+                this.setLogin(varLogin);
+                this.setSenha(varSenha);
+
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return false;
+    }
 }

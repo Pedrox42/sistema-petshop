@@ -4,6 +4,7 @@
 
 package animal;
 
+import arquivo.Listagem;
 import arquivo.Operacoes;
 
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ import java.util.List;
 
 public class Cachorro extends Animal implements Operacoes {
 
-    private static List<Cachorro> ListaAnimais = new ArrayList<>();
+    private static final List<Cachorro> ListaAnimais = Listagem.getCachorroList();
 
     public Cachorro(String nome, String cor, String raca, char sexo, int idade, float peso, float comprimento) {
         super(nome, cor, raca, sexo, idade, peso, comprimento);
@@ -23,24 +24,13 @@ public class Cachorro extends Animal implements Operacoes {
 
     public Cachorro(){}
 
-    public static List<Cachorro> getAll() {
-
-        if(ListaAnimais != null){
-            Collections.sort(ListaAnimais, Comparator.comparing(Cachorro::getId));
-        }
-
-        return ListaAnimais;
-    }
-
     public static void listAdd(Cachorro cachorro) {
         ListaAnimais.add(cachorro);
     }
 
     public static void listAddArray(List<Cachorro> lista) {
         if (lista != null) {
-            for (Cachorro cachorro : lista) {
-                ListaAnimais.add(cachorro);
-            }
+            ListaAnimais.addAll(lista);
         }
 
     }
@@ -54,7 +44,7 @@ public class Cachorro extends Animal implements Operacoes {
     }
 
     public static Cachorro acessarLista(int id){
-        for (Cachorro cachorro : Cachorro.getAll()) {
+        for (Cachorro cachorro : ListaAnimais) {
             if (cachorro.getId() == id) {
                 return cachorro;
             }
@@ -66,6 +56,26 @@ public class Cachorro extends Animal implements Operacoes {
         if(ListaAnimais.contains(this)){
             try{
                 ListaAnimais.remove(this);
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return false;
+    }
+
+    public boolean editar(String varNome, String varCor, String varRaca, char varSexo, int varIdade, float varPeso, float varComprimento){
+        if(ListaAnimais.contains(this)){
+            try{
+                this.setNome(varNome);
+                this.setCor(varCor);
+                this.setRaca(varRaca);
+                this.setSexo(varSexo);
+                this.setIdade(varIdade);
+                this.setPeso(varPeso);
+                this.setComprimento(varComprimento);
+
                 return true;
             } catch (Exception e) {
                 e.printStackTrace();
