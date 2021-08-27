@@ -4,6 +4,18 @@
 
 // import servico.Servico;
 import arquivo.Arquivo;
+<<<<<<< HEAD
+import produto.Produto;
+import tratamento.Tratamento;
+import usuario.Admnistrador;
+
+import java.util.ArrayList;
+import java.util.List;
+import animal.*;
+import usuario.Funcionario;
+import view.*;
+import usuario.Usuario;
+=======
 // import produto.Produto;
 // import tratamento.Tratamento;
 import usuario.Admnistrador;
@@ -24,7 +36,7 @@ public class Main {
         TelaLogin tela = new TelaLogin();
         tela.setVisible(true);
         Arquivo.salvarTodos();
-        
+
     //     Arquivo.preencherTodos();
 
     //     Admnistrador admnistrador = new Admnistrador("Pedro3", "Pedrox", "1234");
