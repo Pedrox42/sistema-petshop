@@ -22,7 +22,7 @@ public class Admnistrador extends Usuario{
 
     @Override
     public String toString() {
-        return "Dono{" +
+        return "Administrador{" +
                 "Nome:" + this.getNome() +
                 ", ID:" + this.getId() +
                 ", Cargo:" + this.cargo() +"}";
@@ -54,7 +54,7 @@ public class Admnistrador extends Usuario{
         return null;
     }
 
-    public Admnistrador cadastrarDono(String nome, String login, String senha){
+    public Admnistrador cadastrarAdmnistrador(String nome, String login, String senha){
         Admnistrador novoAdmnistrador = new Admnistrador(nome, login, senha);
         Usuario.listAdd(novoAdmnistrador);
         return novoAdmnistrador;

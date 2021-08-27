@@ -6,7 +6,7 @@
 import arquivo.Arquivo;
 // import produto.Produto;
 // import tratamento.Tratamento;
-// import usuario.Admnistrador;
+import usuario.Admnistrador;
 
 // import java.util.ArrayList;
 // import java.util.List;
@@ -20,6 +20,7 @@ public class Main {
 
     public static void main(String[] args) {
         Arquivo.preencherTodos();
+        
         TelaLogin tela = new TelaLogin();
         tela.setVisible(true);
         Arquivo.salvarTodos();
