@@ -5,10 +5,6 @@
  */
 package view;
 
-/**
- *
- * @author Usuário
- */
 public class TelaAnimal extends javax.swing.JFrame {
 
     /**
@@ -121,7 +117,7 @@ public class TelaAnimal extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Tipo", "Nome", "Cor", "Raça", "Sexo", "Idade", "Peso", "Comprimento"
+                "Tipo", "Nome", "Cor", "Raï¿½a", "Sexo", "Idade", "Peso", "Comprimento"
             }
         ));
         jScrollPane1.setViewportView(jTable1);

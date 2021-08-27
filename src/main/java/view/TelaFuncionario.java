@@ -5,10 +5,6 @@
  */
 package view;
 
-/**
- *
- * @author Usuário
- */
 public class TelaFuncionario extends javax.swing.JFrame {
 
     /**

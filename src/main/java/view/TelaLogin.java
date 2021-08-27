@@ -2,16 +2,6 @@ package view;
 
 import javax.swing.JOptionPane;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author Usuário
- */
 public class TelaLogin extends javax.swing.JFrame {
 
     /**
@@ -41,7 +31,7 @@ public class TelaLogin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabellogoLogin.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabellogoLogin.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuário\\IdeaProjects\\Trabalho OO\\img\\logo.png")); // NOI18N
+        jLabellogoLogin.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuï¿½rio\\IdeaProjects\\Trabalho OO\\img\\logo.png")); // NOI18N
 
         jButtonLogin.setText("Entrar");
         jButtonLogin.addActionListener(new java.awt.event.ActionListener() {

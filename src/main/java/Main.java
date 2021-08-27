@@ -1,19 +1,19 @@
-//Anna Leti�cia Franco Monteiro - 202065106A
+//Anna Leticia Franco Monteiro - 202065106A
 //Davi Esteves dos Santos - 202065504B
 //Pedro Campos Lima - 202065521B
 
-import servico.Servico;
-import Arquivo.Arquivo;
-import produto.Produto;
-import tratamento.Tratamento;
-import usuario.Admnistrador;
+// import servico.Servico;
+// import Arquivo.Arquivo;
+// import produto.Produto;
+// import tratamento.Tratamento;
+// import usuario.Admnistrador;
 
-import java.util.ArrayList;
-import java.util.List;
-import animal.*;
-import usuario.Funcionario;
+// import java.util.ArrayList;
+// import java.util.List;
+// import animal.*;
+// import usuario.Funcionario;
 import view.*;
-import usuario.Usuario;
+//import usuario.Usuario;
 
 
 public class Main {
@@ -46,6 +46,6 @@ public class Main {
     //     //System.out.println(servico.getProdutos());
 
     //     Arquivo.salvarTodos();
-    // }
+    }
 
 }

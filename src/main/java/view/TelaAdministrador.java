@@ -4,14 +4,10 @@
  * and open the template in the editor.
  */
 package view;
- import Arquivo.*;
-import dao.DataAcessObject;
+import arquivo.*;
+import dao.*;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Usuário
- */
 public class TelaAdministrador extends javax.swing.JFrame {
 
     /**
@@ -196,7 +192,7 @@ public class TelaAdministrador extends javax.swing.JFrame {
             telalogin.setVisible(true);
 //nao sei como salva            Arquivo.getJSONFromUsuario();
         } else {
-            JOptionPane.showMessageDialog(this, "Os campos não foram preenchidos corretamente.");
+            JOptionPane.showMessageDialog(this, "Os campos nï¿½o foram preenchidos corretamente.");
         }
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
