@@ -14,6 +14,7 @@ import arquivo.Listagem;
 import dao.DataAcessObject;
 
 import javax.swing.*;
+import produto.Produto;
 import usuario.Admnistrador;
 
 public class TelaAnimal extends javax.swing.JFrame {
@@ -132,6 +133,11 @@ public class TelaAnimal extends javax.swing.JFrame {
         });
 
         jList1.setModel(Listagem.getAnimalModel());
+        jList1.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jList1ValueChanged(evt);
+            }
+        });
         jScrollPane2.setViewportView(jList1);
 
         javax.swing.GroupLayout jPanelAnimalLayout = new javax.swing.GroupLayout(jPanelAnimal);
@@ -377,6 +383,26 @@ public class TelaAnimal extends javax.swing.JFrame {
              JOptionPane.showMessageDialog(this, "Erro: Por favor selecione um Produto valido!");
         }
     }//GEN-LAST:event_jButtonExcluirActionPerformed
+
+    private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList1ValueChanged
+        int selectedIndex = this.jList1.getSelectedIndex();
+
+        try{
+            if (selectedIndex != -1) {
+                Animal animal = this.jList1.getModel().getElementAt(selectedIndex);
+                this.jTextFieldNome.setText(animal.getNome());
+                this.jTextFieldComprimento.setText(String.valueOf(animal.getComprimento()));
+                this.jTextFieldCor.setText(animal.getCor());
+                this.jTextFieldIdade.setText(String.valueOf(animal.getIdade()));
+                this.jTextFieldPeso.setText(String.valueOf(animal.getPeso()));
+                this.jTextFieldRaca.setText(animal.getRaca());
+                this.jComboBoxSexo.setSelectedIndex(animal.getSexo() == 'F' ? 1 : 2);
+                this.jComboBoxTipo.setSelectedIndex(animal.getTipo());
+            }
+        } catch(Exception ex){
+             JOptionPane.showMessageDialog(this, "Erro: Selecione um campo valido!");
+        }
+    }//GEN-LAST:event_jList1ValueChanged
 
     /**
      * @param args the command line arguments
