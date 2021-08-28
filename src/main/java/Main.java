@@ -21,6 +21,7 @@ public class Main {
 
     public static void main(String[] args) {
         Arquivo.preencherTodos();
+        TelaTratamento.tratarListas();
         TelaLogin tela = new TelaLogin();
         tela.setVisible(true);
         Arquivo.salvarTodos();

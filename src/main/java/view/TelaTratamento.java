@@ -6,12 +6,19 @@
 package view;
 
 import arquivo.Arquivo;
+import arquivo.Listagem;
 import dao.DataAcessObject;
+import java.awt.Component;
+import java.awt.PopupMenu;
+import java.util.List;
 
 import javax.swing.*;
+import tratamento.Tratamento;
 
 public class TelaTratamento extends javax.swing.JFrame {
 
+    private static DefaultListModel<String> listagemTratamento = new DefaultListModel<String>();
+    
     /**
      * Creates new form TelaTratamento
      */
@@ -28,6 +35,7 @@ public class TelaTratamento extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanelTratamento = new javax.swing.JPanel();
         jLabelTempoDuracao = new javax.swing.JLabel();
         jTextFieldTempoDuracao = new javax.swing.JTextField();
@@ -38,12 +46,12 @@ public class TelaTratamento extends javax.swing.JFrame {
         jButtonEditar = new javax.swing.JButton();
         jButtonExcluir = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
-        jButtonNovo = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jTextFieldLucro = new javax.swing.JTextField();
         jLabelNome = new javax.swing.JLabel();
         jTextFieldNome = new javax.swing.JTextField();
+        jPanelListagem = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,21 +93,6 @@ public class TelaTratamento extends javax.swing.JFrame {
 
         jButtonCancelar.setText("Cancelar");
 
-        jButtonNovo.setText("Novo");
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
         jTextFieldLucro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldLucroActionPerformed(evt);
@@ -114,16 +107,30 @@ public class TelaTratamento extends javax.swing.JFrame {
             }
         });
 
+        jPanelListagem.setVerifyInputWhenFocusTarget(false);
+
+        jList1.setModel(listagemTratamento);
+        jScrollPane1.setViewportView(jList1);
+
+        javax.swing.GroupLayout jPanelListagemLayout = new javax.swing.GroupLayout(jPanelListagem);
+        jPanelListagem.setLayout(jPanelListagemLayout);
+        jPanelListagemLayout.setHorizontalGroup(
+            jPanelListagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+        );
+        jPanelListagemLayout.setVerticalGroup(
+            jPanelListagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanelTratamentoLayout = new javax.swing.GroupLayout(jPanelTratamento);
         jPanelTratamento.setLayout(jPanelTratamentoLayout);
         jPanelTratamentoLayout.setHorizontalGroup(
             jPanelTratamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelTratamentoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanelTratamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonNovo)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addGap(86, 86, 86)
+                .addComponent(jPanelListagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 187, Short.MAX_VALUE)
                 .addGroup(jPanelTratamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTratamentoLayout.createSequentialGroup()
                         .addGroup(jPanelTratamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -153,11 +160,6 @@ public class TelaTratamento extends javax.swing.JFrame {
             .addGroup(jPanelTratamentoLayout.createSequentialGroup()
                 .addGroup(jPanelTratamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelTratamentoLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jButtonNovo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelTratamentoLayout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addGroup(jPanelTratamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanelTratamentoLayout.createSequentialGroup()
@@ -172,7 +174,7 @@ public class TelaTratamento extends javax.swing.JFrame {
                         .addGroup(jPanelTratamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelPreco)
                             .addComponent(jLabelLucro))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(10, 10, 10)
                         .addGroup(jPanelTratamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextFieldPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldLucro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -181,7 +183,10 @@ public class TelaTratamento extends javax.swing.JFrame {
                             .addComponent(jButtonSalvar)
                             .addComponent(jButtonEditar)
                             .addComponent(jButtonExcluir)
-                            .addComponent(jButtonCancelar))))
+                            .addComponent(jButtonCancelar)))
+                    .addGroup(jPanelTratamentoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanelListagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -198,8 +203,6 @@ public class TelaTratamento extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelTratamento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-
-        jPanelTratamento.getAccessibleContext().setAccessibleName("Cadastro de Tratamentos");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -243,7 +246,13 @@ public class TelaTratamento extends javax.swing.JFrame {
     private void jTextFieldNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNomeActionPerformed
-
+    
+    public static void tratarListas(){
+        for(Tratamento tratamento : Listagem.getTratamentoList()){
+            listagemTratamento.addElement(tratamento.getNome());
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -283,18 +292,20 @@ public class TelaTratamento extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonEditar;
     private javax.swing.JButton jButtonExcluir;
-    private javax.swing.JButton jButtonNovo;
     private javax.swing.JButton jButtonSalvar;
     private javax.swing.JLabel jLabelLucro;
     private javax.swing.JLabel jLabelNome;
     private javax.swing.JLabel jLabelPreco;
     private javax.swing.JLabel jLabelTempoDuracao;
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JPanel jPanelListagem;
     private javax.swing.JPanel jPanelTratamento;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextFieldLucro;
     private javax.swing.JTextField jTextFieldNome;
     private javax.swing.JTextField jTextFieldPreco;
     private javax.swing.JTextField jTextFieldTempoDuracao;
     // End of variables declaration//GEN-END:variables
+
 }

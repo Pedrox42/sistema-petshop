@@ -26,7 +26,12 @@ public class Tratamento implements Operacoes  {
         this.lucro = lucro;
         this.setId(Tratamento.getNextId());
     }
-
+    
+    @Override
+    public String toString() {
+        return this.getNome();
+    }
+    
     public static void listAdd(Tratamento tratamento) {
         TratamentoList.add(tratamento);
     }
