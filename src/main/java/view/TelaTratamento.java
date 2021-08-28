@@ -13,7 +13,9 @@ import java.awt.PopupMenu;
 import java.util.List;
 
 import javax.swing.*;
+import produto.Produto;
 import tratamento.Tratamento;
+import usuario.Admnistrador;
 
 public class TelaTratamento extends javax.swing.JFrame {
 
@@ -88,6 +90,11 @@ public class TelaTratamento extends javax.swing.JFrame {
         });
 
         jButtonExcluir.setText("Excluir");
+        jButtonExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExcluirActionPerformed(evt);
+            }
+        });
 
         jButtonCancelar.setText("Cancelar");
 
@@ -106,6 +113,11 @@ public class TelaTratamento extends javax.swing.JFrame {
         });
 
         jList1.setModel(Listagem.getTratamentoModel());
+        jList1.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jList1ValueChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(jList1);
 
         jButtonVoltar.setText("Voltar");
@@ -200,17 +212,9 @@ public class TelaTratamento extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldNomeActionPerformed
-
     private void jTextFieldLucroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldLucroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldLucroActionPerformed
-
-    private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonEditarActionPerformed
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
         TelaPrincipal telalogin = new TelaPrincipal();
@@ -224,8 +228,8 @@ public class TelaTratamento extends javax.swing.JFrame {
         );
 
         if (validacao) {
-            this.jList1.setModel(Listagem.getTratamentoModel());
-            this.repaint();
+            jList1.setModel(Listagem.getTratamentoModel());
+            repaint();
             Arquivo.salvarTodos();
         } else {
             JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente. Tente novamente!");
@@ -236,6 +240,33 @@ public class TelaTratamento extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldPrecoActionPerformed
 
+    private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
+        if(DataAcessObject.getUsuarioLogado() != null){
+            int selectedIndex = jList1.getSelectedIndex();
+            try{
+               if (selectedIndex != -1) {
+                   ListModel<Tratamento> model = jList1.getModel();
+                   Tratamento tratamento = model.getElementAt(selectedIndex);
+                   tratamento.editar
+                   (
+                        jTextFieldNome.getText(),
+                        Integer.parseInt(jTextFieldTempoDuracao.getText()),
+                        Float.parseFloat(jTextFieldPreco.getText()),
+                        Float.parseFloat(jTextFieldLucro.getText())
+                   );
+                   jList1.setModel(Listagem.getTratamentoModel());
+                   repaint();
+                   Arquivo.salvarTodos();
+                   jList1.setSelectedIndex(selectedIndex);
+               }
+            } catch(Exception ex){
+                 JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente!");
+            }
+        } else{
+            JOptionPane.showMessageDialog(this, "Erro: Voce nao tem permissao para essa acao!");
+        }
+    }//GEN-LAST:event_jButtonEditarActionPerformed
+
     private void jTextFieldTempoDuracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTempoDuracaoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldTempoDuracaoActionPerformed
@@ -243,7 +274,46 @@ public class TelaTratamento extends javax.swing.JFrame {
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
         TelaPrincipal tela = new TelaPrincipal();
         tela.setVisible(true);        tela.setVisible(true);    }//GEN-LAST:event_jButtonVoltarActionPerformed
-    
+
+    private void jTextFieldNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNomeActionPerformed
+
+    private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
+        if(DataAcessObject.getUsuarioLogado() != null){
+            int selectedIndex = jList1.getSelectedIndex();
+            try{
+               if (selectedIndex != -1) {
+                   DefaultListModel<Tratamento> model = (DefaultListModel<Tratamento>) jList1.getModel();
+                   Tratamento tratamento = model.get(selectedIndex);
+                   tratamento.deletar();
+                   jList1.setModel(Listagem.getTratamentoModel());
+                   repaint();
+                   Arquivo.salvarTodos();
+               }
+            } catch(Exception ex){
+                 JOptionPane.showMessageDialog(this, "Erro: Por favor selecione um Produto valido!");
+            }
+        } else{
+            JOptionPane.showMessageDialog(this, "Erro: Voce nao tem permissao para essa acao!");
+        }
+    }//GEN-LAST:event_jButtonExcluirActionPerformed
+
+    private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList1ValueChanged
+        int selectedIndex = jList1.getSelectedIndex();
+        try{
+            if (selectedIndex != -1) {
+                Tratamento tratamento = jList1.getModel().getElementAt(selectedIndex);
+                jTextFieldNome.setText(tratamento.getNome());
+                jTextFieldLucro.setText(String.valueOf(tratamento.getLucro()));
+                jTextFieldPreco.setText(String.valueOf(tratamento.getPreco()));
+                jTextFieldTempoDuracao.setText(String.valueOf(tratamento.getTempo()));
+            }
+        } catch(Exception ex){
+             JOptionPane.showMessageDialog(this, "Erro: Selecione um campo valido!");
+        }
+    }//GEN-LAST:event_jList1ValueChanged
+   
     /**
      * @param args the command line arguments
      */

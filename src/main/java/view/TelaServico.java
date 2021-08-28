@@ -17,6 +17,10 @@ public class TelaServico extends javax.swing.JFrame {
     /**
      * Creates new form TelaServico
      */
+    
+    public TelaServico() {
+        initComponents();
+    }
    
 
     /**

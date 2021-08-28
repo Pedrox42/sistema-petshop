@@ -1,7 +1,6 @@
 package view;
 
 import dao.*;
-import static dao.DataAcessObject.validacaoAdminFuncionario;
 import javax.swing.JOptionPane;
 
 public class TelaLogin extends javax.swing.JFrame {
