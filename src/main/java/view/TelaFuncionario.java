@@ -9,6 +9,7 @@ import arquivo.Arquivo;
 import arquivo.Listagem;
 import dao.DataAcessObject;
 import javax.swing.JOptionPane;
+import usuario.Admnistrador;
 import usuario.Funcionario;
 
 public class TelaFuncionario extends javax.swing.JFrame {
@@ -103,6 +104,11 @@ public class TelaFuncionario extends javax.swing.JFrame {
         });
 
         jList1.setModel(Listagem.getFuncionarioModel());
+        jList1.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jList1ValueChanged(evt);
+            }
+        });
         jScrollPane2.setViewportView(jList1);
 
         javax.swing.GroupLayout jPanelFuncionarioLayout = new javax.swing.GroupLayout(jPanelFuncionario);
@@ -250,6 +256,21 @@ public class TelaFuncionario extends javax.swing.JFrame {
             tela.setVisible(true);
 
     }//GEN-LAST:event_jButtonVoltarActionPerformed
+
+    private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList1ValueChanged
+        int selectedIndex = this.jList1.getSelectedIndex();
+        try{
+            if (selectedIndex != -1) {
+                Funcionario funcionario = this.jList1.getModel().getElementAt(selectedIndex);
+                this.jTextFieldNome.setText(funcionario.getNome());
+                this.jTextFieldEmail.setText(funcionario.getLogin());
+                this.jTextFieldCargaHoraria.setText(String.valueOf(funcionario.getCargaHoraria()));
+                this.jTextFieldSalario.setText(String.valueOf(funcionario.getSalario()));
+            }
+        } catch(Exception ex){
+             JOptionPane.showMessageDialog(this, "Erro: Selecione um campo valido!");
+        }
+    }//GEN-LAST:event_jList1ValueChanged
 
     /**
      * @param args the command line arguments

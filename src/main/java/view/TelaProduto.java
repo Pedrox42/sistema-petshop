@@ -272,8 +272,6 @@ public class TelaProduto extends javax.swing.JFrame {
         } catch(Exception ex){
              JOptionPane.showMessageDialog(this, "Erro: Selecione um campo valido!");
         }
-
-    
     }//GEN-LAST:event_jList1ValueChanged
 
     /**

@@ -14,6 +14,7 @@ import java.util.List;
 
 import javax.swing.*;
 import tratamento.Tratamento;
+import usuario.Admnistrador;
 
 public class TelaTratamento extends javax.swing.JFrame {
 
@@ -88,6 +89,11 @@ public class TelaTratamento extends javax.swing.JFrame {
         });
 
         jButtonExcluir.setText("Excluir");
+        jButtonExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExcluirActionPerformed(evt);
+            }
+        });
 
         jButtonCancelar.setText("Cancelar");
 
@@ -108,6 +114,11 @@ public class TelaTratamento extends javax.swing.JFrame {
         jPanelListagem.setVerifyInputWhenFocusTarget(false);
 
         jList1.setModel(Listagem.getTratamentoModel());
+        jList1.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jList1ValueChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(jList1);
 
         javax.swing.GroupLayout jPanelListagemLayout = new javax.swing.GroupLayout(jPanelListagem);
@@ -244,6 +255,37 @@ public class TelaTratamento extends javax.swing.JFrame {
     private void jTextFieldNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNomeActionPerformed
+
+    private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
+        int selectedIndex = this.jList1.getSelectedIndex();
+        try{
+           if (selectedIndex != -1) {
+               DefaultListModel<Tratamento> model = (DefaultListModel<Tratamento>) this.jList1.getModel();
+               Tratamento tratamento = model.get(selectedIndex);
+               tratamento.deletar();
+               this.jList1.setModel(Listagem.getTratamentoModel());
+               this.repaint();
+               Arquivo.salvarTodos();
+           }
+        } catch(Exception ex){
+             JOptionPane.showMessageDialog(this, "Erro: Por favor selecione um Produto valido!");
+        }
+    }//GEN-LAST:event_jButtonExcluirActionPerformed
+
+    private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList1ValueChanged
+        int selectedIndex = this.jList1.getSelectedIndex();
+        try{
+            if (selectedIndex != -1) {
+                Tratamento tratamento = this.jList1.getModel().getElementAt(selectedIndex);
+                this.jTextFieldNome.setText(tratamento.getNome());
+                this.jTextFieldLucro.setText(String.valueOf(tratamento.getLucro()));
+                this.jTextFieldPreco.setText(String.valueOf(tratamento.getPreco()));
+                this.jTextFieldTempoDuracao.setText(String.valueOf(tratamento.getTempo()));
+            }
+        } catch(Exception ex){
+             JOptionPane.showMessageDialog(this, "Erro: Selecione um campo valido!");
+        }
+    }//GEN-LAST:event_jList1ValueChanged
     
     /**
      * @param args the command line arguments
