@@ -62,13 +62,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel1.add(jLabelLogoInicio);
         jLabelLogoInicio.setBounds(0, 20, 270, 250);
 
+        jLabelTelaInicial.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jLabelTelaInicial.setForeground(new java.awt.Color(102, 102, 102));
         jLabelTelaInicial.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTelaInicial.setText("Bem vindo!");
         jPanel1.add(jLabelTelaInicial);
-        jLabelTelaInicial.setBounds(300, 120, 70, 60);
+        jLabelTelaInicial.setBounds(250, -10, 150, 140);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 390, 280);
+        jPanel1.setBounds(0, 0, 410, 280);
 
         jMenuInicio.setText("Inicio");
 
@@ -164,7 +166,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        setSize(new java.awt.Dimension(410, 343));
+        setSize(new java.awt.Dimension(428, 343));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
