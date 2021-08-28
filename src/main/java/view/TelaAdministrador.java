@@ -36,7 +36,6 @@ public class TelaAdministrador extends javax.swing.JFrame {
         jButtonSalvar = new javax.swing.JButton();
         jButtonEditar = new javax.swing.JButton();
         jButtonExcluir = new javax.swing.JButton();
-        jButtonCancelar = new javax.swing.JButton();
         jTextFieldNome = new javax.swing.JTextField();
         jLabelEmail = new javax.swing.JLabel();
         jTextFieldEmail = new javax.swing.JTextField();
@@ -76,8 +75,6 @@ public class TelaAdministrador extends javax.swing.JFrame {
             }
         });
 
-        jButtonCancelar.setText("Cancelar");
-
         jTextFieldNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNomeActionPerformed(evt);
@@ -112,46 +109,46 @@ public class TelaAdministrador extends javax.swing.JFrame {
         jPanelAdministradorLayout.setHorizontalGroup(
             jPanelAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelAdministradorLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addContainerGap(25, Short.MAX_VALUE)
                 .addGroup(jPanelAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAdministradorLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButtonVoltar))
+                    .addGroup(jPanelAdministradorLayout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanelAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelAdministradorLayout.createSequentialGroup()
-                                .addGroup(jPanelAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLabelEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldEmail))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                                .addGroup(jPanelAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(jPanelAdministradorLayout.createSequentialGroup()
+                                        .addGroup(jPanelAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanelAdministradorLayout.createSequentialGroup()
+                                                .addGroup(jPanelAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                    .addComponent(jLabelEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                                    .addComponent(jTextFieldEmail))
+                                                .addGap(43, 43, 43)
+                                                .addGroup(jPanelAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(jLabelSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                                    .addComponent(jPasswordFieldSenha)))
+                                            .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 5, Short.MAX_VALUE))))
+                            .addGroup(jPanelAdministradorLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabelSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabelNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanelAdministradorLayout.createSequentialGroup()
-                                .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAdministradorLayout.createSequentialGroup()
-                        .addGroup(jPanelAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jPasswordFieldSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanelAdministradorLayout.createSequentialGroup()
                                 .addComponent(jButtonSalvar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonEditar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonExcluir)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonCancelar)))
-                        .addContainerGap())))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAdministradorLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonVoltar)
-                .addContainerGap())
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         jPanelAdministradorLayout.setVerticalGroup(
             jPanelAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelAdministradorLayout.createSequentialGroup()
                 .addComponent(jButtonVoltar)
-                .addGap(12, 12, 12)
-                .addGroup(jPanelAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addGroup(jPanelAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanelAdministradorLayout.createSequentialGroup()
                         .addComponent(jLabelNome)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -162,34 +159,105 @@ public class TelaAdministrador extends javax.swing.JFrame {
                                 .addGroup(jPanelAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelSenha, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabelEmail, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addGap(26, 26, 26))
-                            .addGroup(jPanelAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jPasswordFieldSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonSalvar)
-                    .addComponent(jButtonEditar)
-                    .addComponent(jButtonExcluir)
-                    .addComponent(jButtonCancelar)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPasswordFieldSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(116, 116, 116)
+                        .addGroup(jPanelAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonSalvar)
+                            .addComponent(jButtonEditar)
+                            .addComponent(jButtonExcluir)))
+                    .addComponent(jScrollPane2))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelAdministrador, javax.swing.GroupLayout.DEFAULT_SIZE, 539, Short.MAX_VALUE)
+            .addComponent(jPanelAdministrador, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanelAdministrador, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE))
+                .addGap(2, 2, 2)
+                .addComponent(jPanelAdministrador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList1ValueChanged
+        int selectedIndex = this.jList1.getSelectedIndex();
+        try{
+            if (selectedIndex != -1) {
+                Admnistrador admnistrador = this.jList1.getModel().getElementAt(selectedIndex);
+                this.jTextFieldNome.setText(admnistrador.getNome());
+                this.jTextFieldEmail.setText(admnistrador.getLogin());
+            }
+        } catch(Exception ex){
+            JOptionPane.showMessageDialog(this, "Erro: Selecione um campo valido!");
+        }
+    }//GEN-LAST:event_jList1ValueChanged
+
+    private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
+        TelaPrincipal tela = new TelaPrincipal();
+        tela.setVisible(true);
+    }//GEN-LAST:event_jButtonVoltarActionPerformed
+
+    private void jTextFieldEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldEmailActionPerformed
+
+    private void jTextFieldNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNomeActionPerformed
+
+    private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
+        if(DataAcessObject.getUsuarioLogado() != null && DataAcessObject.getUsuarioLogado().isAdmnistrador()){
+            int selectedIndex = this.jList1.getSelectedIndex();
+            try{
+                if (selectedIndex != -1) {
+                    DefaultListModel<Admnistrador> model = (DefaultListModel<Admnistrador>) this.jList1.getModel();
+                    Admnistrador admnistrador = model.get(selectedIndex);
+                    admnistrador.deletar();
+                    this.jList1.setModel(Listagem.getAdmnistradorModel());
+                    this.repaint();
+                    Arquivo.salvarTodos();
+                }
+            } catch(Exception ex){
+                JOptionPane.showMessageDialog(this, "Erro: Por favor selecione um Produto valido!");
+            }
+        } else{
+            JOptionPane.showMessageDialog(this, "Erro: Voce nao tem permissao para essa acao!");
+        }
+    }//GEN-LAST:event_jButtonExcluirActionPerformed
+
+    private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
+        if(DataAcessObject.getUsuarioLogado() != null && DataAcessObject.getUsuarioLogado().isAdmnistrador()){
+            int selectedIndex = this.jList1.getSelectedIndex();
+            try{
+                if (selectedIndex != -1) {
+                    ListModel<Admnistrador> model = this.jList1.getModel();
+                    Admnistrador admnistrador = model.getElementAt(selectedIndex);
+                    admnistrador.editarAdmnistrador
+                    (
+                        this.jTextFieldNome.getText(),
+                        this.jTextFieldEmail.getText(),
+                        !new String(this.jPasswordFieldSenha.getPassword()).equals("") ?  new String(this.jPasswordFieldSenha.getPassword()) : admnistrador.getSenha()
+                    );
+                    this.jList1.setModel(Listagem.getAdmnistradorModel());
+                    this.repaint();
+                    Arquivo.salvarTodos();
+                    this.jList1.setSelectedIndex(selectedIndex);
+                }
+            } catch(Exception ex){
+                JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente!");
+            }
+        } else{
+            JOptionPane.showMessageDialog(this, "Erro: Voce nao tem permissao para essa acao!");
+        }
+    }//GEN-LAST:event_jButtonEditarActionPerformed
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
         TelaPrincipal telalogin = new TelaPrincipal();
@@ -206,78 +274,6 @@ public class TelaAdministrador extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente. Tente novamente!");
         }
     }//GEN-LAST:event_jButtonSalvarActionPerformed
-
-    private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
-        if(DataAcessObject.getUsuarioLogado() != null && DataAcessObject.getUsuarioLogado().isAdmnistrador()){
-            int selectedIndex = this.jList1.getSelectedIndex();
-            try{
-                if (selectedIndex != -1) {
-                    ListModel<Admnistrador> model = this.jList1.getModel();
-                    Admnistrador admnistrador = model.getElementAt(selectedIndex);
-                    admnistrador.editarAdmnistrador
-                    (
-                            this.jTextFieldNome.getText(), 
-                            this.jTextFieldEmail.getText(), 
-                            !new String(this.jPasswordFieldSenha.getPassword()).equals("") ?  new String(this.jPasswordFieldSenha.getPassword()) : admnistrador.getSenha()
-                    );
-                    this.jList1.setModel(Listagem.getAdmnistradorModel());
-                    this.repaint();
-                    Arquivo.salvarTodos();
-                    this.jList1.setSelectedIndex(selectedIndex);
-                }
-             } catch(Exception ex){
-                  JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente!");
-             }
-        } else{
-            JOptionPane.showMessageDialog(this, "Erro: Voce nao tem permissao para essa acao!");
-        }
-    }//GEN-LAST:event_jButtonEditarActionPerformed
-
-    private void jTextFieldNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldNomeActionPerformed
-
-    private void jTextFieldEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEmailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldEmailActionPerformed
-
-    private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
-        TelaPrincipal tela = new TelaPrincipal();
-        tela.setVisible(true);
-    }//GEN-LAST:event_jButtonVoltarActionPerformed
-
-    private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
-        if(DataAcessObject.getUsuarioLogado() != null && DataAcessObject.getUsuarioLogado().isAdmnistrador()){
-           int selectedIndex = this.jList1.getSelectedIndex();
-            try{
-               if (selectedIndex != -1) {
-                   DefaultListModel<Admnistrador> model = (DefaultListModel<Admnistrador>) this.jList1.getModel();
-                   Admnistrador admnistrador = model.get(selectedIndex);
-                   admnistrador.deletar();
-                   this.jList1.setModel(Listagem.getAdmnistradorModel());
-                   this.repaint();
-                   Arquivo.salvarTodos();
-               }
-            } catch(Exception ex){
-                 JOptionPane.showMessageDialog(this, "Erro: Por favor selecione um Produto valido!");
-            } 
-        } else{
-            JOptionPane.showMessageDialog(this, "Erro: Voce nao tem permissao para essa acao!");
-        }
-    }//GEN-LAST:event_jButtonExcluirActionPerformed
-
-    private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList1ValueChanged
-        int selectedIndex = this.jList1.getSelectedIndex();
-        try{
-            if (selectedIndex != -1) {
-                Admnistrador admnistrador = this.jList1.getModel().getElementAt(selectedIndex);
-                this.jTextFieldNome.setText(admnistrador.getNome());
-                this.jTextFieldEmail.setText(admnistrador.getLogin());
-            }
-        } catch(Exception ex){
-             JOptionPane.showMessageDialog(this, "Erro: Selecione um campo valido!");
-        }
-    }//GEN-LAST:event_jList1ValueChanged
 
     /**
      * @param args the command line arguments
@@ -315,7 +311,6 @@ public class TelaAdministrador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonEditar;
     private javax.swing.JButton jButtonExcluir;
     private javax.swing.JButton jButtonSalvar;

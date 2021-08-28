@@ -29,15 +29,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanelTratamento" pref="538" max="32767" attributes="0"/>
+          <Component id="jPanelTratamento" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="jPanelTratamento" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="2" max="32767" attributes="0"/>
-          </Group>
+          <Component id="jPanelTratamento" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -54,42 +51,48 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="206" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="jButtonSalvar" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButtonEditar" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButtonExcluir" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButtonCancelar" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jLabelPreco" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jTextFieldPreco" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jLabelNome" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jTextFieldNome" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jTextFieldTempoDuracao" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jTextFieldLucro" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jLabelLucro" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jLabelTempoDuracao" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                      <Component id="jButtonVoltar" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jScrollPane1" min="-2" pref="206" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jLabelPreco" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jTextFieldPreco" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jLabelNome" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jTextFieldNome" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="jTextFieldTempoDuracao" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jLabelLucro" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jLabelTempoDuracao" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jTextFieldLucro" min="-2" pref="120" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                                  <Component id="jButtonSalvar" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jButtonEditar" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jButtonExcluir" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jButtonVoltar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -97,9 +100,9 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jButtonVoltar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="12" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                  <EmptySpace pref="14" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabelTempoDuracao" min="-2" max="-2" attributes="0"/>
@@ -117,22 +120,21 @@
                               <Component id="jLabelPreco" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabelLucro" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jTextFieldPreco" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jTextFieldLucro" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jButtonSalvar" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButtonEditar" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButtonExcluir" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <Component id="jScrollPane1" min="-2" pref="211" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="229" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jButtonSalvar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonEditar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonExcluir" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -187,11 +189,6 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonExcluirActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButtonCancelar">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Cancelar"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldLucro">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldLucroActionPerformed"/>
@@ -224,7 +221,6 @@
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Tratamento&gt;"/>
               </AuxValues>
             </Component>
-
           </SubComponents>
         </Container>
         <Component class="javax.swing.JButton" name="jButtonVoltar">

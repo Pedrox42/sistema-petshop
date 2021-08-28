@@ -19,6 +19,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(10, 0), new java.awt.Dimension(10, 0), new java.awt.Dimension(10, 32767));
+        jPanel1 = new javax.swing.JPanel();
         jLabelLogoInicio = new javax.swing.JLabel();
         jLabelTelaInicial = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -40,7 +42,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
+        getContentPane().add(filler1);
+        filler1.setBounds(510, 130, 10, 0);
 
+        jPanel1.setLayout(null);
+
+        jLabelLogoInicio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelLogoInicio.setIcon(new javax.swing.JLabel() {
             public javax.swing.Icon getIcon() {
                 try {
@@ -52,12 +59,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 return null;
             }
         }.getIcon());
-        getContentPane().add(jLabelLogoInicio);
-        jLabelLogoInicio.setBounds(-10, 10, 270, 250);
+        jPanel1.add(jLabelLogoInicio);
+        jLabelLogoInicio.setBounds(0, 20, 270, 250);
 
+        jLabelTelaInicial.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTelaInicial.setText("Bem vindo!");
-        getContentPane().add(jLabelTelaInicial);
-        jLabelTelaInicial.setBounds(290, 90, 70, 60);
+        jPanel1.add(jLabelTelaInicial);
+        jLabelTelaInicial.setBounds(300, 120, 70, 60);
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 390, 280);
 
         jMenuInicio.setText("Inicio");
 
@@ -153,7 +164,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        setSize(new java.awt.Dimension(533, 343));
+        setSize(new java.awt.Dimension(410, 343));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -242,6 +253,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.Box.Filler filler1;
     private javax.swing.JLabel jLabelLogoInicio;
     private javax.swing.JLabel jLabelTelaInicial;
     private javax.swing.JMenu jMenuAnimais;
@@ -260,5 +272,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuServicos;
     private javax.swing.JMenu jMenuTratamentos;
     private javax.swing.JMenu jMenuUsuarios;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
