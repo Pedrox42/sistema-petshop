@@ -17,8 +17,6 @@ import tratamento.Tratamento;
 
 public class TelaTratamento extends javax.swing.JFrame {
 
-    private static DefaultListModel<String> listagemTratamento = new DefaultListModel<String>();
-    
     /**
      * Creates new form TelaTratamento
      */
@@ -109,7 +107,7 @@ public class TelaTratamento extends javax.swing.JFrame {
 
         jPanelListagem.setVerifyInputWhenFocusTarget(false);
 
-        jList1.setModel(listagemTratamento);
+        jList1.setModel(Listagem.getTratamentoModel());
         jScrollPane1.setViewportView(jList1);
 
         javax.swing.GroupLayout jPanelListagemLayout = new javax.swing.GroupLayout(jPanelListagem);
@@ -227,8 +225,8 @@ public class TelaTratamento extends javax.swing.JFrame {
                 );
 
         if (validacao) {
-            this.setVisible(false);
-            telalogin.setVisible(true);
+            this.jList1.setModel(Listagem.getTratamentoModel());
+            this.repaint();
             Arquivo.salvarTodos();
         } else {
             JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente. Tente novamente!");
@@ -246,12 +244,6 @@ public class TelaTratamento extends javax.swing.JFrame {
     private void jTextFieldNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNomeActionPerformed
-    
-    public static void tratarListas(){
-        for(Tratamento tratamento : Listagem.getTratamentoList()){
-            listagemTratamento.addElement(tratamento.getNome());
-        }
-    }
     
     /**
      * @param args the command line arguments

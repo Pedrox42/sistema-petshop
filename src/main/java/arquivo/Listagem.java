@@ -3,6 +3,7 @@ package arquivo;
 import animal.Cachorro;
 import animal.Gato;
 import animal.Papagaio;
+import java.lang.reflect.Method;
 import produto.Produto;
 import servico.Servico;
 import tratamento.Tratamento;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import javax.swing.DefaultListModel;
 
 public class Listagem {
 
@@ -107,4 +109,50 @@ public class Listagem {
     public static void setUsuarioList(List<Usuario> usuarioList) {
         UsuarioList = usuarioList;
     }
+    
+    public static  <T> DefaultListModel<String> getModelList(List<T> listagem, Class<?> classe){
+        DefaultListModel<String> modelList = new DefaultListModel<String>();
+        try{
+            Method nome = classe.getMethod("getNome", new Class<?>[0]);
+            for(T instance : listagem){
+            modelList.addElement((String) nome.invoke(instance));
+        }
+        } catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return modelList;
+    }
+    
+    public static DefaultListModel<String> getTratamentoModel(){
+        return Listagem.getModelList(TratamentoList, Tratamento.class);
+    }
+    
+    public static DefaultListModel<String> getProdutoModel(){
+        return Listagem.getModelList(ProdutoList, Produto.class);
+    }
+        
+     public static DefaultListModel<String> getServicoModel(){
+        return Listagem.getModelList(ServicoList, Servico.class);
+    }
+     
+    public static DefaultListModel<String> getCachorroModel(){
+        return Listagem.getModelList(CachorroList, Cachorro.class);
+    }
+    
+    public static DefaultListModel<String> getGatoModel(){
+        return Listagem.getModelList(GatoList, Gato.class);
+    }
+    
+    public static DefaultListModel<String> getPapagaioModel(){
+        return Listagem.getModelList(CachorroList, Papagaio.class);
+    }
+          
+    public static DefaultListModel<String> getUsuarioModel(){
+        return Listagem.getModelList(UsuarioList, Usuario.class);
+    }
+    
+
+
+    
+    
 }
