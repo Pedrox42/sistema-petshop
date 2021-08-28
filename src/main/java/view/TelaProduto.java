@@ -10,6 +10,7 @@ import arquivo.Listagem;
 import dao.DataAcessObject;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
 import produto.Produto;
 
 public class TelaProduto extends javax.swing.JFrame {
@@ -77,6 +78,11 @@ public class TelaProduto extends javax.swing.JFrame {
         });
 
         jButtonExcluir.setText("Excluir");
+        jButtonExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExcluirActionPerformed(evt);
+            }
+        });
 
         jButtonCancelar.setText("Cancelar");
 
@@ -93,6 +99,11 @@ public class TelaProduto extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTextAreaDescricao);
 
         jList1.setModel(Listagem.getProdutoModel());
+        jList1.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jList1ValueChanged(evt);
+            }
+        });
         jScrollPane3.setViewportView(jList1);
 
         javax.swing.GroupLayout jPanelProdutoLayout = new javax.swing.GroupLayout(jPanelProduto);
@@ -200,17 +211,70 @@ public class TelaProduto extends javax.swing.JFrame {
             this.repaint();
             Arquivo.salvarTodos();
         } else {
-            JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente. Tente novamente!");
+            JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente.");
         }
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
+
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
-        // TODO add your handling code here:
+         int selectedIndex = this.jList1.getSelectedIndex();
+         try{
+            if (selectedIndex != -1) {
+                ListModel<Produto> model = this.jList1.getModel();
+                Produto produto = model.getElementAt(selectedIndex);
+                produto.editar
+                (
+                        this.jTextFieldNome.getText(), 
+                        this.jTextAreaDescricao.getText(), 
+                        Float.parseFloat(this.jTextFieldPreco.getText())
+                );
+                this.jList1.setModel(Listagem.getProdutoModel());
+                this.repaint();
+                Arquivo.salvarTodos();
+                this.jList1.setSelectedIndex(selectedIndex);
+            }
+         } catch(Exception ex){
+              JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente!");
+         }
+        
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
     private void jTextFieldNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNomeActionPerformed
+
+    private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
+        int selectedIndex = this.jList1.getSelectedIndex();
+        try{
+           if (selectedIndex != -1) {
+               DefaultListModel<Produto> model = (DefaultListModel<Produto>) this.jList1.getModel();
+               Produto produto = model.get(selectedIndex);
+               produto.deletar();
+               this.jList1.setModel(Listagem.getProdutoModel());
+               this.repaint();
+               Arquivo.salvarTodos();
+           }
+        } catch(Exception ex){
+             JOptionPane.showMessageDialog(this, "Erro: Por favor selecione um Produto valido!");
+        }
+    }//GEN-LAST:event_jButtonExcluirActionPerformed
+
+    private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList1ValueChanged
+       int selectedIndex = this.jList1.getSelectedIndex();
+
+        try{
+            if (selectedIndex != -1) {
+                Produto produto = this.jList1.getModel().getElementAt(selectedIndex);
+                this.jTextFieldNome.setText(produto.getNome());
+                this.jTextAreaDescricao.setText(produto.getDescricao());
+                this.jTextFieldPreco.setText(String.valueOf(produto.getPreco()));
+            }
+        } catch(Exception ex){
+             JOptionPane.showMessageDialog(this, "Erro: Selecione um campo valido!");
+        }
+
+    
+    }//GEN-LAST:event_jList1ValueChanged
 
     /**
      * @param args the command line arguments
