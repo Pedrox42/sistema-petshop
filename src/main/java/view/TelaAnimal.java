@@ -6,11 +6,16 @@
 package view;
 
 import animal.Animal;
+import animal.Cachorro;
+import animal.Gato;
+import animal.Papagaio;
 import arquivo.Arquivo;
 import arquivo.Listagem;
 import dao.DataAcessObject;
 
 import javax.swing.*;
+import produto.Produto;
+import usuario.Admnistrador;
 
 public class TelaAnimal extends javax.swing.JFrame {
 
@@ -111,6 +116,11 @@ public class TelaAnimal extends javax.swing.JFrame {
         });
 
         jButtonExcluir.setText("Excluir");
+        jButtonExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExcluirActionPerformed(evt);
+            }
+        });
 
         jButtonCancelar.setText("Cancelar");
 
@@ -128,6 +138,11 @@ public class TelaAnimal extends javax.swing.JFrame {
         });
 
         jList1.setModel(Listagem.getAnimalModel());
+        jList1.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jList1ValueChanged(evt);
+            }
+        });
         jScrollPane2.setViewportView(jList1);
 
         javax.swing.GroupLayout jPanelAnimalLayout = new javax.swing.GroupLayout(jPanelAnimal);
@@ -245,7 +260,70 @@ public class TelaAnimal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
-        // TODO add your handling code here:
+         if(DataAcessObject.getUsuarioLogado() != null){
+             int selectedIndex = this.jList1.getSelectedIndex();
+            Animal animal = this.jList1.getModel().getElementAt(selectedIndex);
+
+            if(animal.getTipo() == this.jComboBoxTipo.getSelectedIndex()){
+                try{
+                    if (selectedIndex != -1) {
+                       switch(animal.getTipo()){
+                        case 1:
+                            Cachorro cachorro = (Cachorro) animal;
+                            cachorro.editar
+                                (
+                                    jTextFieldNome.getText(),
+                                    jTextFieldCor.getText(),
+                                    jTextFieldRaca.getText(),
+                                    jComboBoxSexo.getSelectedIndex() == 1 ? 'F' : 'M',
+                                    Integer.parseInt(jTextFieldIdade.getText()),
+                                    Float.parseFloat(jTextFieldPeso.getText()),
+                                    Float.parseFloat(jTextFieldComprimento.getText())
+                                );
+                        break;
+
+                        case 2:
+                            Gato gato = (Gato) animal;
+                            gato.editar
+                                (
+                                    jTextFieldNome.getText(),
+                                    jTextFieldCor.getText(),
+                                    jTextFieldRaca.getText(),
+                                    jComboBoxSexo.getSelectedIndex() == 1 ? 'F' : 'M',
+                                    Integer.parseInt(jTextFieldIdade.getText()),
+                                    Float.parseFloat(jTextFieldPeso.getText()),
+                                    Float.parseFloat(jTextFieldComprimento.getText())
+                                );
+                        break;
+
+                        case 3:
+                            Papagaio papagaio = (Papagaio) animal;
+                            papagaio.editar
+                                (
+                                    jTextFieldNome.getText(),
+                                    jTextFieldCor.getText(),
+                                    jTextFieldRaca.getText(),
+                                    jComboBoxSexo.getSelectedIndex() == 1 ? 'F' : 'M',
+                                    Integer.parseInt(jTextFieldIdade.getText()),
+                                    Float.parseFloat(jTextFieldPeso.getText()),
+                                    Float.parseFloat(jTextFieldComprimento.getText())
+                                );
+                        break;
+                    }
+                        this.jList1.setModel(Listagem.getAnimalModel());
+                        this.repaint();
+                        Arquivo.salvarTodos();
+                        this.jList1.setSelectedIndex(selectedIndex);
+                    }
+                } catch(Exception ex){
+                     JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente!");
+                }
+            } else{
+                 JOptionPane.showMessageDialog(this, "Erro: Por favor nao altere o tipo do animal selecionado!");
+            }
+        } else{
+             JOptionPane.showMessageDialog(this, "Erro: Voce nao tem permissao para essa acao!");
+        }
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
@@ -317,9 +395,61 @@ public class TelaAnimal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldRacaActionPerformed
 
-    private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonVoltarActionPerformed
+    private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
+        if(DataAcessObject.getUsuarioLogado() != null){
+            int selectedIndex = this.jList1.getSelectedIndex();
+            try{
+               if (selectedIndex != -1) {
+                   DefaultListModel<Animal> model = (DefaultListModel<Animal>) this.jList1.getModel();
+                   Animal animal = model.get(selectedIndex);
+
+                   switch(animal.getTipo()){
+                        case 1:
+                           Cachorro cachorro = (Cachorro) animal;
+                           cachorro.deletar();
+                           break;
+
+                        case 2:
+                            Gato gato = (Gato) animal;
+                            gato.deletar();
+                            break;
+                        case 3:
+                            Papagaio papagaio = (Papagaio) animal;
+                            papagaio.deletar();
+                            break;
+                   }
+
+                   this.jList1.setModel(Listagem.getAnimalModel());
+                   this.repaint();
+                   Arquivo.salvarTodos();
+               }
+            } catch(Exception ex){
+                 JOptionPane.showMessageDialog(this, "Erro: Por favor selecione um Produto valido!");
+            }
+        } else{
+            JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente. Tente novamente!");
+        }
+    }//GEN-LAST:event_jButtonExcluirActionPerformed
+
+    private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList1ValueChanged
+        int selectedIndex = this.jList1.getSelectedIndex();
+
+        try{
+            if (selectedIndex != -1) {
+                Animal animal = this.jList1.getModel().getElementAt(selectedIndex);
+                this.jTextFieldNome.setText(animal.getNome());
+                this.jTextFieldComprimento.setText(String.valueOf(animal.getComprimento()));
+                this.jTextFieldCor.setText(animal.getCor());
+                this.jTextFieldIdade.setText(String.valueOf(animal.getIdade()));
+                this.jTextFieldPeso.setText(String.valueOf(animal.getPeso()));
+                this.jTextFieldRaca.setText(animal.getRaca());
+                this.jComboBoxSexo.setSelectedIndex(animal.getSexo() == 'F' ? 1 : 2);
+                this.jComboBoxTipo.setSelectedIndex(animal.getTipo());
+            }
+        } catch(Exception ex){
+             JOptionPane.showMessageDialog(this, "Erro: Selecione um campo valido!");
+        }
+    }//GEN-LAST:event_jList1ValueChanged
 
     /**
      * @param args the command line arguments

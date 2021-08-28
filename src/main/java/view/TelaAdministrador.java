@@ -6,7 +6,10 @@
 package view;
 import arquivo.*;
 import dao.*;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.ListModel;
+import produto.Produto;
 import usuario.*;
 
 public class TelaAdministrador extends javax.swing.JFrame {
@@ -67,6 +70,11 @@ public class TelaAdministrador extends javax.swing.JFrame {
         });
 
         jButtonExcluir.setText("Excluir");
+        jButtonExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExcluirActionPerformed(evt);
+            }
+        });
 
         jButtonCancelar.setText("Cancelar");
 
@@ -92,6 +100,11 @@ public class TelaAdministrador extends javax.swing.JFrame {
         });
 
         jList1.setModel(Listagem.getAdmnistradorModel());
+        jList1.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jList1ValueChanged(evt);
+            }
+        });
         jScrollPane2.setViewportView(jList1);
 
         javax.swing.GroupLayout jPanelAdministradorLayout = new javax.swing.GroupLayout(jPanelAdministrador);
@@ -195,17 +208,29 @@ public class TelaAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
-        TelaLogin telalogin = new TelaLogin();
-        
-        boolean validacao;
-        //validacao = Admnistrador.editarAdmnistrador(jTextFieldNome.getText(), jTextFieldEmail.getText(), jPasswordFieldSenha.getText());
-        
-//        if (validacao) {
-//            this.setVisible(false);
-//            telalogin.setVisible(true);
-//        } else {
-//            JOptionPane.showMessageDialog(this, "Os campos n�o foram preenchidos corretamente.");
-//        };
+        if(DataAcessObject.getUsuarioLogado() != null && DataAcessObject.getUsuarioLogado().isAdmnistrador()){
+            int selectedIndex = this.jList1.getSelectedIndex();
+            try{
+                if (selectedIndex != -1) {
+                    ListModel<Admnistrador> model = this.jList1.getModel();
+                    Admnistrador admnistrador = model.getElementAt(selectedIndex);
+                    admnistrador.editarAdmnistrador
+                    (
+                            this.jTextFieldNome.getText(), 
+                            this.jTextFieldEmail.getText(), 
+                            !new String(this.jPasswordFieldSenha.getPassword()).equals("") ?  new String(this.jPasswordFieldSenha.getPassword()) : admnistrador.getSenha()
+                    );
+                    this.jList1.setModel(Listagem.getAdmnistradorModel());
+                    this.repaint();
+                    Arquivo.salvarTodos();
+                    this.jList1.setSelectedIndex(selectedIndex);
+                }
+             } catch(Exception ex){
+                  JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente!");
+             }
+        } else{
+            JOptionPane.showMessageDialog(this, "Erro: Voce nao tem permissao para essa acao!");
+        }
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
     private void jTextFieldNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeActionPerformed
@@ -220,6 +245,39 @@ public class TelaAdministrador extends javax.swing.JFrame {
         TelaPrincipal tela = new TelaPrincipal();
         tela.setVisible(true);
     }//GEN-LAST:event_jButtonVoltarActionPerformed
+
+    private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
+        if(DataAcessObject.getUsuarioLogado() != null && DataAcessObject.getUsuarioLogado().isAdmnistrador()){
+           int selectedIndex = this.jList1.getSelectedIndex();
+            try{
+               if (selectedIndex != -1) {
+                   DefaultListModel<Admnistrador> model = (DefaultListModel<Admnistrador>) this.jList1.getModel();
+                   Admnistrador admnistrador = model.get(selectedIndex);
+                   admnistrador.deletar();
+                   this.jList1.setModel(Listagem.getAdmnistradorModel());
+                   this.repaint();
+                   Arquivo.salvarTodos();
+               }
+            } catch(Exception ex){
+                 JOptionPane.showMessageDialog(this, "Erro: Por favor selecione um Produto valido!");
+            } 
+        } else{
+            JOptionPane.showMessageDialog(this, "Erro: Voce nao tem permissao para essa acao!");
+        }
+    }//GEN-LAST:event_jButtonExcluirActionPerformed
+
+    private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList1ValueChanged
+        int selectedIndex = this.jList1.getSelectedIndex();
+        try{
+            if (selectedIndex != -1) {
+                Admnistrador admnistrador = this.jList1.getModel().getElementAt(selectedIndex);
+                this.jTextFieldNome.setText(admnistrador.getNome());
+                this.jTextFieldEmail.setText(admnistrador.getLogin());
+            }
+        } catch(Exception ex){
+             JOptionPane.showMessageDialog(this, "Erro: Selecione um campo valido!");
+        }
+    }//GEN-LAST:event_jList1ValueChanged
 
     /**
      * @param args the command line arguments

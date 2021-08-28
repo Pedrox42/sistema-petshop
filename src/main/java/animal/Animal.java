@@ -26,7 +26,7 @@ public abstract class Animal {
     
     @Override
     public String toString() {
-        return this.getNome();
+        return this.getNome() + " (" + this.saudavel() + ")";
     }
 
     public int getId() { return id; }
