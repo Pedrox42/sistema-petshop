@@ -1,12 +1,20 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package view;
 
-
-public class TelaPrincipal extends javax.swing.JFrame {
+/**
+ *
+ * @author 980091
+ */
+public class TelaPrincipalF extends javax.swing.JFrame {
 
     /**
-     * Creates new form TelaPrincipal
+     * Creates new form TelaPrincipalF
      */
-    public TelaPrincipal() {
+    public TelaPrincipalF() {
         initComponents();
     }
 
@@ -20,12 +28,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabelLogoInicio = new javax.swing.JLabel();
-        jLabelTelaInicial = new javax.swing.JLabel();
+        jLabelTela = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuInicio = new javax.swing.JMenu();
         jMenuItemInicio = new javax.swing.JMenuItem();
         jMenuUsuarios = new javax.swing.JMenu();
-        jMenuItemAdministrador = new javax.swing.JMenuItem();
         jMenuItemFuncionarios = new javax.swing.JMenuItem();
         jMenuAnimais = new javax.swing.JMenu();
         jMenuItemAnimais = new javax.swing.JMenuItem();
@@ -33,13 +40,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuItemTratamento = new javax.swing.JMenuItem();
         jMenuProdutos = new javax.swing.JMenu();
         jMenuItemProdutos = new javax.swing.JMenuItem();
-        jMenuServicos = new javax.swing.JMenu();
-        jMenuItemServicos = new javax.swing.JMenuItem();
         jMenuSair = new javax.swing.JMenu();
         jMenuItemSair = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
 
         jLabelLogoInicio.setIcon(new javax.swing.JLabel() {
             public javax.swing.Icon getIcon() {
@@ -52,12 +56,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 return null;
             }
         }.getIcon());
-        getContentPane().add(jLabelLogoInicio);
-        jLabelLogoInicio.setBounds(-10, 10, 270, 250);
 
-        jLabelTelaInicial.setText("Bem vindo!");
-        getContentPane().add(jLabelTelaInicial);
-        jLabelTelaInicial.setBounds(290, 90, 70, 60);
+        jLabelTela.setText("Bem vindo!");
 
         jMenuInicio.setText("Inicio");
 
@@ -72,14 +72,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenuInicio);
 
         jMenuUsuarios.setText("Usuarios");
-
-        jMenuItemAdministrador.setText("Administrador");
-        jMenuItemAdministrador.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemAdministradorActionPerformed(evt);
-            }
-        });
-        jMenuUsuarios.add(jMenuItemAdministrador);
 
         jMenuItemFuncionarios.setText("Funcionarios");
         jMenuItemFuncionarios.addActionListener(new java.awt.event.ActionListener() {
@@ -127,18 +119,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenuProdutos);
 
-        jMenuServicos.setText("Servicos");
-
-        jMenuItemServicos.setText("Servicos");
-        jMenuItemServicos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemServicosActionPerformed(evt);
-            }
-        });
-        jMenuServicos.add(jMenuItemServicos);
-
-        jMenuBar1.add(jMenuServicos);
-
         jMenuSair.setText("Sair");
 
         jMenuItemSair.setText("Sair");
@@ -153,27 +133,54 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        setSize(new java.awt.Dimension(533, 343));
-        setLocationRelativeTo(null);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelLogoInicio)
+                .addGap(29, 29, 29)
+                .addComponent(jLabelTela)
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabelLogoInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(107, 107, 107)
+                        .addComponent(jLabelTela)))
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItemAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAdministradorActionPerformed
-        TelaAdministrador tela = new TelaAdministrador();
+    private void jMenuItemInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemInicioActionPerformed
+        TelaPrincipalF tela = new TelaPrincipalF();
         tela.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jMenuItemAdministradorActionPerformed
+    }//GEN-LAST:event_jMenuItemInicioActionPerformed
 
-    private void jMenuItemServicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemServicosActionPerformed
-        TelaServico tela = new TelaServico();
+    private void jMenuItemFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemFuncionariosActionPerformed
+        
+    }//GEN-LAST:event_jMenuItemFuncionariosActionPerformed
+
+    private void jMenuItemTratamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemTratamentoActionPerformed
+        TelaTratamento tela = new TelaTratamento();
         tela.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jMenuItemServicosActionPerformed
+    }//GEN-LAST:event_jMenuItemTratamentoActionPerformed
 
     private void jMenuItemProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemProdutosActionPerformed
         TelaProduto tela = new TelaProduto();
         tela.setVisible(true);
         dispose();
-        
+
     }//GEN-LAST:event_jMenuItemProdutosActionPerformed
 
     private void jMenuItemSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSairActionPerformed
@@ -184,27 +191,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         TelaAnimal tela = new TelaAnimal();
         tela.setVisible(true);
         dispose();
-        
-        
     }//GEN-LAST:event_jMenuItemAnimaisActionPerformed
-
-    private void jMenuItemTratamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemTratamentoActionPerformed
-        TelaTratamento tela = new TelaTratamento();
-        tela.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jMenuItemTratamentoActionPerformed
-
-    private void jMenuItemInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemInicioActionPerformed
-        TelaPrincipal tela = new TelaPrincipal();
-        tela.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jMenuItemInicioActionPerformed
-
-    private void jMenuItemFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemFuncionariosActionPerformed
-        TelaFuncionario tela = new TelaFuncionario();
-        tela.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jMenuItemFuncionariosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -223,41 +210,38 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaPrincipalF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaPrincipalF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaPrincipalF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaPrincipalF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaPrincipal().setVisible(true);
+                new TelaPrincipalF().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelLogoInicio;
-    private javax.swing.JLabel jLabelTelaInicial;
+    private javax.swing.JLabel jLabelTela;
     private javax.swing.JMenu jMenuAnimais;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuInicio;
-    private javax.swing.JMenuItem jMenuItemAdministrador;
     private javax.swing.JMenuItem jMenuItemAnimais;
     private javax.swing.JMenuItem jMenuItemFuncionarios;
     private javax.swing.JMenuItem jMenuItemInicio;
     private javax.swing.JMenuItem jMenuItemProdutos;
     private javax.swing.JMenuItem jMenuItemSair;
-    private javax.swing.JMenuItem jMenuItemServicos;
     private javax.swing.JMenuItem jMenuItemTratamento;
     private javax.swing.JMenu jMenuProdutos;
     private javax.swing.JMenu jMenuSair;
-    private javax.swing.JMenu jMenuServicos;
     private javax.swing.JMenu jMenuTratamentos;
     private javax.swing.JMenu jMenuUsuarios;
     // End of variables declaration//GEN-END:variables

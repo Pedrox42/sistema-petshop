@@ -28,6 +28,7 @@ public class DataAcessObject {
         DataAcessObject.usuarioLogado = usuarioLogado;
     }
     
+    
     public static boolean validacaoCadastroAdmin(String nome, String email, String senha) {
 
         try {
@@ -111,8 +112,18 @@ public class DataAcessObject {
             for (int i = 0; i < Listagem.getUsuarioList().size(); i++) {
                 Usuario usuario = Listagem.getUsuarioList().get(i);
                 if (usuario.getLogin().equals(login) && usuario.getSenha().equals(senha)) {
-                    setUsuarioLogado(usuario);
-                    return true;
+                    if(usuario.isAdmnistrador()){
+                        setUsuarioLogado(usuario);
+                        TelaPrincipal tela = new TelaPrincipal();
+                        tela.setVisible(true);
+                        return true;
+                    }
+                    else{
+                        setUsuarioLogado(usuario);
+                        TelaPrincipalF tela = new TelaPrincipalF();
+                        tela.setVisible(true);
+                        return true;
+                    }
                 }
             }
         } catch (Exception ex) {
