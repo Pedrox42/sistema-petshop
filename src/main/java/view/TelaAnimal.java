@@ -389,6 +389,7 @@ public class TelaAnimal extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldRacaActionPerformed
 
     private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
+
         int selectedIndex = this.jList1.getSelectedIndex();
         try{
            if (selectedIndex != -1) {
@@ -417,9 +418,9 @@ public class TelaAnimal extends javax.swing.JFrame {
            }
         } catch(Exception ex){
              JOptionPane.showMessageDialog(this, "Erro: Por favor selecione um Produto valido!");
-        }
     }//GEN-LAST:event_jButtonExcluirActionPerformed
 
+}
     private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList1ValueChanged
         int selectedIndex = this.jList1.getSelectedIndex();
 
