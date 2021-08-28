@@ -8,7 +8,10 @@ package view;
 import arquivo.Arquivo;
 import arquivo.Listagem;
 import dao.DataAcessObject;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.ListModel;
+import produto.Produto;
 import usuario.Funcionario;
 
 public class TelaFuncionario extends javax.swing.JFrame {
@@ -76,6 +79,11 @@ public class TelaFuncionario extends javax.swing.JFrame {
         });
 
         jButtonExcluir.setText("Excluir");
+        jButtonExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExcluirActionPerformed(evt);
+            }
+        });
 
         jButtonCancelar.setText("Cancelar");
 
@@ -234,7 +242,27 @@ public class TelaFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
-        // TODO add your handling code here:
+         int selectedIndex = this.jList1.getSelectedIndex();
+         try{
+            if (selectedIndex != -1) {
+                ListModel<Funcionario> model = this.jList1.getModel();
+                Funcionario funcionario = model.getElementAt(selectedIndex);
+                funcionario.editarFuncionario
+                (
+                        this.jTextFieldNome.getText(), 
+                        this.jTextFieldEmail.getText(),
+                        !new String(this.jPasswordFieldSenha.getPassword()).equals("") ?  new String(this.jPasswordFieldSenha.getPassword()) : funcionario.getSenha(),
+                        Float.parseFloat(this.jTextFieldSalario.getText()),
+                        Integer.parseInt(this.jTextFieldCargaHoraria.getText())
+                );
+                this.jList1.setModel(Listagem.getFuncionarioModel());
+                this.repaint();
+                Arquivo.salvarTodos();
+                this.jList1.setSelectedIndex(selectedIndex);
+            }
+         } catch(Exception ex){
+              JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente!");
+         }
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
     private void jTextFieldNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeActionPerformed
@@ -250,6 +278,22 @@ public class TelaFuncionario extends javax.swing.JFrame {
             tela.setVisible(true);
 
     }//GEN-LAST:event_jButtonVoltarActionPerformed
+
+    private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
+                int selectedIndex = this.jList1.getSelectedIndex();
+        try{
+           if (selectedIndex != -1) {
+               DefaultListModel<Funcionario> model = (DefaultListModel<Funcionario>) this.jList1.getModel();
+               Funcionario funcionario = model.get(selectedIndex);
+               funcionario.deletar();
+               this.jList1.setModel(Listagem.getFuncionarioModel());
+               this.repaint();
+               Arquivo.salvarTodos();
+           }
+        } catch(Exception ex){
+             JOptionPane.showMessageDialog(this, "Erro: Por favor selecione um Produto valido!");
+        }
+    }//GEN-LAST:event_jButtonExcluirActionPerformed
 
     /**
      * @param args the command line arguments
