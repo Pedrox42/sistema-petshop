@@ -6,7 +6,9 @@
 package view;
 import arquivo.*;
 import dao.*;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import produto.Produto;
 import usuario.*;
 
 public class TelaAdministrador extends javax.swing.JFrame {
@@ -66,6 +68,11 @@ public class TelaAdministrador extends javax.swing.JFrame {
         });
 
         jButtonExcluir.setText("Excluir");
+        jButtonExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExcluirActionPerformed(evt);
+            }
+        });
 
         jButtonCancelar.setText("Cancelar");
 
@@ -229,6 +236,22 @@ public class TelaAdministrador extends javax.swing.JFrame {
         TelaPrincipal tela = new TelaPrincipal();
         tela.setVisible(true);
     }//GEN-LAST:event_jButtonVoltarActionPerformed
+
+    private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
+        int selectedIndex = this.jList1.getSelectedIndex();
+        try{
+           if (selectedIndex != -1) {
+               DefaultListModel<Admnistrador> model = (DefaultListModel<Admnistrador>) this.jList1.getModel();
+               Admnistrador admnistrador = model.get(selectedIndex);
+               admnistrador.deletar();
+               this.jList1.setModel(Listagem.getAdmnistradorModel());
+               this.repaint();
+               Arquivo.salvarTodos();
+           }
+        } catch(Exception ex){
+             JOptionPane.showMessageDialog(this, "Erro: Por favor selecione um Produto valido!");
+        }
+    }//GEN-LAST:event_jButtonExcluirActionPerformed
 
     /**
      * @param args the command line arguments

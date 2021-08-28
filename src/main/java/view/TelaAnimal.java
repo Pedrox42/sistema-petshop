@@ -11,6 +11,7 @@ import arquivo.Listagem;
 import dao.DataAcessObject;
 
 import javax.swing.*;
+import usuario.Admnistrador;
 
 public class TelaAnimal extends javax.swing.JFrame {
 
@@ -111,6 +112,11 @@ public class TelaAnimal extends javax.swing.JFrame {
         });
 
         jButtonExcluir.setText("Excluir");
+        jButtonExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExcluirActionPerformed(evt);
+            }
+        });
 
         jButtonCancelar.setText("Cancelar");
 
@@ -313,6 +319,22 @@ public class TelaAnimal extends javax.swing.JFrame {
     private void jTextFieldRacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldRacaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldRacaActionPerformed
+
+    private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
+                int selectedIndex = this.jList1.getSelectedIndex();
+        try{
+           if (selectedIndex != -1) {
+               DefaultListModel<Animal> model = (DefaultListModel<Animal>) this.jList1.getModel();
+               Animal animal = model.get(selectedIndex);
+               animal.deletar();
+               this.jList1.setModel(Listagem.getAnimalModel());
+               this.repaint();
+               Arquivo.salvarTodos();
+           }
+        } catch(Exception ex){
+             JOptionPane.showMessageDialog(this, "Erro: Por favor selecione um Produto valido!");
+        }
+    }//GEN-LAST:event_jButtonExcluirActionPerformed
 
     /**
      * @param args the command line arguments
