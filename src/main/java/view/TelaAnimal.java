@@ -257,30 +257,66 @@ public class TelaAnimal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
-//        int selectedIndex = this.jList1.getSelectedIndex();
-//        try{
-//            if (selectedIndex != -1) {
-//               switch(){
-//                case 1:
-//                    
-//                break;
-//                
-//                case 2:
-//                   
-//                break;
-//                        
-//                case 3:
-//                    
-//                break;
-//            }
-//                this.jList1.setModel(Listagem.getAdmnistradorModel());
-//                this.repaint();
-//                Arquivo.salvarTodos();
-//                this.jList1.setSelectedIndex(selectedIndex);
-//            }
-//         } catch(Exception ex){
-//              JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente!");
-//         }:
+        int selectedIndex = this.jList1.getSelectedIndex();
+        Animal animal = this.jList1.getModel().getElementAt(selectedIndex);
+        
+        if(animal.getTipo() == this.jComboBoxTipo.getSelectedIndex()){
+            try{
+                if (selectedIndex != -1) {
+                   switch(animal.getTipo()){
+                    case 1:
+                        Cachorro cachorro = (Cachorro) animal;
+                        cachorro.editar
+                            (
+                                jTextFieldNome.getText(),
+                                jTextFieldCor.getText(),
+                                jTextFieldRaca.getText(),
+                                jComboBoxSexo.getSelectedIndex() == 1 ? 'F' : 'M',
+                                Integer.parseInt(jTextFieldIdade.getText()),
+                                Float.parseFloat(jTextFieldPeso.getText()),
+                                Float.parseFloat(jTextFieldComprimento.getText())
+                            );
+                    break;
+
+                    case 2:
+                        Gato gato = (Gato) animal;
+                        gato.editar
+                            (
+                                jTextFieldNome.getText(),
+                                jTextFieldCor.getText(),
+                                jTextFieldRaca.getText(),
+                                jComboBoxSexo.getSelectedIndex() == 1 ? 'F' : 'M',
+                                Integer.parseInt(jTextFieldIdade.getText()),
+                                Float.parseFloat(jTextFieldPeso.getText()),
+                                Float.parseFloat(jTextFieldComprimento.getText())
+                            );
+                    break;
+
+                    case 3:
+                        Papagaio papagaio = (Papagaio) animal;
+                        papagaio.editar
+                            (
+                                jTextFieldNome.getText(),
+                                jTextFieldCor.getText(),
+                                jTextFieldRaca.getText(),
+                                jComboBoxSexo.getSelectedIndex() == 1 ? 'F' : 'M',
+                                Integer.parseInt(jTextFieldIdade.getText()),
+                                Float.parseFloat(jTextFieldPeso.getText()),
+                                Float.parseFloat(jTextFieldComprimento.getText())
+                            );
+                    break;
+                }
+                    this.jList1.setModel(Listagem.getAnimalModel());
+                    this.repaint();
+                    Arquivo.salvarTodos();
+                    this.jList1.setSelectedIndex(selectedIndex);
+                }
+            } catch(Exception ex){
+                 JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente!");
+            }
+        } else{
+             JOptionPane.showMessageDialog(this, "Erro: Por favor nao altere o tipo do animal selecionado!");
+        }
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
