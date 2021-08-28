@@ -35,13 +35,13 @@ public class TelaAdministrador extends javax.swing.JFrame {
         jButtonExcluir = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
         jButtonNovo = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTableAdministrador = new javax.swing.JTable();
         jTextFieldNome = new javax.swing.JTextField();
         jLabelEmail = new javax.swing.JLabel();
         jTextFieldEmail = new javax.swing.JTextField();
         jPasswordFieldSenha = new javax.swing.JPasswordField();
         jButtonVoltar = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,19 +71,6 @@ public class TelaAdministrador extends javax.swing.JFrame {
 
         jButtonNovo.setText("Novo");
 
-        jTableAdministrador.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane1.setViewportView(jTableAdministrador);
-
         jTextFieldNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNomeActionPerformed(evt);
@@ -105,6 +92,9 @@ public class TelaAdministrador extends javax.swing.JFrame {
             }
         });
 
+        jList1.setModel(Listagem.getAdmnistradorModel());
+        jScrollPane2.setViewportView(jList1);
+
         javax.swing.GroupLayout jPanelAdministradorLayout = new javax.swing.GroupLayout(jPanelAdministrador);
         jPanelAdministrador.setLayout(jPanelAdministradorLayout);
         jPanelAdministradorLayout.setHorizontalGroup(
@@ -113,7 +103,8 @@ public class TelaAdministrador extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanelAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonNovo)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelAdministradorLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -124,7 +115,7 @@ public class TelaAdministrador extends javax.swing.JFrame {
                                         .addGroup(jPanelAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                             .addComponent(jLabelEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
                                             .addComponent(jTextFieldEmail))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
                                         .addGroup(jPanelAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(jLabelSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
                                             .addComponent(jPasswordFieldSenha)))
@@ -148,12 +139,12 @@ public class TelaAdministrador extends javax.swing.JFrame {
         jPanelAdministradorLayout.setVerticalGroup(
             jPanelAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelAdministradorLayout.createSequentialGroup()
-                .addGroup(jPanelAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelAdministradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanelAdministradorLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(jButtonNovo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane2))
                     .addGroup(jPanelAdministradorLayout.createSequentialGroup()
                         .addComponent(jButtonVoltar)
                         .addGap(12, 12, 12)
@@ -176,7 +167,7 @@ public class TelaAdministrador extends javax.swing.JFrame {
                             .addComponent(jButtonEditar)
                             .addComponent(jButtonExcluir)
                             .addComponent(jButtonCancelar))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -202,8 +193,10 @@ public class TelaAdministrador extends javax.swing.JFrame {
         boolean validacao = DataAcessObject.validacaoCadastroAdmin(jTextFieldNome.getText(), jTextFieldEmail.getText(), jPasswordFieldSenha.getText());
 
         if (validacao) {
-            this.setVisible(false);
-            telalogin.setVisible(true);
+            //this.setVisible(false);
+            //elalogin.setVisible(true);
+            this.jList1.setModel(Listagem.getAdmnistradorModel());
+            this.repaint();
             Arquivo.salvarTodos();
         } else {
             JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente. Tente novamente!");
@@ -282,10 +275,10 @@ public class TelaAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelEmail;
     private javax.swing.JLabel jLabelNome;
     private javax.swing.JLabel jLabelSenha;
+    private javax.swing.JList<Admnistrador> jList1;
     private javax.swing.JPanel jPanelAdministrador;
     private javax.swing.JPasswordField jPasswordFieldSenha;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTableAdministrador;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextFieldEmail;
     private javax.swing.JTextField jTextFieldNome;
     // End of variables declaration//GEN-END:variables

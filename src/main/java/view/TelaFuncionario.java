@@ -6,8 +6,10 @@
 package view;
 
 import arquivo.Arquivo;
+import arquivo.Listagem;
 import dao.DataAcessObject;
 import javax.swing.JOptionPane;
+import usuario.Funcionario;
 
 public class TelaFuncionario extends javax.swing.JFrame {
 
@@ -39,13 +41,13 @@ public class TelaFuncionario extends javax.swing.JFrame {
         jButtonExcluir = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
         jButtonNovo = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jTextFieldNome = new javax.swing.JTextField();
         jLabelEmail = new javax.swing.JLabel();
         jTextFieldEmail = new javax.swing.JTextField();
         jPasswordFieldSenha = new javax.swing.JPasswordField();
         jButtonVoltar = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,19 +81,6 @@ public class TelaFuncionario extends javax.swing.JFrame {
 
         jButtonNovo.setText("Novo");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
         jTextFieldNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNomeActionPerformed(evt);
@@ -113,6 +102,9 @@ public class TelaFuncionario extends javax.swing.JFrame {
             }
         });
 
+        jList1.setModel(Listagem.getFuncionarioModel());
+        jScrollPane2.setViewportView(jList1);
+
         javax.swing.GroupLayout jPanelFuncionarioLayout = new javax.swing.GroupLayout(jPanelFuncionario);
         jPanelFuncionario.setLayout(jPanelFuncionarioLayout);
         jPanelFuncionarioLayout.setHorizontalGroup(
@@ -120,8 +112,10 @@ public class TelaFuncionario extends javax.swing.JFrame {
             .addGroup(jPanelFuncionarioLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonNovo)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelFuncionarioLayout.createSequentialGroup()
+                        .addComponent(jButtonNovo)
+                        .addGap(403, 403, 403))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE))
                 .addGroup(jPanelFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelFuncionarioLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -169,8 +163,8 @@ public class TelaFuncionario extends javax.swing.JFrame {
                     .addGroup(jPanelFuncionarioLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(jButtonNovo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelFuncionarioLayout.createSequentialGroup()
                         .addComponent(jButtonVoltar)
                         .addGap(12, 12, 12)
@@ -200,7 +194,7 @@ public class TelaFuncionario extends javax.swing.JFrame {
                             .addComponent(jButtonEditar)
                             .addComponent(jButtonExcluir)
                             .addComponent(jButtonCancelar))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -231,8 +225,8 @@ public class TelaFuncionario extends javax.swing.JFrame {
         boolean validacao = DataAcessObject.validacaoCadastroFuncionario(jTextFieldNome.getText(), jTextFieldEmail.getText(), jPasswordFieldSenha.getText(), salario, cargaHoraria);
 
         if (validacao) {
-            this.setVisible(false);
-            telalogin.setVisible(true);
+            this.jList1.setModel(Listagem.getFuncionarioModel());
+            this.repaint();
             Arquivo.salvarTodos();
         } else {
             JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente. Tente novamente!");
@@ -305,10 +299,10 @@ public class TelaFuncionario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelNome;
     private javax.swing.JLabel jLabelSalario;
     private javax.swing.JLabel jLabelSenha;
+    private javax.swing.JList<Funcionario> jList1;
     private javax.swing.JPanel jPanelFuncionario;
     private javax.swing.JPasswordField jPasswordFieldSenha;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextFieldCargaHoraria;
     private javax.swing.JTextField jTextFieldEmail;
     private javax.swing.JTextField jTextFieldNome;

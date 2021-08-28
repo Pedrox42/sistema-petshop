@@ -235,7 +235,26 @@ public class TelaServico extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
-    private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
+    private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {
+//         TelaPrincipal telalogin = new TelaPrincipal();
+//
+//        boolean validacao = DataAcessObject.validacaoCadastroProduto
+//                (
+//                        jTextFieldNome.getText(),
+//                        jTextAreaDescricao.getText(),
+//                        Float.parseFloat(jTextFieldPreco.getText())
+//                );
+//
+//        if (validacao) {
+//            //this.setVisible(false);
+//            //telalogin.setVisible(true);
+//            this.jList1.setModel(Listagem.getProdutoModel());
+//            this.repaint();
+//            Arquivo.salvarTodos();
+//        } else {
+//            JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente. Tente novamente!");
+//        }
+//GEN-FIRST:event_jButtonSalvarActionPerformed
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
     private void jTextFieldAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAnimalActionPerformed

@@ -16,6 +16,8 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Stream;
 import javax.swing.DefaultListModel;
+import usuario.Admnistrador;
+import usuario.Funcionario;
 
 public class Listagem {
 
@@ -171,5 +173,26 @@ public class Listagem {
     public static DefaultListModel<Usuario> getUsuarioModel(){
         return Listagem.getModelList(UsuarioList);
     }
+    
+    public static DefaultListModel<Funcionario> getFuncionarioModel(){
+        DefaultListModel<Funcionario> newList = new DefaultListModel<>();
+        for(Usuario usuario : Listagem.getUsuarioList()){
+            if(!usuario.isAdmnistrador()){
+                newList.addElement((Funcionario) usuario);
+            }
+        }
+        return newList;
+    }
+    
+        public static DefaultListModel<Admnistrador> getAdmnistradorModel(){
+        DefaultListModel<Admnistrador> newList = new DefaultListModel<>();
+        for(Usuario usuario : Listagem.getUsuarioList()){
+            if(usuario.isAdmnistrador()){
+                newList.addElement((Admnistrador) usuario);
+            }
+        }
+        return newList;
+    }
+    
     
 }
