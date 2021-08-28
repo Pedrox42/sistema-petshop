@@ -257,65 +257,69 @@ public class TelaAnimal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
-        int selectedIndex = this.jList1.getSelectedIndex();
-        Animal animal = this.jList1.getModel().getElementAt(selectedIndex);
-        
-        if(animal.getTipo() == this.jComboBoxTipo.getSelectedIndex()){
-            try{
-                if (selectedIndex != -1) {
-                   switch(animal.getTipo()){
-                    case 1:
-                        Cachorro cachorro = (Cachorro) animal;
-                        cachorro.editar
-                            (
-                                jTextFieldNome.getText(),
-                                jTextFieldCor.getText(),
-                                jTextFieldRaca.getText(),
-                                jComboBoxSexo.getSelectedIndex() == 1 ? 'F' : 'M',
-                                Integer.parseInt(jTextFieldIdade.getText()),
-                                Float.parseFloat(jTextFieldPeso.getText()),
-                                Float.parseFloat(jTextFieldComprimento.getText())
-                            );
-                    break;
+         if(DataAcessObject.getUsuarioLogado() != null){
+             int selectedIndex = this.jList1.getSelectedIndex();
+            Animal animal = this.jList1.getModel().getElementAt(selectedIndex);
 
-                    case 2:
-                        Gato gato = (Gato) animal;
-                        gato.editar
-                            (
-                                jTextFieldNome.getText(),
-                                jTextFieldCor.getText(),
-                                jTextFieldRaca.getText(),
-                                jComboBoxSexo.getSelectedIndex() == 1 ? 'F' : 'M',
-                                Integer.parseInt(jTextFieldIdade.getText()),
-                                Float.parseFloat(jTextFieldPeso.getText()),
-                                Float.parseFloat(jTextFieldComprimento.getText())
-                            );
-                    break;
+            if(animal.getTipo() == this.jComboBoxTipo.getSelectedIndex()){
+                try{
+                    if (selectedIndex != -1) {
+                       switch(animal.getTipo()){
+                        case 1:
+                            Cachorro cachorro = (Cachorro) animal;
+                            cachorro.editar
+                                (
+                                    jTextFieldNome.getText(),
+                                    jTextFieldCor.getText(),
+                                    jTextFieldRaca.getText(),
+                                    jComboBoxSexo.getSelectedIndex() == 1 ? 'F' : 'M',
+                                    Integer.parseInt(jTextFieldIdade.getText()),
+                                    Float.parseFloat(jTextFieldPeso.getText()),
+                                    Float.parseFloat(jTextFieldComprimento.getText())
+                                );
+                        break;
 
-                    case 3:
-                        Papagaio papagaio = (Papagaio) animal;
-                        papagaio.editar
-                            (
-                                jTextFieldNome.getText(),
-                                jTextFieldCor.getText(),
-                                jTextFieldRaca.getText(),
-                                jComboBoxSexo.getSelectedIndex() == 1 ? 'F' : 'M',
-                                Integer.parseInt(jTextFieldIdade.getText()),
-                                Float.parseFloat(jTextFieldPeso.getText()),
-                                Float.parseFloat(jTextFieldComprimento.getText())
-                            );
-                    break;
+                        case 2:
+                            Gato gato = (Gato) animal;
+                            gato.editar
+                                (
+                                    jTextFieldNome.getText(),
+                                    jTextFieldCor.getText(),
+                                    jTextFieldRaca.getText(),
+                                    jComboBoxSexo.getSelectedIndex() == 1 ? 'F' : 'M',
+                                    Integer.parseInt(jTextFieldIdade.getText()),
+                                    Float.parseFloat(jTextFieldPeso.getText()),
+                                    Float.parseFloat(jTextFieldComprimento.getText())
+                                );
+                        break;
+
+                        case 3:
+                            Papagaio papagaio = (Papagaio) animal;
+                            papagaio.editar
+                                (
+                                    jTextFieldNome.getText(),
+                                    jTextFieldCor.getText(),
+                                    jTextFieldRaca.getText(),
+                                    jComboBoxSexo.getSelectedIndex() == 1 ? 'F' : 'M',
+                                    Integer.parseInt(jTextFieldIdade.getText()),
+                                    Float.parseFloat(jTextFieldPeso.getText()),
+                                    Float.parseFloat(jTextFieldComprimento.getText())
+                                );
+                        break;
+                    }
+                        this.jList1.setModel(Listagem.getAnimalModel());
+                        this.repaint();
+                        Arquivo.salvarTodos();
+                        this.jList1.setSelectedIndex(selectedIndex);
+                    }
+                } catch(Exception ex){
+                     JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente!");
                 }
-                    this.jList1.setModel(Listagem.getAnimalModel());
-                    this.repaint();
-                    Arquivo.salvarTodos();
-                    this.jList1.setSelectedIndex(selectedIndex);
-                }
-            } catch(Exception ex){
-                 JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente!");
+            } else{
+                 JOptionPane.showMessageDialog(this, "Erro: Por favor nao altere o tipo do animal selecionado!");
             }
         } else{
-             JOptionPane.showMessageDialog(this, "Erro: Por favor nao altere o tipo do animal selecionado!");
+             JOptionPane.showMessageDialog(this, "Erro: Voce nao tem permissao para essa acao!");
         }
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
@@ -389,38 +393,41 @@ public class TelaAnimal extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldRacaActionPerformed
 
     private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
+        if(DataAcessObject.getUsuarioLogado() != null){
+            int selectedIndex = this.jList1.getSelectedIndex();
+            try{
+               if (selectedIndex != -1) {
+                   DefaultListModel<Animal> model = (DefaultListModel<Animal>) this.jList1.getModel();
+                   Animal animal = model.get(selectedIndex);
 
-        int selectedIndex = this.jList1.getSelectedIndex();
-        try{
-           if (selectedIndex != -1) {
-               DefaultListModel<Animal> model = (DefaultListModel<Animal>) this.jList1.getModel();
-               Animal animal = model.get(selectedIndex);
-               
-               switch(animal.getTipo()){
-                    case 1:
-                       Cachorro cachorro = (Cachorro) animal;
-                       cachorro.deletar();
-                       break;
-                       
-                    case 2:
-                        Gato gato = (Gato) animal;
-                        gato.deletar();
-                        break;
-                    case 3:
-                        Papagaio papagaio = (Papagaio) animal;
-                        papagaio.deletar();
-                        break;
+                   switch(animal.getTipo()){
+                        case 1:
+                           Cachorro cachorro = (Cachorro) animal;
+                           cachorro.deletar();
+                           break;
+
+                        case 2:
+                            Gato gato = (Gato) animal;
+                            gato.deletar();
+                            break;
+                        case 3:
+                            Papagaio papagaio = (Papagaio) animal;
+                            papagaio.deletar();
+                            break;
+                   }
+
+                   this.jList1.setModel(Listagem.getAnimalModel());
+                   this.repaint();
+                   Arquivo.salvarTodos();
                }
-               
-               this.jList1.setModel(Listagem.getAnimalModel());
-               this.repaint();
-               Arquivo.salvarTodos();
-           }
-        } catch(Exception ex){
-             JOptionPane.showMessageDialog(this, "Erro: Por favor selecione um Produto valido!");
+            } catch(Exception ex){
+                 JOptionPane.showMessageDialog(this, "Erro: Por favor selecione um Produto valido!");
+            }
+        } else{
+            JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente. Tente novamente!");
+        }
     }//GEN-LAST:event_jButtonExcluirActionPerformed
 
-}
     private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList1ValueChanged
         int selectedIndex = this.jList1.getSelectedIndex();
 

@@ -217,26 +217,29 @@ public class TelaProduto extends javax.swing.JFrame {
 
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
-         int selectedIndex = this.jList1.getSelectedIndex();
-         try{
-            if (selectedIndex != -1) {
-                ListModel<Produto> model = this.jList1.getModel();
-                Produto produto = model.getElementAt(selectedIndex);
-                produto.editar
-                (
-                        this.jTextFieldNome.getText(), 
-                        this.jTextAreaDescricao.getText(), 
-                        Float.parseFloat(this.jTextFieldPreco.getText())
-                );
-                this.jList1.setModel(Listagem.getProdutoModel());
-                this.repaint();
-                Arquivo.salvarTodos();
-                this.jList1.setSelectedIndex(selectedIndex);
+        if(DataAcessObject.getUsuarioLogado() != null){
+            int selectedIndex = this.jList1.getSelectedIndex();
+            try{
+               if (selectedIndex != -1) {
+                   ListModel<Produto> model = this.jList1.getModel();
+                   Produto produto = model.getElementAt(selectedIndex);
+                   produto.editar
+                   (
+                           this.jTextFieldNome.getText(), 
+                           this.jTextAreaDescricao.getText(), 
+                           Float.parseFloat(this.jTextFieldPreco.getText())
+                   );
+                   this.jList1.setModel(Listagem.getProdutoModel());
+                   this.repaint();
+                   Arquivo.salvarTodos();
+                   this.jList1.setSelectedIndex(selectedIndex);
+               }
+            } catch(Exception ex){
+                 JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente!");
             }
-         } catch(Exception ex){
-              JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente!");
-         }
-        
+        } else{
+            JOptionPane.showMessageDialog(this, "Erro: Voce nao tem permissao para essa acao!");
+        }
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
     private void jTextFieldNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeActionPerformed
@@ -244,18 +247,22 @@ public class TelaProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldNomeActionPerformed
 
     private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
-        int selectedIndex = this.jList1.getSelectedIndex();
-        try{
-           if (selectedIndex != -1) {
-               DefaultListModel<Produto> model = (DefaultListModel<Produto>) this.jList1.getModel();
-               Produto produto = model.get(selectedIndex);
-               produto.deletar();
-               this.jList1.setModel(Listagem.getProdutoModel());
-               this.repaint();
-               Arquivo.salvarTodos();
-           }
-        } catch(Exception ex){
-             JOptionPane.showMessageDialog(this, "Erro: Por favor selecione um Produto valido!");
+        if(DataAcessObject.getUsuarioLogado() != null){
+            int selectedIndex = this.jList1.getSelectedIndex();
+              try{
+                 if (selectedIndex != -1) {
+                     DefaultListModel<Produto> model = (DefaultListModel<Produto>) this.jList1.getModel();
+                     Produto produto = model.get(selectedIndex);
+                     produto.deletar();
+                     this.jList1.setModel(Listagem.getProdutoModel());
+                     this.repaint();
+                     Arquivo.salvarTodos();
+                 }
+              } catch(Exception ex){
+                   JOptionPane.showMessageDialog(this, "Erro: Por favor selecione um Produto valido!");
+              }
+        } else{
+            JOptionPane.showMessageDialog(this, "Erro: Voce nao tem permissao para essa acao!");
         }
     }//GEN-LAST:event_jButtonExcluirActionPerformed
 

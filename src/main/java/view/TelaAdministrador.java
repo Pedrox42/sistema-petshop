@@ -217,25 +217,29 @@ public class TelaAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
-        int selectedIndex = this.jList1.getSelectedIndex();
-        try{
-            if (selectedIndex != -1) {
-                ListModel<Admnistrador> model = this.jList1.getModel();
-                Admnistrador admnistrador = model.getElementAt(selectedIndex);
-                admnistrador.editarAdmnistrador
-                (
-                        this.jTextFieldNome.getText(), 
-                        this.jTextFieldEmail.getText(), 
-                        !new String(this.jPasswordFieldSenha.getPassword()).equals("") ?  new String(this.jPasswordFieldSenha.getPassword()) : admnistrador.getSenha()
-                );
-                this.jList1.setModel(Listagem.getAdmnistradorModel());
-                this.repaint();
-                Arquivo.salvarTodos();
-                this.jList1.setSelectedIndex(selectedIndex);
-            }
-         } catch(Exception ex){
-              JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente!");
-         }
+        if(DataAcessObject.getUsuarioLogado() != null && DataAcessObject.getUsuarioLogado().isAdmnistrador()){
+            int selectedIndex = this.jList1.getSelectedIndex();
+            try{
+                if (selectedIndex != -1) {
+                    ListModel<Admnistrador> model = this.jList1.getModel();
+                    Admnistrador admnistrador = model.getElementAt(selectedIndex);
+                    admnistrador.editarAdmnistrador
+                    (
+                            this.jTextFieldNome.getText(), 
+                            this.jTextFieldEmail.getText(), 
+                            !new String(this.jPasswordFieldSenha.getPassword()).equals("") ?  new String(this.jPasswordFieldSenha.getPassword()) : admnistrador.getSenha()
+                    );
+                    this.jList1.setModel(Listagem.getAdmnistradorModel());
+                    this.repaint();
+                    Arquivo.salvarTodos();
+                    this.jList1.setSelectedIndex(selectedIndex);
+                }
+             } catch(Exception ex){
+                  JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente!");
+             }
+        } else{
+            JOptionPane.showMessageDialog(this, "Erro: Voce nao tem permissao para essa acao!");
+        }
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
     private void jTextFieldNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeActionPerformed
@@ -252,18 +256,22 @@ public class TelaAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonVoltarActionPerformed
 
     private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
-        int selectedIndex = this.jList1.getSelectedIndex();
-        try{
-           if (selectedIndex != -1) {
-               DefaultListModel<Admnistrador> model = (DefaultListModel<Admnistrador>) this.jList1.getModel();
-               Admnistrador admnistrador = model.get(selectedIndex);
-               admnistrador.deletar();
-               this.jList1.setModel(Listagem.getAdmnistradorModel());
-               this.repaint();
-               Arquivo.salvarTodos();
-           }
-        } catch(Exception ex){
-             JOptionPane.showMessageDialog(this, "Erro: Por favor selecione um Produto valido!");
+        if(DataAcessObject.getUsuarioLogado() != null && DataAcessObject.getUsuarioLogado().isAdmnistrador()){
+           int selectedIndex = this.jList1.getSelectedIndex();
+            try{
+               if (selectedIndex != -1) {
+                   DefaultListModel<Admnistrador> model = (DefaultListModel<Admnistrador>) this.jList1.getModel();
+                   Admnistrador admnistrador = model.get(selectedIndex);
+                   admnistrador.deletar();
+                   this.jList1.setModel(Listagem.getAdmnistradorModel());
+                   this.repaint();
+                   Arquivo.salvarTodos();
+               }
+            } catch(Exception ex){
+                 JOptionPane.showMessageDialog(this, "Erro: Por favor selecione um Produto valido!");
+            } 
+        } else{
+            JOptionPane.showMessageDialog(this, "Erro: Voce nao tem permissao para essa acao!");
         }
     }//GEN-LAST:event_jButtonExcluirActionPerformed
 
