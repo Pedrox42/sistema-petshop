@@ -6,6 +6,9 @@
 package view;
 
 import animal.Animal;
+import animal.Cachorro;
+import animal.Gato;
+import animal.Papagaio;
 import arquivo.Arquivo;
 import arquivo.Listagem;
 import dao.DataAcessObject;
@@ -248,7 +251,30 @@ public class TelaAnimal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
-        // TODO add your handling code here:
+//        int selectedIndex = this.jList1.getSelectedIndex();
+//        try{
+//            if (selectedIndex != -1) {
+//               switch(){
+//                case 1:
+//                    
+//                break;
+//                
+//                case 2:
+//                   
+//                break;
+//                        
+//                case 3:
+//                    
+//                break;
+//            }
+//                this.jList1.setModel(Listagem.getAdmnistradorModel());
+//                this.repaint();
+//                Arquivo.salvarTodos();
+//                this.jList1.setSelectedIndex(selectedIndex);
+//            }
+//         } catch(Exception ex){
+//              JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente!");
+//         }:
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
@@ -322,8 +348,36 @@ public class TelaAnimal extends javax.swing.JFrame {
 
     private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
 
+        int selectedIndex = this.jList1.getSelectedIndex();
+        try{
+           if (selectedIndex != -1) {
+               DefaultListModel<Animal> model = (DefaultListModel<Animal>) this.jList1.getModel();
+               Animal animal = model.get(selectedIndex);
+               
+               switch(animal.getTipo()){
+                    case 1:
+                       Cachorro cachorro = (Cachorro) animal;
+                       cachorro.deletar();
+                       break;
+                       
+                    case 2:
+                        Gato gato = (Gato) animal;
+                        gato.deletar();
+                        break;
+                    case 3:
+                        Papagaio papagaio = (Papagaio) animal;
+                        papagaio.deletar();
+                        break;
+               }
+               
+               this.jList1.setModel(Listagem.getAnimalModel());
+               this.repaint();
+               Arquivo.salvarTodos();
+           }
+        } catch(Exception ex){
+             JOptionPane.showMessageDialog(this, "Erro: Por favor selecione um Produto valido!");
     }//GEN-LAST:event_jButtonExcluirActionPerformed
-
+}
     /**
      * @param args the command line arguments
      */
