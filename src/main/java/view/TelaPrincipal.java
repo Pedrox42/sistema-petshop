@@ -45,6 +45,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         getContentPane().add(filler1);
         filler1.setBounds(510, 130, 10, 0);
 
+        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
         jPanel1.setLayout(null);
 
         jLabelLogoInicio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -60,17 +61,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         }.getIcon());
         jPanel1.add(jLabelLogoInicio);
-        jLabelLogoInicio.setBounds(0, 20, 270, 250);
+        jLabelLogoInicio.setBounds(10, 30, 270, 250);
 
         jLabelTelaInicial.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabelTelaInicial.setForeground(new java.awt.Color(102, 102, 102));
         jLabelTelaInicial.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTelaInicial.setText("Bem vindo!");
         jPanel1.add(jLabelTelaInicial);
-        jLabelTelaInicial.setBounds(250, -10, 150, 140);
+        jLabelTelaInicial.setBounds(260, -10, 150, 140);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 410, 280);
+        jPanel1.setBounds(-10, -10, 430, 300);
+
+        jMenuBar1.setBackground(new java.awt.Color(204, 204, 204));
+        jMenuBar1.setForeground(new java.awt.Color(102, 102, 102));
 
         jMenuInicio.setText("Inicio");
 
