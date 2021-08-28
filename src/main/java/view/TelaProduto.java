@@ -188,6 +188,7 @@ public class TelaProduto extends javax.swing.JFrame {
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
         TelaPrincipal tela = new TelaPrincipal();
         tela.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButtonVoltarActionPerformed
 
     private void jTextFieldNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeActionPerformed
