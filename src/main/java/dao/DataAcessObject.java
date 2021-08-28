@@ -33,6 +33,7 @@ public class DataAcessObject {
 
         try {
             Usuario admLogado = DataAcessObject.getUsuarioLogado();
+            System.out.println(admLogado);
             if(admLogado != null && admLogado.isAdmnistrador()){
                 Admnistrador adm2 = (Admnistrador) admLogado;
                 adm2.cadastrarAdmnistrador(nome, email, senha);
@@ -112,7 +113,8 @@ public class DataAcessObject {
             for (int i = 0; i < Listagem.getUsuarioList().size(); i++) {
                 Usuario usuario = Listagem.getUsuarioList().get(i);
                 if (usuario.getLogin().equals(login) && usuario.getSenha().equals(senha)) {
-                        return true;
+                    setUsuarioLogado(usuario);    
+                    return true;
                 }
             }
         } catch (Exception ex) {
