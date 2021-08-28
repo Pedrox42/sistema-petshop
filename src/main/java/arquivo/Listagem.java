@@ -1,5 +1,6 @@
 package arquivo;
 
+import animal.Animal;
 import animal.Cachorro;
 import animal.Gato;
 import animal.Papagaio;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Stream;
 import javax.swing.DefaultListModel;
 
 public class Listagem {
@@ -110,12 +112,11 @@ public class Listagem {
         UsuarioList = usuarioList;
     }
     
-    public static  <T> DefaultListModel<String> getModelList(List<T> listagem, Class<?> classe){
-        DefaultListModel<String> modelList = new DefaultListModel<String>();
+        public static  <T> DefaultListModel<T> getModelList(List<T> listagem){
+        DefaultListModel<T> modelList = new DefaultListModel<T>();
         try{
-            Method nome = classe.getMethod("getNome", new Class<?>[0]);
             for(T instance : listagem){
-            modelList.addElement((String) nome.invoke(instance));
+            modelList.addElement(instance);
         }
         } catch(Exception ex){
             ex.printStackTrace();
@@ -123,36 +124,52 @@ public class Listagem {
         return modelList;
     }
     
-    public static DefaultListModel<String> getTratamentoModel(){
-        return Listagem.getModelList(TratamentoList, Tratamento.class);
+    protected static <T> void addTo(DefaultListModel<T> from, DefaultListModel<T> to) {
+    for (int index = 0; index < from.getSize(); index++) {
+        to.addElement(from.getElementAt(index));
+    }
+}
+    
+    public static DefaultListModel<Tratamento> getTratamentoModel(){
+        return Listagem.getModelList(TratamentoList);
     }
     
-    public static DefaultListModel<String> getProdutoModel(){
-        return Listagem.getModelList(ProdutoList, Produto.class);
+    public static DefaultListModel<Produto> getProdutoModel(){
+        return Listagem.getModelList(ProdutoList);
     }
         
-     public static DefaultListModel<String> getServicoModel(){
-        return Listagem.getModelList(ServicoList, Servico.class);
-    }
+     public static DefaultListModel<Servico> getServicoModel(){
+        return Listagem.getModelList(ServicoList);
+    }   
      
-    public static DefaultListModel<String> getCachorroModel(){
-        return Listagem.getModelList(CachorroList, Cachorro.class);
+    public static DefaultListModel<Cachorro> getCachorroModel(){
+        return Listagem.getModelList(CachorroList);
     }
     
-    public static DefaultListModel<String> getGatoModel(){
-        return Listagem.getModelList(GatoList, Gato.class);
+    public static DefaultListModel<Gato> getGatoModel(){
+        return Listagem.getModelList(GatoList);
     }
     
-    public static DefaultListModel<String> getPapagaioModel(){
-        return Listagem.getModelList(CachorroList, Papagaio.class);
+    public static DefaultListModel<Papagaio> getPapagaioModel(){
+        return Listagem.getModelList(PapagaioList);
     }
+    
+    public static <T extends Animal> DefaultListModel<T> getAnimalModel(){
+        DefaultListModel<T> newList = new DefaultListModel<T>();
+        try{
+                Listagem.addTo((DefaultListModel<T>) Listagem.getCachorroModel(), newList);
+                Listagem.addTo((DefaultListModel<T>) Listagem.getGatoModel(), newList);
+                Listagem.addTo((DefaultListModel<T>) Listagem.getPapagaioModel(), newList);
+
+        } catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return newList;
+    }
+    
           
-    public static DefaultListModel<String> getUsuarioModel(){
-        return Listagem.getModelList(UsuarioList, Usuario.class);
+    public static DefaultListModel<Usuario> getUsuarioModel(){
+        return Listagem.getModelList(UsuarioList);
     }
-    
-
-
-    
     
 }

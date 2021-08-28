@@ -35,6 +35,11 @@ public class Usuario implements Operacoes {
         }
 
     }
+    
+    @Override
+    public String toString() {
+        return this.getNome();
+    }
 
     public static List<Usuario> getUsuarioList() {
         return UsuarioList;

@@ -26,6 +26,11 @@ public class Produto implements Operacoes  {
         this.preco = preco;
         this.setId(Produto.getNextId());
     }
+    
+    @Override
+    public String toString() {
+        return this.getNome();
+    }
 
     public static void listAdd(Produto produto) {
         ProdutoList.add(produto);

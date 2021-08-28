@@ -39,6 +39,11 @@ public class Servico implements Operacoes {
         this.setId(Servico.getNextId());
         this.nome = nome;
     }
+    
+    @Override
+    public String toString() {
+        return this.getNome();
+    }
 
     public static void listAdd(Servico servico) {
         ServicoList.add(servico);

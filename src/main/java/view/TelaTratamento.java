@@ -289,7 +289,7 @@ public class TelaTratamento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelNome;
     private javax.swing.JLabel jLabelPreco;
     private javax.swing.JLabel jLabelTempoDuracao;
-    private javax.swing.JList<String> jList1;
+    private javax.swing.JList<Tratamento> jList1;
     private javax.swing.JPanel jPanelListagem;
     private javax.swing.JPanel jPanelTratamento;
     private javax.swing.JScrollPane jScrollPane1;

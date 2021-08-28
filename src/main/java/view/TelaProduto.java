@@ -6,9 +6,11 @@
 package view;
 
 import arquivo.Arquivo;
+import arquivo.Listagem;
 import dao.DataAcessObject;
 
 import javax.swing.*;
+import produto.Produto;
 
 public class TelaProduto extends javax.swing.JFrame {
 
@@ -38,11 +40,11 @@ public class TelaProduto extends javax.swing.JFrame {
         jButtonExcluir = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
         jButtonNovo = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jTextFieldNome = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextAreaDescricao = new javax.swing.JTextArea();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,19 +82,6 @@ public class TelaProduto extends javax.swing.JFrame {
 
         jButtonNovo.setText("Novo");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
         jTextFieldNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNomeActionPerformed(evt);
@@ -103,6 +92,9 @@ public class TelaProduto extends javax.swing.JFrame {
         jTextAreaDescricao.setRows(5);
         jScrollPane2.setViewportView(jTextAreaDescricao);
 
+        jList1.setModel(Listagem.getProdutoModel());
+        jScrollPane3.setViewportView(jList1);
+
         javax.swing.GroupLayout jPanelProdutoLayout = new javax.swing.GroupLayout(jPanelProduto);
         jPanelProduto.setLayout(jPanelProdutoLayout);
         jPanelProdutoLayout.setHorizontalGroup(
@@ -110,9 +102,11 @@ public class TelaProduto extends javax.swing.JFrame {
             .addGroup(jPanelProdutoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonNovo)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanelProdutoLayout.createSequentialGroup()
+                        .addComponent(jButtonNovo)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanelProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelProdutoLayout.createSequentialGroup()
                         .addGroup(jPanelProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -145,7 +139,7 @@ public class TelaProduto extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addComponent(jButtonNovo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelProdutoLayout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addGroup(jPanelProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -182,8 +176,6 @@ public class TelaProduto extends javax.swing.JFrame {
             .addComponent(jPanelProduto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanelProduto.getAccessibleContext().setAccessibleName("Cadastro de Produtos");
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -202,8 +194,10 @@ public class TelaProduto extends javax.swing.JFrame {
                 );
 
         if (validacao) {
-            this.setVisible(false);
-            telalogin.setVisible(true);
+            //this.setVisible(false);
+            //telalogin.setVisible(true);
+            this.jList1.setModel(Listagem.getProdutoModel());
+            this.repaint();
             Arquivo.salvarTodos();
         } else {
             JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente. Tente novamente!");
@@ -262,10 +256,10 @@ public class TelaProduto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelDescricao;
     private javax.swing.JLabel jLabelPreco;
     private javax.swing.JLabel jLabelTipo;
+    private javax.swing.JList<Produto> jList1;
     private javax.swing.JPanel jPanelProduto;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextArea jTextAreaDescricao;
     private javax.swing.JTextField jTextFieldNome;
     private javax.swing.JTextField jTextFieldPreco;

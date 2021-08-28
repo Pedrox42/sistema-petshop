@@ -23,6 +23,11 @@ public abstract class Animal {
     }
 
     public Animal(){}
+    
+    @Override
+    public String toString() {
+        return this.getNome();
+    }
 
     public int getId() { return id; }
 
@@ -88,18 +93,6 @@ public abstract class Animal {
         this.sexo = sexo;
     }
 
-    @Override
-    public String toString() {
-        return "Animal{" +
-                "nome='" + nome + '\'' +
-                ", cor='" + cor + '\'' +
-                ", raca='" + raca + '\'' +
-                ", sexo=" + sexo +
-                ", idade=" + idade +
-                ", peso=" + peso +
-                ", comprimento=" + comprimento +
-                '}';
-    }
 
     public abstract String saudavel();
 

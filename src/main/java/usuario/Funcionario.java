@@ -16,16 +16,6 @@ public class Funcionario extends Usuario {
         this.setCargaHoraria(cargaHoraria);
     }
 
-    @Override
-    public String toString() {
-        return "Funcionario{" + "Id:" + this.getId() +
-                ", Nome:" + this.getNome() +
-                ", Cargo:" + this.cargo() +
-                ", cargaHoraria=" + this.getCargaHoraria() +
-                ", salario=" + this.getSalario() +
-                '}';
-    }
-
     public boolean editarFuncionario(String varNome, String varLogin, String varSenha, float varSalario, int varCargaHoraria){
         if(Usuario.getUsuarioList().contains(this)){
             try{

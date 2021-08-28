@@ -20,14 +20,6 @@ public class Admnistrador extends Usuario{
         this.setId(Usuario.getNextId());
     }
 
-    @Override
-    public String toString() {
-        return "Administrador{" +
-                "Nome:" + this.getNome() +
-                ", ID:" + this.getId() +
-                ", Cargo:" + this.cargo() +"}";
-    }
-
     public Funcionario cadastrarFuncionario()
     {
         Scanner teclado = new Scanner(System.in);

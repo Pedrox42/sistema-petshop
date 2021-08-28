@@ -5,7 +5,9 @@
  */
 package view;
 
+import animal.Animal;
 import arquivo.Arquivo;
+import arquivo.Listagem;
 import dao.DataAcessObject;
 
 import javax.swing.*;
@@ -49,9 +51,9 @@ public class TelaAnimal extends javax.swing.JFrame {
         jButtonExcluir = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
         jButtonNovo = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jTextFieldRaca = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -114,24 +116,14 @@ public class TelaAnimal extends javax.swing.JFrame {
 
         jButtonNovo.setText("Novo");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Tipo", "Nome", "Cor", "Ra�a", "Sexo", "Idade", "Peso", "Comprimento"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
         jTextFieldRaca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldRacaActionPerformed(evt);
             }
         });
+
+        jList1.setModel(Listagem.getAnimalModel());
+        jScrollPane2.setViewportView(jList1);
 
         javax.swing.GroupLayout jPanelAnimalLayout = new javax.swing.GroupLayout(jPanelAnimal);
         jPanelAnimal.setLayout(jPanelAnimalLayout);
@@ -141,8 +133,8 @@ public class TelaAnimal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanelAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonNovo)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(jPanelAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAnimalLayout.createSequentialGroup()
                         .addGroup(jPanelAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -184,14 +176,13 @@ public class TelaAnimal extends javax.swing.JFrame {
         jPanelAnimalLayout.setVerticalGroup(
             jPanelAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelAnimalLayout.createSequentialGroup()
-                .addGroup(jPanelAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(20, 20, 20)
+                .addGroup(jPanelAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanelAnimalLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
                         .addComponent(jButtonNovo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelAnimalLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
                         .addGroup(jPanelAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelTipo)
                             .addComponent(jLabelNome))
@@ -229,7 +220,7 @@ public class TelaAnimal extends javax.swing.JFrame {
                             .addComponent(jButtonEditar)
                             .addComponent(jButtonExcluir)
                             .addComponent(jButtonCancelar))))
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addContainerGap(118, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -297,8 +288,10 @@ public class TelaAnimal extends javax.swing.JFrame {
         }
 
         if (validacao) {
-            this.setVisible(false);
-            telalogin.setVisible(true);
+            //this.setVisible(false);
+            //telalogin.setVisible(true);
+            this.jList1.setModel(Listagem.getAnimalModel());
+            this.repaint();
             Arquivo.salvarTodos();
         } else {
             JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente. Tente novamente!");
@@ -373,9 +366,9 @@ public class TelaAnimal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelRaca;
     private javax.swing.JLabel jLabelSexo;
     private javax.swing.JLabel jLabelTipo;
+    private javax.swing.JList<? extends Animal> jList1;
     private javax.swing.JPanel jPanelAnimal;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextFieldComprimento;
     private javax.swing.JTextField jTextFieldCor;
     private javax.swing.JTextField jTextFieldIdade;
