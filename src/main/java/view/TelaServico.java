@@ -268,22 +268,22 @@ public class TelaServico extends javax.swing.JFrame {
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
         if(DataAcessObject.getUsuarioLogado() != null && DataAcessObject.getUsuarioLogado().isAdmnistrador()){
-            int selectedIndex = this.jList1.getSelectedIndex();
+            int selectedIndex = jList1.getSelectedIndex();
             try{
                 if (selectedIndex != -1) {
-                    Servico servico = this.jList1.getModel().getElementAt(selectedIndex);
+                    Servico servico = jList1.getModel().getElementAt(selectedIndex);
                     servico.editar  
                     (
-                        this.jComboBoxFuncionario.getModel().getElementAt(this.jComboBoxFuncionario.getSelectedIndex()).getId(),
-                        this.jComboBoxAnimal.getModel().getElementAt(this.jComboBoxAnimal.getSelectedIndex()).getId(),
-                        this.jComboBoxAnimal.getModel().getElementAt(this.jComboBoxAnimal.getSelectedIndex()).getClass().getName(),
-                        this.jComboBoxTratamento.getModel().getElementAt(this.jComboBoxTratamento.getSelectedIndex()).getId(),
-                        this.getElementsAt(this.jListProduto.getSelectedIndices(), this.jListProduto),
-                        this.jTextFieldNome.getText()
+                        jComboBoxFuncionario.getModel().getElementAt(jComboBoxFuncionario.getSelectedIndex()).getId(),
+                        jComboBoxAnimal.getModel().getElementAt(jComboBoxAnimal.getSelectedIndex()).getId(),
+                        jComboBoxAnimal.getModel().getElementAt(jComboBoxAnimal.getSelectedIndex()).getClass().getName(),
+                        jComboBoxTratamento.getModel().getElementAt(jComboBoxTratamento.getSelectedIndex()).getId(),
+                        getElementsAt(jListProduto.getSelectedIndices(), jListProduto),
+                        jTextFieldNome.getText()
                     );
                     
-                    this.jList1.setModel(Listagem.getServicoModel());
-                    this.repaint();
+                    jList1.setModel(Listagem.getServicoModel());
+                    repaint();
                     Arquivo.salvarTodos();
                 }
             } catch(Exception ex){
@@ -311,19 +311,19 @@ public class TelaServico extends javax.swing.JFrame {
         TelaPrincipal telalogin = new TelaPrincipal();
         boolean validacao = DataAcessObject.validacaoCadastroServico
             (
-                this.jComboBoxFuncionario.getModel().getElementAt(this.jComboBoxFuncionario.getSelectedIndex()).getId(),
-                this.jComboBoxAnimal.getModel().getElementAt(this.jComboBoxAnimal.getSelectedIndex()).getId(),
-                this.jComboBoxAnimal.getModel().getElementAt(this.jComboBoxAnimal.getSelectedIndex()).getClass().getName(),
-                this.jComboBoxTratamento.getModel().getElementAt(this.jComboBoxTratamento.getSelectedIndex()).getId(),
-                this.getElementsAt(this.jListProduto.getSelectedIndices(), this.jListProduto),
-                this.jTextFieldNome.getText()
+                jComboBoxFuncionario.getModel().getElementAt(jComboBoxFuncionario.getSelectedIndex()).getId(),
+                jComboBoxAnimal.getModel().getElementAt(jComboBoxAnimal.getSelectedIndex()).getId(),
+                jComboBoxAnimal.getModel().getElementAt(jComboBoxAnimal.getSelectedIndex()).getClass().getName(),
+                jComboBoxTratamento.getModel().getElementAt(jComboBoxTratamento.getSelectedIndex()).getId(),
+                getElementsAt(jListProduto.getSelectedIndices(), jListProduto),
+                jTextFieldNome.getText()
             );
 
         if (validacao) {
-            //this.setVisible(false);
+            //setVisible(false);
             //telalogin.setVisible(true);
-            this.jList1.setModel(Listagem.getServicoModel());
-            this.repaint();
+            jList1.setModel(Listagem.getServicoModel());
+            repaint();
             Arquivo.salvarTodos();
         } else {
             JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente. Tente novamente!");
@@ -339,13 +339,13 @@ public class TelaServico extends javax.swing.JFrame {
 
     private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
                 if(DataAcessObject.getUsuarioLogado() != null && DataAcessObject.getUsuarioLogado().isAdmnistrador()){
-            int selectedIndex = this.jList1.getSelectedIndex();
+            int selectedIndex = jList1.getSelectedIndex();
             try{
                 if (selectedIndex != -1) {
-                    Servico servico = this.jList1.getModel().getElementAt(selectedIndex);
+                    Servico servico = jList1.getModel().getElementAt(selectedIndex);
                     servico.deletar();
-                    this.jList1.setModel(Listagem.getServicoModel());
-                    this.repaint();
+                    jList1.setModel(Listagem.getServicoModel());
+                    repaint();
                     Arquivo.salvarTodos();
                 }
             } catch(Exception ex){
@@ -388,7 +388,7 @@ public class TelaServico extends javax.swing.JFrame {
        int[] indices = new int[lista.size()];
        int i = 0;
         for(Integer valor : lista){
-            indices[i] = this.getListElement(valor, this.jListProduto, Produto.class);
+            indices[i] = getListElement(valor, jListProduto, Produto.class);
             i++;
         }
         
@@ -397,16 +397,16 @@ public class TelaServico extends javax.swing.JFrame {
     
     
     private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList1ValueChanged
-        int selectedIndex = this.jList1.getSelectedIndex();
+        int selectedIndex = jList1.getSelectedIndex();
             
         try{
             if (selectedIndex != -1) {
-                Servico servico = this.jList1.getModel().getElementAt(selectedIndex);
-                this.jTextFieldNome.setText(servico.getNome());
-                this.jComboBoxTratamento.setSelectedIndex(this.getComboBoxElement(servico.getTratamentoId(), this.jComboBoxTratamento, Tratamento.class));
-                this.jComboBoxAnimal.setSelectedIndex(this.getComboBoxElement(servico.getAnimalId(), this.jComboBoxAnimal, Animal.class));
-                this.jComboBoxFuncionario.setSelectedIndex(this.getComboBoxElement(servico.getFuncionarioId(), this.jComboBoxFuncionario, Funcionario.class));
-                this.jListProduto.setSelectedIndices(this.selectElementsProdutos(servico.getListaProdutosId()));
+                Servico servico = jList1.getModel().getElementAt(selectedIndex);
+                jTextFieldNome.setText(servico.getNome());
+                jComboBoxTratamento.setSelectedIndex(getComboBoxElement(servico.getTratamentoId(), jComboBoxTratamento, Tratamento.class));
+                jComboBoxAnimal.setSelectedIndex(getComboBoxElement(servico.getAnimalId(), jComboBoxAnimal, Animal.class));
+                jComboBoxFuncionario.setSelectedIndex(getComboBoxElement(servico.getFuncionarioId(), jComboBoxFuncionario, Funcionario.class));
+                jListProduto.setSelectedIndices(selectElementsProdutos(servico.getListaProdutosId()));
                 
             }
         } catch(Exception ex){

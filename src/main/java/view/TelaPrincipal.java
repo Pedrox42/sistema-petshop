@@ -26,8 +26,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 }
             }
         }
-        this.jTextFieldLucro.setText(String.valueOf(lucro - custoProdutos));
-        this.jTextFieldGastos.setText(String.valueOf(custo + custoProdutos));
+        jTextFieldLucro.setText(String.valueOf(lucro - custoProdutos));
+        jTextFieldGastos.setText(String.valueOf(custo + custoProdutos));
     }
 
     /**
