@@ -1,4 +1,12 @@
+//Anna Leticia Franco Monteiro - 202065106A
+//Davi Esteves dos Santos - 202065504B
+//Pedro Campos Lima - 202065521B
+
 package view;
+
+import arquivo.Listagem;
+import produto.Produto;
+import servico.Servico;
 
 
 public class TelaPrincipal extends javax.swing.JFrame {
@@ -8,6 +16,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
      */
     public TelaPrincipal() {
         initComponents();
+        float lucro = 0;
+        float custo = 0;
+        float custoProdutos = 0;
+        for(Servico servico : Listagem.getServicoList()){
+            if(servico.getTratamento() != null){
+                lucro += servico.getTratamento().getLucro();
+                custo += servico.getTratamento().getPreco();
+            }
+            if(servico.getProdutos() != null){
+                for(Produto produto : servico.getProdutos()){
+                    custoProdutos += produto.getPreco();
+                }
+            }
+        }
+        jTextFieldLucro.setText(String.valueOf(lucro - custoProdutos));
+        jTextFieldGastos.setText(String.valueOf(custo + custoProdutos));
     }
 
     /**
@@ -71,9 +95,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabelTelaInicial.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
         jLabelTelaInicial.setForeground(new java.awt.Color(148, 220, 188));
         jLabelTelaInicial.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTelaInicial.setText("AuFolou");
+        jLabelTelaInicial.setText("PetShop");
         jPanel1.add(jLabelTelaInicial);
-        jLabelTelaInicial.setBounds(270, 80, 210, 20);
+        jLabelTelaInicial.setBounds(280, 80, 210, 30);
 
         jLabelLucro.setForeground(new java.awt.Color(102, 102, 102));
         jLabelLucro.setText("Lucro total do PetCenter:");
@@ -83,11 +107,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabelTelaInicial1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabelTelaInicial1.setForeground(new java.awt.Color(102, 102, 102));
         jLabelTelaInicial1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTelaInicial1.setText("Bem vindo ao PetShop");
+        jLabelTelaInicial1.setText("Bem vindo ao");
         jPanel1.add(jLabelTelaInicial1);
-        jLabelTelaInicial1.setBounds(260, 50, 240, 20);
+        jLabelTelaInicial1.setBounds(270, 50, 240, 20);
 
-        jTextFieldLucro.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextFieldLucro.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTextFieldLucro.setFocusable(false);
         jTextFieldLucro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

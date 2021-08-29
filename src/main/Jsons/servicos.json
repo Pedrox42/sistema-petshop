@@ -1,1 +1,1 @@
-[]
+[{"funcionarioId":4,"animalId":2,"classeAnimal":"animal.Gato","tratamentoId":1,"listaProdutosId":[3,4],"id":1,"nome":"Banho no picles"},{"funcionarioId":2,"animalId":1,"classeAnimal":"animal.Cachorro","tratamentoId":2,"listaProdutosId":[7],"id":2,"nome":"Tosa na nina"},{"funcionarioId":3,"animalId":1,"classeAnimal":"animal.Papagaio","tratamentoId":3,"listaProdutosId":[6],"id":3,"nome":"Vacinacao do Loro-Jose"}]

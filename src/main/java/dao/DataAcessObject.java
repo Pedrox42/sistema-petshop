@@ -1,8 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//Anna Leticia Franco Monteiro - 202065106A
+//Davi Esteves dos Santos - 202065504B
+//Pedro Campos Lima - 202065521B
+
 package dao;
 
 import animal.*;
@@ -33,7 +32,6 @@ public class DataAcessObject {
 
         try {
             Usuario admLogado = DataAcessObject.getUsuarioLogado();
-            System.out.println(admLogado);
             if(admLogado != null && admLogado.isAdmnistrador()){
                 Admnistrador adm2 = (Admnistrador) admLogado;
                 adm2.cadastrarAdmnistrador(nome, email, senha);
@@ -211,10 +209,8 @@ public class DataAcessObject {
 
         try {
             Usuario admLogado = usuarioLogado;
-            System.out.println(admLogado);
             if(admLogado != null && admLogado.isAdmnistrador()){
                 Admnistrador adm2 = (Admnistrador) admLogado;
-                System.out.println(tratamentoId);
                 adm2.cadastrarServico(funcionarioId, animalId, classeAnimal, tratamentoId, listaProdutosId, nome);
                 return true;
             }

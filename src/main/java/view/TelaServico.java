@@ -1,8 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//Anna Leticia Franco Monteiro - 202065106A
+//Davi Esteves dos Santos - 202065504B
+//Pedro Campos Lima - 202065521B
+
 package view;
 
 import animal.*;
@@ -125,15 +124,13 @@ public class TelaServico extends javax.swing.JFrame {
         jPanelListagem.setLayout(jPanelListagemLayout);
         jPanelListagemLayout.setHorizontalGroup(
             jPanelListagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelListagemLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 34, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jPanelListagemLayout.setVerticalGroup(
             jPanelListagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelListagemLayout.createSequentialGroup()
-                .addGap(0, 22, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanelListagemLayout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jButtonVoltar.setText("Voltar");
@@ -156,134 +153,169 @@ public class TelaServico extends javax.swing.JFrame {
         jPanelServico.setLayout(jPanelServicoLayout);
         jPanelServicoLayout.setHorizontalGroup(
             jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelServicoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonVoltar)
+                .addGap(2, 2, 2))
             .addGroup(jPanelServicoLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(15, 15, 15)
                 .addComponent(jPanelListagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelServicoLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonVoltar)
-                        .addGap(2, 2, 2))
                     .addGroup(jPanelServicoLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addGroup(jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanelServicoLayout.createSequentialGroup()
-                                .addGroup(jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanelServicoLayout.createSequentialGroup()
-                                        .addComponent(jLabelNome, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(149, 149, 149)))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanelServicoLayout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jTextFieldNome, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanelServicoLayout.createSequentialGroup()
+                                    .addComponent(jLabelNome, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(149, 149, 149)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelServicoLayout.createSequentialGroup()
                                 .addGroup(jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jLabelTratamento, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
                                         .addComponent(jComboBoxTratamento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jLabelAnimal, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                                            .addComponent(jComboBoxAnimal, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addComponent(jLabelAnimal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jComboBoxAnimal, 0, 120, Short.MAX_VALUE))
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelServicoLayout.createSequentialGroup()
                                             .addGroup(jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                 .addComponent(jLabelFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addComponent(jComboBoxFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGap(17, 17, 17))))
-                                .addGap(20, 20, 20)
+                                .addGap(11, 11, 11)
                                 .addGroup(jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabelListaProduto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(jPanelServicoLayout.createSequentialGroup()
-                                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 11, Short.MAX_VALUE)))
-                                .addGap(18, 18, 18))))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelServicoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonSalvar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonEditar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonExcluir)
-                .addGap(48, 48, 48))
+                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                    .addComponent(jLabelListaProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE))))
+                        .addContainerGap(146, Short.MAX_VALUE))
+                    .addGroup(jPanelServicoLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonSalvar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonEditar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonExcluir)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanelServicoLayout.setVerticalGroup(
             jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelServicoLayout.createSequentialGroup()
                 .addComponent(jButtonVoltar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabelNome)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addGroup(jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addGroup(jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelServicoLayout.createSequentialGroup()
-                        .addComponent(jLabelAnimal)
-                        .addGap(11, 11, 11)
-                        .addComponent(jComboBoxAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelNome)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabelTratamento)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBoxTratamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabelFuncionario)
-                        .addGap(11, 11, 11)
-                        .addComponent(jComboBoxFuncionario))
-                    .addGroup(jPanelServicoLayout.createSequentialGroup()
-                        .addComponent(jLabelListaProduto)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane4)))
-                .addGap(33, 33, 33)
-                .addGroup(jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonSalvar)
-                    .addComponent(jButtonEditar)
-                    .addComponent(jButtonExcluir))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelServicoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanelListagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                        .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addGroup(jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanelServicoLayout.createSequentialGroup()
+                                .addGroup(jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabelAnimal)
+                                    .addComponent(jLabelListaProduto))
+                                .addGap(11, 11, 11)
+                                .addComponent(jComboBoxAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabelTratamento)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jComboBoxTratamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabelFuncionario)
+                                .addGap(11, 11, 11)
+                                .addComponent(jComboBoxFuncionario))
+                            .addGroup(jPanelServicoLayout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(jScrollPane4)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonSalvar)
+                            .addComponent(jButtonEditar)
+                            .addComponent(jButtonExcluir)))
+                    .addComponent(jPanelListagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanelServico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(jPanelServico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
-                .addComponent(jPanelServico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanelServico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
+        TelaPrincipal tela = new TelaPrincipal();
+        tela.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonVoltarActionPerformed
+
+    private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList1ValueChanged
+        int selectedIndex = jList1.getSelectedIndex();
+
+        try{
+            if (selectedIndex != -1) {
+                Servico servico = jList1.getModel().getElementAt(selectedIndex);
+                jTextFieldNome.setText(servico.getNome());
+                jComboBoxTratamento.setSelectedIndex(getComboBoxElement(servico.getTratamentoId(), jComboBoxTratamento, Tratamento.class));
+                jComboBoxAnimal.setSelectedIndex(getComboBoxElement(servico.getAnimalId(), jComboBoxAnimal, Animal.class));
+                jComboBoxFuncionario.setSelectedIndex(getComboBoxElement(servico.getFuncionarioId(), jComboBoxFuncionario, Funcionario.class));
+                jListProduto.setSelectedIndices(selectElementsProdutos(servico.getListaProdutosId()));
+
+            }
+        } catch(Exception ex){
+            JOptionPane.showMessageDialog(this, "Erro: Selecione um campo valido!");
+        }
+    }//GEN-LAST:event_jList1ValueChanged
+
     private void jTextFieldNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNomeActionPerformed
 
-    private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
+    private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
         if(DataAcessObject.getUsuarioLogado() != null && DataAcessObject.getUsuarioLogado().isAdmnistrador()){
-            int selectedIndex = this.jList1.getSelectedIndex();
+            int selectedIndex = jList1.getSelectedIndex();
             try{
                 if (selectedIndex != -1) {
-                    Servico servico = this.jList1.getModel().getElementAt(selectedIndex);
-                    servico.editar  
+                    Servico servico = jList1.getModel().getElementAt(selectedIndex);
+                    servico.deletar();
+                    jList1.setModel(Listagem.getServicoModel());
+                    repaint();
+                    Arquivo.salvarTodos();
+                }
+            } catch(Exception ex){
+                JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente!");
+            }
+        } else{
+            JOptionPane.showMessageDialog(this, "Erro: Voce nao tem permissao para essa acao!");
+        }
+    }//GEN-LAST:event_jButtonExcluirActionPerformed
+
+    private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
+        if(DataAcessObject.getUsuarioLogado() != null && DataAcessObject.getUsuarioLogado().isAdmnistrador()){
+            int selectedIndex = jList1.getSelectedIndex();
+            try{
+                if (selectedIndex != -1) {
+                    Servico servico = jList1.getModel().getElementAt(selectedIndex);
+                    servico.editar
                     (
-                        this.jComboBoxFuncionario.getModel().getElementAt(this.jComboBoxFuncionario.getSelectedIndex()).getId(),
-                        this.jComboBoxAnimal.getModel().getElementAt(this.jComboBoxAnimal.getSelectedIndex()).getId(),
-                        this.jComboBoxAnimal.getModel().getElementAt(this.jComboBoxAnimal.getSelectedIndex()).getClass().getName(),
-                        this.jComboBoxTratamento.getModel().getElementAt(this.jComboBoxTratamento.getSelectedIndex()).getId(),
-                        this.getElementsAt(this.jListProduto.getSelectedIndices(), this.jListProduto),
-                        this.jTextFieldNome.getText()
+                        jComboBoxFuncionario.getModel().getElementAt(jComboBoxFuncionario.getSelectedIndex()).getId(),
+                        jComboBoxAnimal.getModel().getElementAt(jComboBoxAnimal.getSelectedIndex()).getId(),
+                        jComboBoxAnimal.getModel().getElementAt(jComboBoxAnimal.getSelectedIndex()).getClass().getName(),
+                        jComboBoxTratamento.getModel().getElementAt(jComboBoxTratamento.getSelectedIndex()).getId(),
+                        getElementsAt(jListProduto.getSelectedIndices(), jListProduto),
+                        jTextFieldNome.getText()
                     );
-                    
-                    this.jList1.setModel(Listagem.getServicoModel());
-                    this.repaint();
+
+                    jList1.setModel(Listagem.getServicoModel());
+                    repaint();
                     Arquivo.salvarTodos();
                 }
             } catch(Exception ex){
@@ -293,6 +325,29 @@ public class TelaServico extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Erro: Voce nao tem permissao para essa acao!");
         }
     }//GEN-LAST:event_jButtonEditarActionPerformed
+
+    private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
+        TelaPrincipal telalogin = new TelaPrincipal();
+        boolean validacao = DataAcessObject.validacaoCadastroServico
+            (
+                jComboBoxFuncionario.getModel().getElementAt(jComboBoxFuncionario.getSelectedIndex()).getId(),
+                jComboBoxAnimal.getModel().getElementAt(jComboBoxAnimal.getSelectedIndex()).getId(),
+                jComboBoxAnimal.getModel().getElementAt(jComboBoxAnimal.getSelectedIndex()).getClass().getName(),
+                jComboBoxTratamento.getModel().getElementAt(jComboBoxTratamento.getSelectedIndex()).getId(),
+                getElementsAt(jListProduto.getSelectedIndices(), jListProduto),
+                jTextFieldNome.getText()
+            );
+
+        if (validacao) {
+            //setVisible(false);
+            //telalogin.setVisible(true);
+            jList1.setModel(Listagem.getServicoModel());
+            repaint();
+            Arquivo.salvarTodos();
+        } else {
+            JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente. Tente novamente!");
+        }
+    }//GEN-LAST:event_jButtonSalvarActionPerformed
     
     private static List<Integer> getElementsAt(int[] lista, javax.swing.JList<Produto> jlist){
         try{
@@ -307,55 +362,6 @@ public class TelaServico extends javax.swing.JFrame {
         return null;
     }
     
-    private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {
-        TelaPrincipal telalogin = new TelaPrincipal();
-        boolean validacao = DataAcessObject.validacaoCadastroServico
-            (
-                this.jComboBoxFuncionario.getModel().getElementAt(this.jComboBoxFuncionario.getSelectedIndex()).getId(),
-                this.jComboBoxAnimal.getModel().getElementAt(this.jComboBoxAnimal.getSelectedIndex()).getId(),
-                this.jComboBoxAnimal.getModel().getElementAt(this.jComboBoxAnimal.getSelectedIndex()).getClass().getName(),
-                this.jComboBoxTratamento.getModel().getElementAt(this.jComboBoxTratamento.getSelectedIndex()).getId(),
-                this.getElementsAt(this.jListProduto.getSelectedIndices(), this.jListProduto),
-                this.jTextFieldNome.getText()
-            );
-
-        if (validacao) {
-            //this.setVisible(false);
-            //telalogin.setVisible(true);
-            this.jList1.setModel(Listagem.getServicoModel());
-            this.repaint();
-            Arquivo.salvarTodos();
-        } else {
-            JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente. Tente novamente!");
-        }
-//GEN-FIRST:event_jButtonSalvarActionPerformed
-    }//GEN-LAST:event_jButtonSalvarActionPerformed
-
-    private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
-        TelaPrincipal tela = new TelaPrincipal();
-        tela.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButtonVoltarActionPerformed
-
-    private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
-                if(DataAcessObject.getUsuarioLogado() != null && DataAcessObject.getUsuarioLogado().isAdmnistrador()){
-            int selectedIndex = this.jList1.getSelectedIndex();
-            try{
-                if (selectedIndex != -1) {
-                    Servico servico = this.jList1.getModel().getElementAt(selectedIndex);
-                    servico.deletar();
-                    this.jList1.setModel(Listagem.getServicoModel());
-                    this.repaint();
-                    Arquivo.salvarTodos();
-                }
-            } catch(Exception ex){
-                JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente!");
-            }
-        } else{
-            JOptionPane.showMessageDialog(this, "Erro: Voce nao tem permissao para essa acao!");
-        }
-    }//GEN-LAST:event_jButtonExcluirActionPerformed
-
     private static <T> int getComboBoxElement(int id, javax.swing.JComboBox<T> lista, Class classe){
         try{
             Method metodo = classe.getMethod("getId", new Class<?>[0]);
@@ -388,32 +394,14 @@ public class TelaServico extends javax.swing.JFrame {
        int[] indices = new int[lista.size()];
        int i = 0;
         for(Integer valor : lista){
-            indices[i] = this.getListElement(valor, this.jListProduto, Produto.class);
+            indices[i] = getListElement(valor, jListProduto, Produto.class);
             i++;
         }
         
         return indices;
     }
     
-    
-    private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList1ValueChanged
-        int selectedIndex = this.jList1.getSelectedIndex();
-            
-        try{
-            if (selectedIndex != -1) {
-                Servico servico = this.jList1.getModel().getElementAt(selectedIndex);
-                this.jTextFieldNome.setText(servico.getNome());
-                this.jComboBoxTratamento.setSelectedIndex(this.getComboBoxElement(servico.getTratamentoId(), this.jComboBoxTratamento, Tratamento.class));
-                this.jComboBoxAnimal.setSelectedIndex(this.getComboBoxElement(servico.getAnimalId(), this.jComboBoxAnimal, Animal.class));
-                this.jComboBoxFuncionario.setSelectedIndex(this.getComboBoxElement(servico.getFuncionarioId(), this.jComboBoxFuncionario, Funcionario.class));
-                this.jListProduto.setSelectedIndices(this.selectElementsProdutos(servico.getListaProdutosId()));
-                
-            }
-        } catch(Exception ex){
-             JOptionPane.showMessageDialog(this, "Erro: Selecione um campo valido!");
-        }
-    }//GEN-LAST:event_jList1ValueChanged
-    
+        
     
     /**
      * @param args the command line arguments

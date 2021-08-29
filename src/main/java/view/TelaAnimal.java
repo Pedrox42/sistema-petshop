@@ -1,8 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//Anna Leticia Franco Monteiro - 202065106A
+//Davi Esteves dos Santos - 202065504B
+//Pedro Campos Lima - 202065521B
+
 package view;
 
 import animal.Animal;
@@ -54,7 +53,6 @@ public class TelaAnimal extends javax.swing.JFrame {
         jButtonSalvar = new javax.swing.JButton();
         jButtonEditar = new javax.swing.JButton();
         jButtonExcluir = new javax.swing.JButton();
-        jButtonCancelar = new javax.swing.JButton();
         jButtonVoltar = new javax.swing.JButton();
         jTextFieldRaca = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -97,9 +95,9 @@ public class TelaAnimal extends javax.swing.JFrame {
 
         jLabelIdade.setText("Idade:");
 
-        jLabelPeso.setText("Peso:");
+        jLabelPeso.setText("Peso(kg):");
 
-        jLabelComprimento.setText("Comprimento:");
+        jLabelComprimento.setText("Comprimento(cm):");
 
         jButtonSalvar.setText("Salvar");
         jButtonSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -121,8 +119,6 @@ public class TelaAnimal extends javax.swing.JFrame {
                 jButtonExcluirActionPerformed(evt);
             }
         });
-
-        jButtonCancelar.setText("Cancelar");
 
         jButtonVoltar.setText("Voltar");
         jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -189,9 +185,7 @@ public class TelaAnimal extends javax.swing.JFrame {
                         .addComponent(jButtonEditar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonExcluir)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonCancelar)
-                        .addGap(23, 23, 23))))
+                        .addGap(101, 101, 101))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAnimalLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonVoltar)
@@ -240,8 +234,7 @@ public class TelaAnimal extends javax.swing.JFrame {
                 .addGroup(jPanelAnimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonSalvar)
                     .addComponent(jButtonEditar)
-                    .addComponent(jButtonExcluir)
-                    .addComponent(jButtonCancelar))
+                    .addComponent(jButtonExcluir))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -256,7 +249,7 @@ public class TelaAnimal extends javax.swing.JFrame {
             .addComponent(jPanelAnimal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(555, 359));
+        setSize(new java.awt.Dimension(555, 427));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -496,7 +489,6 @@ public class TelaAnimal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonEditar;
     private javax.swing.JButton jButtonExcluir;
     private javax.swing.JButton jButtonSalvar;

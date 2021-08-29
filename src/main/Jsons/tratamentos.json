@@ -1,1 +1,1 @@
-[]
+[{"nome":"Banho","id":1,"tempo":30,"preco":100.0,"lucro":80.0},{"nome":"Tosa","id":2,"tempo":30,"preco":100.0,"lucro":80.0},{"nome":"Vacinacao","id":3,"tempo":10,"preco":150.0,"lucro":100.0},{"nome":"Consulta","id":4,"tempo":60,"preco":100.0,"lucro":40.0}]

@@ -1,10 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//Anna Leticia Franco Monteiro - 202065106A
+//Davi Esteves dos Santos - 202065504B
+//Pedro Campos Lima - 202065521B
+
 package view;
 
+import tratamento.Tratamento;
 import arquivo.Arquivo;
 import arquivo.Listagem;
 import dao.DataAcessObject;
@@ -56,7 +56,7 @@ public class TelaTratamento extends javax.swing.JFrame {
 
         jPanelTratamento.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cadastro de Tratamentos", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
-        jLabelTempoDuracao.setText("Tempo de duracao:");
+        jLabelTempoDuracao.setText("Duracao (min):");
 
         jTextFieldTempoDuracao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,6 +111,11 @@ public class TelaTratamento extends javax.swing.JFrame {
 
         jList1.setModel(Listagem.getTratamentoModel());
         jList1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jList1.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jList1ValueChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(jList1);
 
         jButtonVoltar.setText("Voltar");
@@ -125,7 +130,7 @@ public class TelaTratamento extends javax.swing.JFrame {
         jPanelTratamentoLayout.setHorizontalGroup(
             jPanelTratamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelTratamentoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(23, Short.MAX_VALUE)
                 .addGroup(jPanelTratamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonVoltar, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTratamentoLayout.createSequentialGroup()
@@ -155,7 +160,7 @@ public class TelaTratamento extends javax.swing.JFrame {
                                 .addComponent(jButtonEditar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonExcluir)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         jPanelTratamentoLayout.setVerticalGroup(
             jPanelTratamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -294,14 +299,15 @@ public class TelaTratamento extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonExcluirActionPerformed
 
     private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList1ValueChanged
-        int selectedIndex = jList1.getSelectedIndex();
+        int selectedIndex = this.jList1.getSelectedIndex();
+
         try{
             if (selectedIndex != -1) {
-                Tratamento tratamento = jList1.getModel().getElementAt(selectedIndex);
-                jTextFieldNome.setText(tratamento.getNome());
-                jTextFieldLucro.setText(String.valueOf(tratamento.getLucro()));
-                jTextFieldPreco.setText(String.valueOf(tratamento.getPreco()));
-                jTextFieldTempoDuracao.setText(String.valueOf(tratamento.getTempo()));
+                Tratamento tratamento = this.jList1.getModel().getElementAt(selectedIndex);
+                this.jTextFieldNome.setText(tratamento.getNome());
+                this.jTextFieldTempoDuracao.setText(String.valueOf(tratamento.getTempo()));
+                this.jTextFieldPreco.setText(String.valueOf(tratamento.getPreco()));
+                this.jTextFieldLucro.setText(String.valueOf(tratamento.getLucro()));
             }
         } catch(Exception ex){
              JOptionPane.showMessageDialog(this, "Erro: Selecione um campo valido!");

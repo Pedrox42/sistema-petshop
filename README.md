@@ -16,4 +16,4 @@
 
 ### Instalação:
 
-- Basta clonar ou fazer downaload do arquivos do repositório e abri-los utilizando uma IDE. Indicamos Intellij IDE.
+- Basta clonar ou fazer download do arquivos do repositório e abri-los utilizando uma IDE.
