@@ -23,6 +23,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabelLogoInicio = new javax.swing.JLabel();
         jLabelTelaInicial = new javax.swing.JLabel();
+        jLabelLucro = new javax.swing.JLabel();
+        jLabelTelaInicial1 = new javax.swing.JLabel();
+        jTextFieldLucro = new javax.swing.JTextField();
+        jLabelGastos = new javax.swing.JLabel();
+        jTextFieldGastos = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuInicio = new javax.swing.JMenu();
         jMenuItemInicio = new javax.swing.JMenuItem();
@@ -63,15 +68,51 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel1.add(jLabelLogoInicio);
         jLabelLogoInicio.setBounds(10, 30, 270, 250);
 
-        jLabelTelaInicial.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        jLabelTelaInicial.setForeground(new java.awt.Color(102, 102, 102));
+        jLabelTelaInicial.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
+        jLabelTelaInicial.setForeground(new java.awt.Color(148, 220, 188));
         jLabelTelaInicial.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTelaInicial.setText("Bem vindo!");
+        jLabelTelaInicial.setText("AuFolou");
         jPanel1.add(jLabelTelaInicial);
-        jLabelTelaInicial.setBounds(260, -10, 150, 140);
+        jLabelTelaInicial.setBounds(270, 80, 210, 20);
+
+        jLabelLucro.setForeground(new java.awt.Color(102, 102, 102));
+        jLabelLucro.setText("Lucro total do PetCenter:");
+        jPanel1.add(jLabelLucro);
+        jLabelLucro.setBounds(330, 150, 150, 14);
+
+        jLabelTelaInicial1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jLabelTelaInicial1.setForeground(new java.awt.Color(102, 102, 102));
+        jLabelTelaInicial1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTelaInicial1.setText("Bem vindo ao PetShop");
+        jPanel1.add(jLabelTelaInicial1);
+        jLabelTelaInicial1.setBounds(260, 50, 240, 20);
+
+        jTextFieldLucro.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextFieldLucro.setFocusable(false);
+        jTextFieldLucro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldLucroActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextFieldLucro);
+        jTextFieldLucro.setBounds(330, 170, 130, 30);
+
+        jLabelGastos.setForeground(new java.awt.Color(102, 102, 102));
+        jLabelGastos.setText("Gastos gerais do PetCenter:");
+        jPanel1.add(jLabelGastos);
+        jLabelGastos.setBounds(330, 210, 160, 14);
+
+        jTextFieldGastos.setFocusable(false);
+        jTextFieldGastos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldGastosActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextFieldGastos);
+        jTextFieldGastos.setBounds(330, 230, 130, 30);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(-10, -10, 430, 300);
+        jPanel1.setBounds(-10, -10, 520, 300);
 
         jMenuBar1.setBackground(new java.awt.Color(204, 204, 204));
         jMenuBar1.setForeground(new java.awt.Color(102, 102, 102));
@@ -170,7 +211,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        setSize(new java.awt.Dimension(428, 343));
+        setSize(new java.awt.Dimension(524, 343));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -223,6 +264,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jMenuItemFuncionariosActionPerformed
 
+    private void jTextFieldLucroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldLucroActionPerformed
+        jTextFieldLucro.setEditable(false);
+    }//GEN-LAST:event_jTextFieldLucroActionPerformed
+
+    private void jTextFieldGastosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldGastosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldGastosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -260,8 +309,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.Box.Filler filler1;
+    private javax.swing.JLabel jLabelGastos;
     private javax.swing.JLabel jLabelLogoInicio;
+    private javax.swing.JLabel jLabelLucro;
     private javax.swing.JLabel jLabelTelaInicial;
+    private javax.swing.JLabel jLabelTelaInicial1;
     private javax.swing.JMenu jMenuAnimais;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuInicio;
@@ -279,5 +331,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuTratamentos;
     private javax.swing.JMenu jMenuUsuarios;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField jTextFieldGastos;
+    private javax.swing.JTextField jTextFieldLucro;
     // End of variables declaration//GEN-END:variables
 }
