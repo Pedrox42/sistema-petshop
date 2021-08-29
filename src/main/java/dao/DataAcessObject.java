@@ -214,6 +214,7 @@ public class DataAcessObject {
             System.out.println(admLogado);
             if(admLogado != null && admLogado.isAdmnistrador()){
                 Admnistrador adm2 = (Admnistrador) admLogado;
+                System.out.println(tratamentoId);
                 adm2.cadastrarServico(funcionarioId, animalId, classeAnimal, tratamentoId, listaProdutosId, nome);
                 return true;
             }

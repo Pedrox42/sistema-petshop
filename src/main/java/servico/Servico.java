@@ -34,7 +34,7 @@ public class Servico implements Operacoes {
         this.setFuncionarioId(funcionarioId);
         this.classeAnimal = classeAnimal;
         this.setAnimalId(animalId);
-        this.setAnimalId(tratamentoId);
+        this.setTratamentoId(tratamentoId);
         this.setListaProdutosId(listaProdutosId);
         this.setId(Servico.getNextId());
         this.nome = nome;
@@ -219,6 +219,25 @@ public class Servico implements Operacoes {
             }
         }
         return lista;
+    }
+    
+        public boolean editar(int varFuncionarioId, int varAnimalId, String varClasseAnimal, int varTratamentoId, List<Integer> varListaProdutosId, String varNome){
+        if(ServicoList.contains(this)){
+            try{
+                this.setFuncionarioId(varFuncionarioId);
+                this.setAnimalId(varAnimalId);
+                this.setClasseAnimal(varClasseAnimal);
+                this.setTratamentoId(varTratamentoId);
+                this.setListaProdutosId(varListaProdutosId);
+                this.setNome(varNome);
+
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return false;
     }
 
 }

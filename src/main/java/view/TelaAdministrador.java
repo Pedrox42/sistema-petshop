@@ -45,7 +45,6 @@ public class TelaAdministrador extends javax.swing.JFrame {
         jList1 = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(585, 328));
 
         jPanelAdministrador.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cadastro de Administrador", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
         jPanelAdministrador.setPreferredSize(new java.awt.Dimension(565, 317));
@@ -97,6 +96,7 @@ public class TelaAdministrador extends javax.swing.JFrame {
         });
 
         jList1.setModel(Listagem.getAdmnistradorModel());
+        jList1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jList1.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 jList1ValueChanged(evt);

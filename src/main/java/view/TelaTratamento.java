@@ -110,6 +110,7 @@ public class TelaTratamento extends javax.swing.JFrame {
         });
 
         jList1.setModel(Listagem.getTratamentoModel());
+        jList1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(jList1);
 
         jButtonVoltar.setText("Voltar");

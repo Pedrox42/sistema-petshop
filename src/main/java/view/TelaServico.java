@@ -5,12 +5,22 @@
  */
 package view;
 
+import animal.*;
+import animal.Papagaio;
 import servico.Servico.*;
 import arquivo.Arquivo;
 import arquivo.Listagem;
 import dao.DataAcessObject;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.*;
+import produto.Produto;
+import servico.Servico;
+import tratamento.Tratamento;
+import usuario.Admnistrador;
+import usuario.Funcionario;
 
 public class TelaServico extends javax.swing.JFrame {
 
@@ -32,27 +42,34 @@ public class TelaServico extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jList2 = new javax.swing.JList<>();
         jPanelServico = new javax.swing.JPanel();
         jLabelNome = new javax.swing.JLabel();
         jLabelFuncionario = new javax.swing.JLabel();
-        jTextFieldFuncionario = new javax.swing.JTextField();
         jLabelAnimal = new javax.swing.JLabel();
-        jTextFieldAnimal = new javax.swing.JTextField();
         jLabelTratamento = new javax.swing.JLabel();
         jLabelListaProduto = new javax.swing.JLabel();
         jButtonSalvar = new javax.swing.JButton();
         jButtonEditar = new javax.swing.JButton();
         jButtonExcluir = new javax.swing.JButton();
         jTextFieldNome = new javax.swing.JTextField();
-        jLabelTipo = new javax.swing.JLabel();
-        jComboBoxTipo = new javax.swing.JComboBox<>();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextAreaListaProduto = new javax.swing.JTextArea();
-        jTextFieldTratamento = new javax.swing.JTextField();
         jPanelListagem = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         jButtonVoltar = new javax.swing.JButton();
+        jComboBoxTratamento = new javax.swing.JComboBox<>();
+        jComboBoxAnimal = new javax.swing.JComboBox<>();
+        jComboBoxFuncionario = new javax.swing.JComboBox<>();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jListProduto = new javax.swing.JList<>();
+
+        jList2.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane3.setViewportView(jList2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,23 +77,11 @@ public class TelaServico extends javax.swing.JFrame {
 
         jLabelNome.setText("Nome:");
 
-        jLabelFuncionario.setText("Funcionario(ID):");
+        jLabelFuncionario.setText("Funcionario:");
 
-        jTextFieldFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldFuncionarioActionPerformed(evt);
-            }
-        });
+        jLabelAnimal.setText("Animal:");
 
-        jLabelAnimal.setText("Animal(ID):");
-
-        jTextFieldAnimal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldAnimalActionPerformed(evt);
-            }
-        });
-
-        jLabelTratamento.setText("Tratamento(ID):");
+        jLabelTratamento.setText("Tratamento:");
 
         jLabelListaProduto.setText("Lista de Produto:");
 
@@ -95,6 +100,11 @@ public class TelaServico extends javax.swing.JFrame {
         });
 
         jButtonExcluir.setText("Excluir");
+        jButtonExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExcluirActionPerformed(evt);
+            }
+        });
 
         jTextFieldNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,24 +112,12 @@ public class TelaServico extends javax.swing.JFrame {
             }
         });
 
-        jLabelTipo.setText("Tipo do Animal:");
-
-        jComboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Cachorro", "Gato", "Papagaio" }));
-
-        jTextAreaListaProduto.setColumns(20);
-        jTextAreaListaProduto.setRows(5);
-        jScrollPane2.setViewportView(jTextAreaListaProduto);
-
-        jTextFieldTratamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldTratamentoActionPerformed(evt);
+        jList1.setModel(Listagem.getServicoModel());
+        jList1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jList1.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jList1ValueChanged(evt);
             }
-        });
-
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1.setViewportView(jList1);
 
@@ -127,7 +125,9 @@ public class TelaServico extends javax.swing.JFrame {
         jPanelListagem.setLayout(jPanelListagemLayout);
         jPanelListagemLayout.setHorizontalGroup(
             jPanelListagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+            .addGroup(jPanelListagemLayout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 34, Short.MAX_VALUE))
         );
         jPanelListagemLayout.setVerticalGroup(
             jPanelListagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,43 +143,58 @@ public class TelaServico extends javax.swing.JFrame {
             }
         });
 
+        jComboBoxTratamento.setModel(Listagem.getTratamentoCombo());
+
+        jComboBoxAnimal.setModel(Listagem.getAnimalCombo());
+
+        jComboBoxFuncionario.setModel(Listagem.getFuncionarioCombo());
+
+        jListProduto.setModel(Listagem.getProdutoModel());
+        jScrollPane4.setViewportView(jListProduto);
+
         javax.swing.GroupLayout jPanelServicoLayout = new javax.swing.GroupLayout(jPanelServico);
         jPanelServico.setLayout(jPanelServicoLayout);
         jPanelServicoLayout.setHorizontalGroup(
             jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelServicoLayout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+                .addGap(20, 20, 20)
                 .addComponent(jPanelListagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelServicoLayout.createSequentialGroup()
-                        .addGap(237, 237, 237)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonVoltar)
                         .addGap(2, 2, 2))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelServicoLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelServicoLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanelServicoLayout.createSequentialGroup()
-                                .addGroup(jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelTratamento, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldTratamento, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(43, 43, 43)
-                                .addGroup(jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelListaProduto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                                .addGroup(jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanelServicoLayout.createSequentialGroup()
+                                        .addComponent(jLabelNome, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(149, 149, 149)))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanelServicoLayout.createSequentialGroup()
                                 .addGroup(jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jLabelAnimal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jTextFieldAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabelNome, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLabelFuncionario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBoxTipo, javax.swing.GroupLayout.Alignment.LEADING, 0, 130, Short.MAX_VALUE)
-                                    .addComponent(jLabelTipo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldFuncionario, javax.swing.GroupLayout.Alignment.LEADING))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                        .addComponent(jLabelTratamento, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                        .addComponent(jComboBoxTratamento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jLabelAnimal, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                                            .addComponent(jComboBoxAnimal, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelServicoLayout.createSequentialGroup()
+                                            .addGroup(jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(jLabelFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jComboBoxFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGap(17, 17, 17))))
+                                .addGap(20, 20, 20)
+                                .addGroup(jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabelListaProduto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(jPanelServicoLayout.createSequentialGroup()
+                                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 11, Short.MAX_VALUE)))
+                                .addGap(18, 18, 18))))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelServicoLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonSalvar)
@@ -194,32 +209,28 @@ public class TelaServico extends javax.swing.JFrame {
             .addGroup(jPanelServicoLayout.createSequentialGroup()
                 .addComponent(jButtonVoltar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelNome)
-                    .addComponent(jLabelFuncionario))
+                .addComponent(jLabelNome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addGroup(jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanelServicoLayout.createSequentialGroup()
-                        .addGroup(jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelAnimal)
-                            .addComponent(jLabelTipo))
+                        .addComponent(jLabelAnimal)
+                        .addGap(11, 11, 11)
+                        .addComponent(jComboBoxAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabelTratamento)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBoxTratamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabelFuncionario)
+                        .addGap(11, 11, 11)
+                        .addComponent(jComboBoxFuncionario))
                     .addGroup(jPanelServicoLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jComboBoxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelTratamento)
-                    .addComponent(jLabelListaProduto))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldTratamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                        .addComponent(jLabelListaProduto)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane4)))
+                .addGap(33, 33, 33)
                 .addGroup(jPanelServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonSalvar)
                     .addComponent(jButtonEditar)
@@ -235,13 +246,17 @@ public class TelaServico extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelServico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanelServico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanelServico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(28, Short.MAX_VALUE)
+                .addComponent(jPanelServico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -252,48 +267,152 @@ public class TelaServico extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldNomeActionPerformed
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
-        // TODO add your handling code here:
+        if(DataAcessObject.getUsuarioLogado() != null && DataAcessObject.getUsuarioLogado().isAdmnistrador()){
+            int selectedIndex = this.jList1.getSelectedIndex();
+            try{
+                if (selectedIndex != -1) {
+                    Servico servico = this.jList1.getModel().getElementAt(selectedIndex);
+                    servico.editar  
+                    (
+                        this.jComboBoxFuncionario.getModel().getElementAt(this.jComboBoxFuncionario.getSelectedIndex()).getId(),
+                        this.jComboBoxAnimal.getModel().getElementAt(this.jComboBoxAnimal.getSelectedIndex()).getId(),
+                        this.jComboBoxAnimal.getModel().getElementAt(this.jComboBoxAnimal.getSelectedIndex()).getClass().getName(),
+                        this.jComboBoxTratamento.getModel().getElementAt(this.jComboBoxTratamento.getSelectedIndex()).getId(),
+                        this.getElementsAt(this.jListProduto.getSelectedIndices(), this.jListProduto),
+                        this.jTextFieldNome.getText()
+                    );
+                    
+                    this.jList1.setModel(Listagem.getServicoModel());
+                    this.repaint();
+                    Arquivo.salvarTodos();
+                }
+            } catch(Exception ex){
+                JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente!");
+            }
+        } else{
+            JOptionPane.showMessageDialog(this, "Erro: Voce nao tem permissao para essa acao!");
+        }
     }//GEN-LAST:event_jButtonEditarActionPerformed
-
+    
+    private static List<Integer> getElementsAt(int[] lista, javax.swing.JList<Produto> jlist){
+        try{
+            List<Integer> newList = new ArrayList<>();
+            for(int valor : lista){
+                newList.add(jlist.getModel().getElementAt(valor).getId());
+            }
+            return newList;
+        } catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return null;
+    }
+    
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {
-//         TelaPrincipal telalogin = new TelaPrincipal();
-//
-//        boolean validacao = DataAcessObject.validacaoCadastroProduto
-//                (
-//                        jTextFieldNome.getText(),
-//                        jTextAreaDescricao.getText(),
-//                        Float.parseFloat(jTextFieldPreco.getText())
-//                );
-//
-//        if (validacao) {
-//            //this.setVisible(false);
-//            //telalogin.setVisible(true);
-//            this.jList1.setModel(Listagem.getProdutoModel());
-//            this.repaint();
-//            Arquivo.salvarTodos();
-//        } else {
-//            JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente. Tente novamente!");
-//        }
+        TelaPrincipal telalogin = new TelaPrincipal();
+        boolean validacao = DataAcessObject.validacaoCadastroServico
+            (
+                this.jComboBoxFuncionario.getModel().getElementAt(this.jComboBoxFuncionario.getSelectedIndex()).getId(),
+                this.jComboBoxAnimal.getModel().getElementAt(this.jComboBoxAnimal.getSelectedIndex()).getId(),
+                this.jComboBoxAnimal.getModel().getElementAt(this.jComboBoxAnimal.getSelectedIndex()).getClass().getName(),
+                this.jComboBoxTratamento.getModel().getElementAt(this.jComboBoxTratamento.getSelectedIndex()).getId(),
+                this.getElementsAt(this.jListProduto.getSelectedIndices(), this.jListProduto),
+                this.jTextFieldNome.getText()
+            );
+
+        if (validacao) {
+            //this.setVisible(false);
+            //telalogin.setVisible(true);
+            this.jList1.setModel(Listagem.getServicoModel());
+            this.repaint();
+            Arquivo.salvarTodos();
+        } else {
+            JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente. Tente novamente!");
+        }
 //GEN-FIRST:event_jButtonSalvarActionPerformed
     }//GEN-LAST:event_jButtonSalvarActionPerformed
-
-    private void jTextFieldAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAnimalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldAnimalActionPerformed
-
-    private void jTextFieldFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFuncionarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldFuncionarioActionPerformed
-
-    private void jTextFieldTratamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTratamentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldTratamentoActionPerformed
 
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
         TelaPrincipal tela = new TelaPrincipal();
         tela.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonVoltarActionPerformed
+
+    private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
+                if(DataAcessObject.getUsuarioLogado() != null && DataAcessObject.getUsuarioLogado().isAdmnistrador()){
+            int selectedIndex = this.jList1.getSelectedIndex();
+            try{
+                if (selectedIndex != -1) {
+                    Servico servico = this.jList1.getModel().getElementAt(selectedIndex);
+                    servico.deletar();
+                    this.jList1.setModel(Listagem.getServicoModel());
+                    this.repaint();
+                    Arquivo.salvarTodos();
+                }
+            } catch(Exception ex){
+                JOptionPane.showMessageDialog(this, "Erro: Os campos nao foram preenchidos corretamente!");
+            }
+        } else{
+            JOptionPane.showMessageDialog(this, "Erro: Voce nao tem permissao para essa acao!");
+        }
+    }//GEN-LAST:event_jButtonExcluirActionPerformed
+
+    private static <T> int getComboBoxElement(int id, javax.swing.JComboBox<T> lista, Class classe){
+        try{
+            Method metodo = classe.getMethod("getId", new Class<?>[0]);
+            for(int i = 0; i < lista.getModel().getSize(); i++){
+               if((int) metodo.invoke(lista.getModel().getElementAt(i)) == id){
+                   return i;
+               }
+           }
+        } catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return -1;
+    }
+    
+        private static <T> int getListElement(int id, javax.swing.JList<T> lista, Class classe){
+        try{
+            Method metodo = classe.getMethod("getId", new Class<?>[0]);
+            for(int i = 0; i < lista.getModel().getSize(); i++){
+               if((int) metodo.invoke(lista.getModel().getElementAt(i)) == id){
+                   return i;
+               }
+           }
+        } catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return -1;
+    }
+    
+    public int[] selectElementsProdutos(List<Integer> lista){
+       int[] indices = new int[lista.size()];
+       int i = 0;
+        for(Integer valor : lista){
+            indices[i] = this.getListElement(valor, this.jListProduto, Produto.class);
+            i++;
+        }
+        
+        return indices;
+    }
+    
+    
+    private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList1ValueChanged
+        int selectedIndex = this.jList1.getSelectedIndex();
+            
+        try{
+            if (selectedIndex != -1) {
+                Servico servico = this.jList1.getModel().getElementAt(selectedIndex);
+                this.jTextFieldNome.setText(servico.getNome());
+                this.jComboBoxTratamento.setSelectedIndex(this.getComboBoxElement(servico.getTratamentoId(), this.jComboBoxTratamento, Tratamento.class));
+                this.jComboBoxAnimal.setSelectedIndex(this.getComboBoxElement(servico.getAnimalId(), this.jComboBoxAnimal, Animal.class));
+                this.jComboBoxFuncionario.setSelectedIndex(this.getComboBoxElement(servico.getFuncionarioId(), this.jComboBoxFuncionario, Funcionario.class));
+                this.jListProduto.setSelectedIndices(this.selectElementsProdutos(servico.getListaProdutosId()));
+                
+            }
+        } catch(Exception ex){
+             JOptionPane.showMessageDialog(this, "Erro: Selecione um campo valido!");
+        }
+    }//GEN-LAST:event_jList1ValueChanged
     
     
     /**
@@ -336,22 +455,22 @@ public class TelaServico extends javax.swing.JFrame {
     private javax.swing.JButton jButtonExcluir;
     private javax.swing.JButton jButtonSalvar;
     private javax.swing.JButton jButtonVoltar;
-    private javax.swing.JComboBox<String> jComboBoxTipo;
+    private javax.swing.JComboBox<? extends Animal> jComboBoxAnimal;
+    private javax.swing.JComboBox<Funcionario> jComboBoxFuncionario;
+    private javax.swing.JComboBox<Tratamento> jComboBoxTratamento;
     private javax.swing.JLabel jLabelAnimal;
     private javax.swing.JLabel jLabelFuncionario;
     private javax.swing.JLabel jLabelListaProduto;
     private javax.swing.JLabel jLabelNome;
-    private javax.swing.JLabel jLabelTipo;
     private javax.swing.JLabel jLabelTratamento;
-    private javax.swing.JList<String> jList1;
+    private javax.swing.JList<Servico> jList1;
+    private javax.swing.JList<String> jList2;
+    private javax.swing.JList<Produto> jListProduto;
     private javax.swing.JPanel jPanelListagem;
     private javax.swing.JPanel jPanelServico;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextAreaListaProduto;
-    private javax.swing.JTextField jTextFieldAnimal;
-    private javax.swing.JTextField jTextFieldFuncionario;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextField jTextFieldNome;
-    private javax.swing.JTextField jTextFieldTratamento;
     // End of variables declaration//GEN-END:variables
 }

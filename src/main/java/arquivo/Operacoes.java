@@ -16,5 +16,4 @@ public interface Operacoes {
 
     public boolean deletar();
 
-    //public boolean editar();
 }

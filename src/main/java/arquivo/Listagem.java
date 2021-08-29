@@ -15,6 +15,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Stream;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import usuario.Admnistrador;
 import usuario.Funcionario;
@@ -114,7 +115,7 @@ public class Listagem {
         UsuarioList = usuarioList;
     }
     
-        public static  <T> DefaultListModel<T> getModelList(List<T> listagem){
+    public static  <T> DefaultListModel<T> getModelList(List<T> listagem){
         DefaultListModel<T> modelList = new DefaultListModel<T>();
         try{
             for(T instance : listagem){
@@ -127,10 +128,16 @@ public class Listagem {
     }
     
     protected static <T> void addTo(DefaultListModel<T> from, DefaultListModel<T> to) {
-    for (int index = 0; index < from.getSize(); index++) {
-        to.addElement(from.getElementAt(index));
+        for (int index = 0; index < from.getSize(); index++) {
+            to.addElement(from.getElementAt(index));
+        }
     }
-}
+    
+    protected static <T> void addToCombo(DefaultComboBoxModel<T> from, DefaultComboBoxModel<T> to) {
+        for (int index = 0; index < from.getSize(); index++) {
+            to.addElement(from.getElementAt(index));
+        }
+    }
     
     public static DefaultListModel<Tratamento> getTratamentoModel(){
         return Listagem.getModelList(TratamentoList);
@@ -184,7 +191,7 @@ public class Listagem {
         return newList;
     }
     
-        public static DefaultListModel<Admnistrador> getAdmnistradorModel(){
+    public static DefaultListModel<Admnistrador> getAdmnistradorModel(){
         DefaultListModel<Admnistrador> newList = new DefaultListModel<>();
         for(Usuario usuario : Listagem.getUsuarioList()){
             if(usuario.isAdmnistrador()){
@@ -194,5 +201,43 @@ public class Listagem {
         return newList;
     }
     
+    public static  <T> DefaultComboBoxModel<T> getComboList(List<T> listagem){
+        DefaultComboBoxModel<T> modelList = new DefaultComboBoxModel<T>();
+        try{
+            for(T instance : listagem){
+            modelList.addElement(instance);
+        }
+        } catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return modelList;
+    }
+    
+    public static DefaultComboBoxModel<Tratamento> getTratamentoCombo(){
+        return Listagem.getComboList(TratamentoList);
+    }
+    
+    public static DefaultComboBoxModel<Funcionario> getFuncionarioCombo(){
+        DefaultComboBoxModel<Funcionario> newList = new DefaultComboBoxModel<>();
+        for(Usuario usuario : Listagem.getUsuarioList()){
+            if(!usuario.isAdmnistrador()){
+                newList.addElement((Funcionario) usuario);
+            }
+        }
+        return newList;
+    }
+    
+    public static <T extends Animal> DefaultComboBoxModel<T> getAnimalCombo(){
+        DefaultComboBoxModel<T> newList = new DefaultComboBoxModel<T>();
+        try{
+            Listagem.addToCombo((DefaultComboBoxModel<T>) Listagem.getComboList(CachorroList), newList);
+            Listagem.addToCombo((DefaultComboBoxModel<T>) Listagem.getComboList(GatoList), newList);
+            Listagem.addToCombo((DefaultComboBoxModel<T>) Listagem.getComboList(PapagaioList), newList);
+
+        } catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return newList;
+    }
     
 }

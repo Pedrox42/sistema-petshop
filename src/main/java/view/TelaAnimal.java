@@ -138,6 +138,7 @@ public class TelaAnimal extends javax.swing.JFrame {
         });
 
         jList1.setModel(Listagem.getAnimalModel());
+        jList1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jList1.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 jList1ValueChanged(evt);
