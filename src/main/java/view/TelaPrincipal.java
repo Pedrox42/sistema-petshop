@@ -1,5 +1,9 @@
 package view;
 
+import arquivo.Listagem;
+import produto.Produto;
+import servico.Servico;
+
 
 public class TelaPrincipal extends javax.swing.JFrame {
 
@@ -8,6 +12,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
      */
     public TelaPrincipal() {
         initComponents();
+        float lucro = 0;
+        float custo = 0;
+        float custoProdutos = 0;
+        for(Servico servico : Listagem.getServicoList()){
+            if(servico.getTratamento() != null){
+                lucro += servico.getTratamento().getLucro();
+                custo += servico.getTratamento().getPreco();
+            }
+            if(servico.getProdutos() != null){
+                for(Produto produto : servico.getProdutos()){
+                    custoProdutos += produto.getPreco();
+                }
+            }
+        }
+        this.jTextFieldLucro.setText(String.valueOf(lucro - custoProdutos));
+        this.jTextFieldGastos.setText(String.valueOf(custo + custoProdutos));
     }
 
     /**
