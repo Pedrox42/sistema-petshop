@@ -1,8 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//Anna Leticia Franco Monteiro - 202065106A
+//Davi Esteves dos Santos - 202065504B
+//Pedro Campos Lima - 202065521B
+
 package dao;
 
 import animal.*;
