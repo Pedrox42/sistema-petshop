@@ -24,30 +24,6 @@ public class Main {
         TelaLogin tela = new TelaLogin();
         tela.setVisible(true);
         Arquivo.salvarTodos();
-
-    //     Arquivo.preencherTodos();
-
-    //     Admnistrador admnistrador = new Admnistrador("Pedro3", "Pedrox", "1234");
-    //     //admnistrador.cadastrarDono("Pedro3", "Pedrox", "1234");
-
-    //     Produto produto = admnistrador.cadastrarProduto("Shampoo", "Shampoo pra cachorro", 19.50f);
-    //     List<Integer> listaProdutos = new ArrayList<>();
-    //     listaProdutos.add(produto.getId());
-    //     Funcionario funcionario = admnistrador.cadastrarFuncionario("teste", "teste", "teste",200, 8);
-    //     Cachorro cachorro = admnistrador.cadastrarAnimal(Cachorro.class, "Thor", "Preto", "Husky", 'm', 5, 12, 50);
-    //     Tratamento tramento = admnistrador.cadastrarTratamento("Tratamento", 50, 59.90f, 8000);
-
-    //     Servico servico = admnistrador.cadastrarServico(funcionario.getId(),  cachorro.getId() , "animal.Cachorro" , tramento.getId(), listaProdutos, "Servico1");
-
-    //     Usuario teste2 = Usuario.acessarLista(1);
-    //     Funcionario teste3 = (Funcionario) teste2;
-    //     Cachorro cachorroteste = Cachorro.acessarLista(1);
-
-    //     teste3.editarFuncionario("AAAAAAAABBBBBBBBB", "teste", "teste", 0,0);
-
-    //     //System.out.println(servico.getProdutos());
-
-    //     Arquivo.salvarTodos();
     }
 
 }
